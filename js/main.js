@@ -1,1 +1,0 @@
-location.href='http://jxjweb.sc2yun.com/src/scan_code.html'
