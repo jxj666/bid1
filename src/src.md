@@ -4,9 +4,6 @@
 
 ![指示图](../img/src.png)
 
-![指示图](../../img/src.png)
-
-![指示图](../img/js.jpg)
 
 
 
