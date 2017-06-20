@@ -4,6 +4,12 @@
 
 ![指示图](../img/src.png)
 
+![指示图](../../img/src.png)
+
+![指示图](../img/js.jpg)
+
+
+
 ## 成聚活动模板
 
  [一套模板](http://jxjweb.sc2yun.com/src/scan_code.html)
