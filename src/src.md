@@ -22,7 +22,9 @@
 
  [翻盘](http://jxjweb.sc2yun.com/src/draw_card.html)
 
- [老虎机](http://jxjweb.sc2yun.com/src/tiger.html)
+## 老虎机
+
+[老虎机](http://jxjweb.sc2yun.com/src/tiger.html)
 
 
 
