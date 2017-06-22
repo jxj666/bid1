@@ -10,21 +10,21 @@
 
 - 包括一套模板,跟数个活动页
 
- [一套模板](http://jxjweb.sc2yun.com/src/scan_code.html)
+ [一套模板](http://jxjweb.sc2yun.com/work/06chenju/scan_code.html)
 
- [福袋](http://jxjweb.sc2yun.com/src/lucky_bag.html)
+ [福袋](http://jxjweb.sc2yun.com/work/06chenju/lucky_bag.html)
 
- [金蛋](http://jxjweb.sc2yun.com/src/gold_egg.html)
+ [金蛋](http://jxjweb.sc2yun.com/work/06chenju/gold_egg.html)
 
- [红包](http://jxjweb.sc2yun.com/src/red_bag.html)
+ [红包](http://jxjweb.sc2yun.com/work/06chenju/red_bag.html)
 
- [转盘](http://jxjweb.sc2yun.com/src/run_plate.html)
+ [转盘](http://jxjweb.sc2yun.com/work/06chenju/run_plate.html)
 
- [翻盘](http://jxjweb.sc2yun.com/src/draw_card.html)
+ [翻盘](http://jxjweb.sc2yun.com/work/06chenju/draw_card.html)
 
 ## 老虎机
 
-[老虎机](http://jxjweb.sc2yun.com/src/tiger.html)
+[老虎机](http://jxjweb.sc2yun.com/work/06chenju/tiger.html)
 
 
 
