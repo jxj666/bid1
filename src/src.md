@@ -4,7 +4,11 @@
 
 #####  如果您正在使用微信浏览器浏览,请跳转至其他浏览器,否则无法正常浏览以下页面
 
+## 星星少儿
 
+ [礼盒](http://jxjweb.sc2yun.com/work/06star/xx_main.html)
+
+ [秒杀](http://jxjweb.sc2yun.com/work/06star/xx_apply.html)
 
 ## 成聚活动模板
 
@@ -25,8 +29,6 @@
 ## 老虎机
 
 [老虎机](http://jxjweb.sc2yun.com/work/06chenju/tiger.html)
-
-
 
 
 
