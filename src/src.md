@@ -2,12 +2,6 @@
 
 ### 如果您需要我,您还可以邮件:webjxj@foxmail.com
 
-## 星星少儿
-
- [礼盒](http://jxjweb.bid/work2017/06%E6%98%9F%E6%98%9F/src%E7%9A%84%E5%89%AF%E6%9C%AC/xx_main.html)
-
- [秒杀](http://jxjweb.bid/work2017/06%E6%98%9F%E6%98%9F/src%E7%9A%84%E5%89%AF%E6%9C%AC/xx_apply.html)
-
 ## 成聚活动模板
 
 - 包括一套模板,跟数个活动页
