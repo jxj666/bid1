@@ -8,7 +8,7 @@
 
  [一套模板](http://jxjweb.bid/work2017/05%E6%88%90%E6%A8%A1%E6%9D%BF/src%E7%9A%84%E5%89%AF%E6%9C%AC/template_a/lucky_bag.html)
 
- [福袋](http://jxjweb.bid/work2017/05%E6%88%90%E6%A8%A1%E6%9D%BF/src%E7%9A%84%E5%89%AF%E6%9C%AC/lucky_bag.html)
+ [福袋](http://jxjweb.bid/work2017/05%E6%88%90%E6%A8%A1%E6%9D%BF/src%E7%9A%84%E5%89%AF%E6%9C%AC/lucky_bag2.html)
 
  [金蛋](http://jxjweb.bid/work2017/05%E6%88%90%E6%A8%A1%E6%9D%BF/src%E7%9A%84%E5%89%AF%E6%9C%AC/gold_egg.html)
 
