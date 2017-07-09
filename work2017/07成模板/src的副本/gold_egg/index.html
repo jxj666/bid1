@@ -3,10 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>老虎机</title>
-    <link rel="stylesheet" type="text/css" href="css/reset.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" href="css/tiger.min.css">
+    <title>砸金蛋</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/gold_egg.min.css">
     <script type="text/javascript">
     function get_hfs() {
         document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
@@ -26,20 +25,6 @@
 </head>
 
 <body>
-<!-- 预加载 -->
-        <div class="pop-bg" style="background: #201F24;">
-            <div class="yujiazai" style="background: url(img/timg.gif) no-repeat center;margin:2rem auto;width: 5rem;height: 5rem;background-size: contain;">
-                <span class="span1"></span>
-                <span class="span2"></span>
-                <span class="span3"></span>
-                <span class="span4"></span>
-                <span class="span5"></span>
-                <span class="span6"></span>
-                <span class="span7"></span>
-                <span class="span8"></span>
-            </div>
-        </div>
-        <!-- 主题 -->
     <div class="broadcast invisible">
         <i class="icon"></i>
         <ul class="list" id="broadcast_list"></ul>
@@ -48,7 +33,7 @@
             <ul class="stock-list" id="stock_list"></ul>
         </span>
     </div>
-    <div class="inform invisible">
+    <div class="inform">
         <div class="pirzes">
             <ul>
                 <li>
@@ -57,59 +42,46 @@
             </ul>
         </div>
         <div class="getinfo">
-            <a href="javascript:void(0)" data-click="winner-list">获奖名单&gt;</a>
+            <a href="../javascript:void(0)" data-click="winner-list">获奖名单&gt;</a>
         </div>
         <div class="clb"></div>
     </div>
     <div class="main">
         <div class="lucky-top">
             <div class="menban"></div>
-            <div class="h1">
-                <h1 class="wobble animated">幸运老虎鸡</h1>
-            </div>
-            <div class="huodon invisible">活动时间:2017年5月1日-12月31日</div>
-            <img src="img/tiger_03.png" class="top-img">
+            <h1>幸运砸金蛋</h1>
+            <div class="huodon">活动时间:2017年5月1日-12月31日</div>
+            <img src="../img/gold_02.png" class="top-img">
             <div class="top-text clearfix">
                 <p class="countdown">
+                    <span class="days">03</span> 天
+                    <span class="hours">04</span> 时
                     <span class="minutes">54</span> 分
                     <span class="seconds">33</span> 秒
                 </p>
                 <p class="stock">礼品库存： <span class="stock-num">12345</span>份</p>
             </div>
         </div>
-        <div class="laohu">
-            <div class="main2">
-                <div class="container">
-                    <div class="num num1">
-                        <div class="num-con num-con1">
-                            <div class="num-img"></div>
-                            <div class="num-img"></div>
-                        </div>
-                    </div>
-                    <div class="num num2">
-                        <div class="num-con num-con2">
-                            <div class="num-img"></div>
-                            <div class="num-img"></div>
-                        </div>
-                    </div>
-                    <div class="num num3">
-                        <div class="num-con num-con3">
-                            <div class="num-img"></div>
-                            <div class="num-img"></div>
-                        </div>
-                    </div>
-                </div>
+
+        <!-- 金蛋 -->
+        <div class="m-eggs">
+            <div class="egg-box">
+                <div class="egg_b"><img src="../img/gold_06.png" alt=""></div>
+                <div class="egg_f"><img src="../img/base_03.png" alt=""></div>
             </div>
-            <div class="main3">
-                <div class="container">
-                    <div class="main3-btn"></div>
-                </div>
+            <div class="egg-box">
+                <div class="egg_b"><img src="../img/gold_07.png" alt=""></div>
+                <div class="egg_f"><img src="../img/base_03.png" alt=""></div>
+            </div>
+            <div class="egg-box">
+                <div class="egg_b"><img src="../img/gold_08.png" alt=""></div>
+                <div class="egg_f"><img src="../img/base_03.png" alt=""></div>
             </div>
         </div>
         <ul class="count-list">
             <li class="count-item">
                 <p class="code-count">1234</p>
-                抽奖次数
+                扫码次数
             </li>
             <li class="count-item">
                 <p class="prize-count">234</p>
@@ -120,60 +92,62 @@
                 访问人数
             </li>
         </ul>
-        <div class="jihui">
-            您还有 <span class="jihui_s">0</span> 次机会,<br>
-            您本次 <span class="zhonjian_s">0</span> 次中奖!
-        </div>
-        <div class="guize">
-            <a href="javascript:void(0)">活动规则</a>
-        </div>
-        <ul class="click-list invisible">
+        <ul class="click-list">
             <li class="click-item">
-                <a href="##" data-click="gift">活动礼品</a>
+                <a href="../##" data-click="gift">活动礼品</a>
             </li>
             <li class="click-item">
-                <a href="##" data-click="kf">联系客服</a>
+                <a href="../##" data-click="kf">&nbsp;联系客服</a>
             </li>
             <li class="click-item">
-                <a href="##" data-click="statement">隐私权声明</a>
+                <a href="../##" data-click="statement">隐私权声明</a>
             </li>
         </ul>
         <!-- 恭喜奖品 -->
         <div class="pop-bg pop-bg1 invisible">
-            <div class="lucky-pop">
-                <a href="##" class="pop-close"></a>
-                <p class="lucky-title">获得伊利酸奶一箱</p>
-                <div class="img-content">
-                    <img src="img/yogurt.png" class="yogurt">
+            <div class="liquan_pop">
+            <div class="img_h">
+                <img src="../img/egg_bad_05.png">
+            </div>
+                <div class="close_pop">
+                    <a href="../"></a>
                 </div>
-                <a href="##" class="lucky-get">再接再厉</a>
+                <h3>获得伊利酸奶一箱</h3>
+                <div class="imgbox"><img src="../img/yogurt.png"></div>
+                <button class="btn">点击领取</button>
             </div>
         </div>
         <!-- 恭喜红包 -->
         <div class="pop-bg pop-bg2 invisible">
-            <div class="lucky-pop">
-                <a href="##" class="pop-close"></a>
-                <p class="lucky-title">运气不错,居然抽中了!</p>
-                <div class="img-content">
-                    <img src="img/hb_img.png" class="yogurt">
+            <div class="liquan_pop">
+            <div class="img_h">
+                <img src="../img/egg_bad_05.png">
+            </div>
+                <div class="close_pop">
+                    <a href="../"></a>
                 </div>
-                <a href="##" class="lucky-get">再接再厉</a>
+                <h3>获得微信红包1.18元</h3>
+                <div class="imgbox"><img src="../img/hb_img.png"></div>
+                <button class="btn">点击领取</button>
             </div>
         </div>
         <!-- 谢谢惠顾 -->
         <div class="pop-bg pop-bg3 invisible">
             <div class="liquan_pop">
+            <div class="img_h">
+                <img src="../img/egg_bad_03.png">
+            </div>
                 <div class="close_pop">
-                    <a href="javascript:void(0)"></a>
+                    <a href="../"></a>
                 </div>
-                <h3>谢谢您的参与!</h3>
-                <p class="xushu_t">再接再厉<br> 看看您的运气行不行! <br> 九分之一的中奖几率!</p>
-
-                <button class="btn btn_t">再试一次</button>
+                <h3>谢谢您的参与 !</h3>
+                <p> 一些优惠券可以领取</p>
+                <div class="imgbox"><img src="../img/huanliquan_03.png"></div>
+                <button class="btn">点击领取</button>
             </div>
         </div>
         <!-- 扫码弹框 -->
-        <div class="tip-bg ">
+        <div class="tip-bg tip-bg00">
             <div class="scan-tip ">
                 <div class="scan_title">
                     <div class="title_img"><img src="../img/fanpai_171.png" alt=""></div>
@@ -215,7 +189,7 @@
         <!-- 通用弹框 -->
         <div class="tip-bg invisible">
             <div class="gift-tip invisible">
-                <a href="##" data-click="tip-close" class="tip-close"></a>
+                <a href="../##" data-click="tip-close" class="tip-close"></a>
                 <h3 class="tip-title">活动礼品</h3>
                 <p class="tip-content">微信扫伊利大果粒二维码，首次验真可获得福袋。</p>
                 <p class="tip-content center">本期礼品（2017年4月10日-5月30日）如下：</p>
@@ -236,29 +210,36 @@
                         <span>3434份</span>
                     </li>
                 </ul>
-                <img src="img/winner_bg.png" class="tip-bottom">
+                <img src="../img/winner_bg.png" class="tip-bottom">
             </div>
             <div class="kf-tip invisible">
-                <a href="##" data-click="tip-close" class="tip-close"></a>
+                <a href="../##" data-click="tip-close" class="tip-close"></a>
                 <h3 class="tip-title">联系客服</h3>
-                <img src="img/code.png" class="tip-code">
+                <img src="../img/code.png" class="tip-code">
                 <p class="tip-content center">长按识别二维码，关注“伊利活动”微信号，发送微信留言，客户将及时处理。
                     <br>客服电话：400-400-400
                     <br>客服微信：yilihuodong</p>
-                <img src="img/winner_bg.png" class="tip-bottom">
+                <img src="../img/winner_bg.png" class="tip-bottom">
             </div>
             <div class="statement-tip invisible">
-                <a href="##" data-click="tip-close" class="tip-close"></a>
-                <h3 class="tip-title">活动规则</h3>
+                <div class="close_pop">
+                    <a href="../##" data-click="tip-close" class="tip-close"></a>
+                </div>
+                <h3 class="tip-title">隐私权声明</h3>
                 <p class="tip-content">
-                    <span class="tip-top">活动规则：</span> 点击按钮抽奖,奖品只是口头奖励!中奖概率不低于百分之十!<br>本活动非常重视用户信息的保护，在服务前，请您务必仔细阅读并透彻理解本声明。一旦您选择使用，即表示您认可并接受本条款，现有内容及其可能随时更新的内容。
-                    <br>有关您的若干信息及其它资料将受到中国有关隐私的法律和本公司《隐私权政策》
+                    <span class="tip-top">特别声明：</span> 伊利集团非常重视用户信息的保护，在使用伊利集团的所有产品和服务前，请您务必仔细阅读并透彻理解本声明。一旦您选择使用，即表示您认可并接受本条款，现有内容及其可能随时更新的内容。
+                    <br>一、隐私权政策
+                    <br>有关您的若干信息及其它资料将受到中国有关隐私的法律和本公司《隐私权政策》之规范.
+                    <br>二、隐私权政策
+                    <br>有关您的若干信息及其它资料将受到中国有关隐私的法律和本公司《隐私权政策》之规范.
+                    <br>三、隐私权政策
+                    <br>有关您的若干信息及其它资料将受到中国有关隐私的法律和本公司《隐私权政策》之规范.
                 </p>
             </div>
         </div>
-        <div class="footer invisible">
+        <div class="footer">
             <div class="footer-img-content">
-                <img class="code" src="img/code.png">
+                <img class="code" src="../img/code.png">
             </div>
             <p class="footer-text">长按识别二维码
                 <br>关注“伊利活动”，参加更多福利活动。
@@ -266,19 +247,19 @@
             </p>
             <div class="clearfix f_cb">
                 <p class="copy">版权所有:<span class="copy-name">引力集团</span></p>
-                <p class="support">技术支持:<span class="support-name">万川营销云</span></p>
+                <p class="support">技术支持:<span class="support-name">万川营销云&nbsp;&nbsp;</span></p>
             </div>
         </div>
     </div>
-    <nav class="nav-fixed invisible">
+    <nav class="nav-fixed">
         <ul class="nav-list" id="navlist">
             <li class="nav bag active">拆福袋</li>
             <li class="nav notice">活动公告</li>
             <li class="nav prize">我的礼品</li>
         </ul>
     </nav>
-    <script src='js/jquery.min.js'></script>
-    <script src="js/tiger.min.js"></script>
+    <script src='../js/jquery.min.js'></script>
+    <script src="../js/gold_egg.min.js"></script>
 </body>
 
 </html>
