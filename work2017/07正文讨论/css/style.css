@@ -496,3 +496,6 @@ textarea{
     color: #fff;
     text-indent: 11px;
 }
+button{
+    border:0;
+}
