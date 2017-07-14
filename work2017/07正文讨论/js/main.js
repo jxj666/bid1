@@ -13,7 +13,7 @@ $('.switch div').on('click', function(e) {
 $('.talk_list').on('click', '.review_button', function(e) {
     $this = $(this);
 
-    $this.closest('.talk_right').children(".talk_2").show();
+    $this.closest('.talk_right').children(".talk_2").toggle();
 })
 
 $('.talk_list').on('click', '.talk_2_btn', function(e) {
@@ -29,13 +29,11 @@ function img_font() {
         if (key) {
             arr_img.push(key);
         } else {
-        	var $talk_cell = $(this).closest('.talk_cell ').find('h6');
-        	console.log($talk_cell)
-        	var str=$talk_cell.text();
+            var $talk_cell = $(this).closest('.talk_cell ').find('h6');
+            var str = $talk_cell.text();
 
-        	console.log(str);
-        	var html_str='<div>'+str[0]+'</div>';
-        	$(this).closest('.talk_left').html(html_str);
+            var html_str = '<div>' + str[0] + '</div>';
+            $(this).closest('.talk_left').html(html_str);
         }
     })
 
