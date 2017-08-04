@@ -85,7 +85,7 @@ game_state.main.prototype = {
 
     // Add a row of 6 pipes with a hole somewhere in the middle
     add_row_of_pipes: function() {
-        var hole = Math.floor(Math.random()*5)+1;
+        var hole = Math.floor(Math.random()*4)+1;
         
         for (var i = 0; i < 8; i++)
             if (i != hole && i != hole +1) 
