@@ -1,8 +1,0 @@
-<!-- 默认jetty有form post提交2M的限制 -->
-
-<Configure id="Server" class="org.eclipse.jetty.server.Server">
-  <Call name="setAttribute">
-    <Arg>org.eclipse.jetty.server.Request.maxFormContentSize</Arg>
-    <Arg>-1</Arg>
-  </Call>
-</Configure>
