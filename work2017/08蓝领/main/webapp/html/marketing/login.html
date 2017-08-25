@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<title>登录授权</title>
+<link rel="icon" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/common/cj.png">
+<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/normalize.min.css">
+<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/common.min.css">
+<script type="text/javascript">
+    function get_hfs() {
+        var deviceWidth = document.documentElement.clientWidth <= 750 ? document.documentElement.clientWidth : 750;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    }
+    get_hfs();
+
+    window.onresize = function () {
+        get_hfs();
+    };
+</script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/pace/pace.min.js"></script>
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/marketing/login.min.css">
+</head>
+<body>
+<!-- <div id="content" class="content"> -->
+
+<div class="login-bg">
+    <div class="logo">
+        <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/marketing/m_logo.png" class="login-logo">
+    </div>
+    <div class="headshot-content">
+        <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/marketing/headshot.png" class="headshot">
+    </div>
+    <div class="login-text">
+        <p>您将以访客的身份登录</p>
+        <p class="company-name">成聚二维码营销云</p>
+    </div>
+    <div class="bottom">
+        <p class="enterprise">当前企业：<span class="enterprise-name">湖南中烟工业有限责任公司</span></p>
+        <a href="javascript:;" class="cut-enterprise" data-click="cut-enterprise">切换企业</a>
+    </div>
+</div>
+<a class="login-btn" data-click="login-btn">确认进入</a>
+<div class="pop invisible">
+    <div class="enterprise-pop invisible">
+        <h3 class="title">企业列表</h3>
+        <ul class="enterprise-list">
+            <li class="enterprise-item">
+                <a href="javascript:;">湖南中烟工业有限责任公司1</a>
+            </li>
+            <li class="enterprise-item">
+                <a href="javascript:;">湖南中烟工业有限责任公司2</a>
+            </li>
+            <li class="enterprise-item">
+                <a href="javascript:;">湖南中烟工业有限责任公司3</a>
+            </li>
+            <li class="enterprise-item">
+                <a href="javascript:;">湖南中烟工业有限责任公司4</a>
+            </li>
+            <li class="enterprise-item">
+                <a href="javascript:;">湖南中烟工业有限责任公司5</a>
+            </li>
+        </ul>
+        <a href="javascript:;" class="confirm-cut" data-click="confirm-cut">确认切换</a>
+    </div>
+    <div class="login_pop">
+        <h3>登录</h3>
+        <h5>成聚数据平台</h5>
+        <div class="login_form">
+            <div class="login_l">
+                <input type="text" placeholder="企业域">
+            </div>
+            <div class="login_l">
+                <input type="text" placeholder="登录名">
+            </div>
+            <div class="login_l password_i"><span class="look_password"></span>
+                <input type="password" placeholder="密码">
+            </div>
+        </div>
+        <div class="login_e">密码不能包含中文、空格</div>
+        <a data-click="login">登录</a>
+    </div>
+</div>
+    
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/babel/polyfill.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/common/common.min.js"></script>
+
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/marketing/login.min.js"></script>
+<script type="text/javascript" src='//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/acms/login_box.min.js'></script>
+</body>
+</html>

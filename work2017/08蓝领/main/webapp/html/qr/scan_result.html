@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>扫码的默认页面</title>
+    <link rel="icon" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/common/cj.png">
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/normalize.min.css">
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/common.min.css">
+    <script type="text/javascript">
+        function get_hfs() {
+            var deviceWidth = document.documentElement.clientWidth <= 750 ? document.documentElement.clientWidth : 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        }
+        get_hfs();
+
+        window.onresize = function () {
+            get_hfs();
+        };
+    </script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/pace/pace.min.js"></script>
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/qr/scan_result.min.css">
+</head>
+<body>
+    
+    <!-- banner -->
+    <div class="banner"></div>
+    <!-- 码已激活状态 -->
+    <div class="product-info invisible">
+        <img src="" class="pro-img">
+        <div class="pro-introduce">
+            <p class="title">伊利大果粒</p>
+           <!--  <p class="info-detail">
+                精选纯鲜牛乳，添加大量口感爽甜、新鲜大颗水果粒，严格质量控制，锁住水果美味，成就放心好品质。
+            </p> -->
+        </div>
+    </div>
+
+    <div class="scan margin-top">
+        扫码产品类型：售卖品，260g小盒<br>此次为本品第<span class="time">1</span>次扫码，验真为正品
+    </div>
+
+    <div class="gray-line"></div>
+    
+    <div class="coupons">
+        <p class="title">一些优惠券待领取</p>
+
+        <ul class="coupon-list" id="coupons-list">
+            <script type="text/html" id="template_coupons">
+            {{ if (items.length > 0) { }}
+                {{ for (var i=0; i<items.length; i++) { }}
+                    <li class="coupon" data-quantity="{{= items[i].quantity}}" data-pid="{{= items[i].productId}}"><a href="{{= items[i].detail.url}}"><img src="{{= items[i].productImage}}" class="coupon-img"></a></li>
+                {{ } }}
+            {{ }else{ }}
+                <li class="empty">
+                    <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qr/scan_result-empty.png" class="scan_result-empty">
+                    &nbsp;&nbsp;还没有券哦 ~
+                </li>
+            {{ } }}
+            </script>
+            <!-- <li class="coupon"><img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qr/product2.png" class="coupon-img"></li>
+            <li class="coupon"><img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qr/product3.png" class="coupon-img"></li>
+            <li class="coupon"><img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qr/product1.png" class="coupon-img"></li>
+            <li class="coupon"><img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qr/product2.png" class="coupon-img"></li>
+            <li class="coupon"><img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qr/product3.png" class="coupon-img"></li> -->
+        </ul>
+    </div>
+    
+    <div class="footer">
+        <div class="overflow">
+            <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qr/qrcode.png" class="qrcode">
+            <p class="info">长按识别二维码<br>关注“伊利活动”，参加更多<br>福利活动</p>
+        </div>
+        <p class="support">版权所有 : 伊利集团&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;技术支持 : 成聚移动</p>
+    </div>
+
+
+    <script src="//pv.tbul.cn/pv.js?sid=UUxE9ifwx"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/jquery/jquery-3.2.1.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/microtemplating/microtemplating.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/babel/polyfill.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/common/common.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/qr/scan_result.min.js"></script>
+</body>
+</html>

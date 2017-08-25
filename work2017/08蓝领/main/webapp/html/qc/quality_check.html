@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<title>质检激活</title>
+<link rel="icon" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/common/cj.png">
+<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/common.min.css">
+<script type="text/javascript">
+    function get_hfs(designWidth, rem2px) {
+        designWidth = designWidth || 750;
+        rem2px = rem2px || 100;
+        var d = window.document.createElement('div');
+        d.style.width = '1rem';
+        d.style.display = "none";
+        var head = window.document.getElementsByTagName('head')[0];
+        head.appendChild(d);
+        var defaultFontSize = parseFloat(window.getComputedStyle(d, null).getPropertyValue('width'));
+//        d.remove();
+//        document.documentElement.style.fontSize = window.innerWidth / designWidth * rem2px / defaultFontSize * 100 + '%';
+        var st = document.createElement('style');
+        var portrait = "@media screen and (min-width: " + window.innerWidth + "px) {html{font-size:" + ((window.innerWidth / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+        var landscape = "@media screen and (min-width: " + window.innerHeight + "px) {html{font-size:" + ((window.innerHeight / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+        st.innerHTML = portrait + landscape;
+        head.appendChild(st);
+        return defaultFontSize;
+    }
+    get_hfs();
+</script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/pace/pace.min.js"></script>
+	<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/qc/quality_check.min.css">
+</head>
+<body>
+	<div class="header-fixed-top">
+    <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/marketing/m_logo.png" class="m_logo">
+    <a class="menu" data-click="menu">
+        <span class="menu-icon1"></span>
+        <span class="menu-icon2"></span>
+        <span class="menu-icon3"></span>
+    </a>
+    <span class="current">质检激活</span>
+</div>
+<div class="right-nav invisible">
+    <div class="right-nav_mask"></div>
+    <div class="nav-content">
+        <div class="menu-content clearfix">
+            <span id="show">质检激活</span>
+            <a class="menu" data-click="menu">
+                <span class="menu-icon1"></span>
+                <span class="menu-icon2"></span>
+                <span class="menu-icon3"></span>
+            </a>
+        </div>
+        <ul class="nav-menu_list">
+            <li class="all-item">
+                <a href="/html/marketing/index.html" class="nav-btn ">仪表盘</a>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger code-bg">二维码管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/qr/code_manage.html" class="dropdown-item ">码包管理</a>
+                    </li>
+                    <li>
+                        <a href="/html/qc/quality_check.html" class="dropdown-item active">质检激活</a>
+                    </li>
+                    <li>
+                        <a href="/html/qr/status_query.html" class="dropdown-item ">单码状态查询</a>
+                    </li>
+                    <!-- <li>
+                        <a href="javascript:;" class="dropdown-item ">扫码数据</a>
+                    </li> -->
+                </ul>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger spread-bg">活动管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/acms/project-template-list.html" class="dropdown-item ">模板列表</a>
+                    </li>
+                    <li>
+                        <a href="/html/acms/activity-list.html" class="dropdown-item ">活动列表</a>
+                    </li>
+                    <li>
+                        <a href="/html/data/data-nav.html" class="dropdown-item ">活动数据</a>
+                    </li>
+                    <li>
+                        <a href="/html/order/order-main.html" class="dropdown-item ">订单列表</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-menu_item invisible">
+                <div class="menu-trigger enterprise-bg">数据管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">数据查询</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">数据报告</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">用户关系</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger base-bg">基础管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/public/public.html" class="dropdown-item ">公众号授权</a>
+                    </li>
+                    <li>
+                        <a href="/html/product/product_notice.html" class="dropdown-item ">产品公告</a>
+                    </li>
+                    <li>
+                        <a href="/html/account/account_info.html" class="dropdown-item ">账户信息</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+	<div class="content invisible">
+		<div class="activating-content invisible">
+			<div id="batchinfo-info">
+				<script type="text/html" id="template_batchinfo">
+					<div class="production-bg" data-status="{{= batchInfo.status}}">
+						<!-- 已激活状态锁定图片 -->
+						{{ if (batchInfo.status == 4) { }}
+							<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qc/clock.png" class="clock">
+						{{ } }}
+						<div class="circle-bg">
+							<!-- 产品图片 -->
+							<img src="{{= productInfo.image}}" class="activation-img">
+						</div>
+					</div>
+					<div class="product-content" data-batchno="{{= batchInfo.batchNo}}">
+						<p class="product-name">{{= productInfo.name}}</p>
+						<p>规格：<span class="product-size">{{= productInfo.packageType === 1? '盒': '条'}}</span></p>
+						{{ if (productInfo.properties.corp != undefined) { }}
+						<p>生产商：<span class="producter">{{= productInfo.properties.corp.value}}</span></p>
+						{{ } }}
+					</div>
+					<div class="production-batch">
+						<p>二维码批次</p>
+						<p class="code-num">{{= batchInfo.serialNo}}</p>
+						{{ if (batchInfo.status == 4) { }}
+							<!-- 已设置激活图片 -->
+							<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qc/already_activation.png" class="already-activation">
+						{{ }else if (batchInfo.status == 2) { }}
+							<!-- 生产中图片 -->
+							<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qc/production_img.png" class="production-img">
+						{{ }else{ }}
+							<!-- 生产完成 -->
+							<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qc/in_production_img.png" class="in-production-img">
+						{{ } }}
+					</div>
+					<!-- 已激活状态 -->
+					<div class="btns-bg">
+						{{ if (batchInfo.status == 4) { }}
+							<a href="javascript:;" class="again-activation-btn" data-click="again-activation">继续激活其他批次</a>
+						{{ }else if (batchInfo.status != 2){ }}
+							<a href="javascript:;" class="activation-btn" data-click="activation-btn">激活本批次</a>
+						{{ } }}
+					</div>
+				</script>
+			</div>
+			<!-- 批次进度展示 -->
+			<div class="activation-list" id="batch-process">
+				<script type="text/html" id="template_process">
+					{{ for(var i=0, len=batchProcess.length; i < len; i++) { }}
+					<div class="activation-item">
+						<div class="activation-info">
+							<p class="time">{{= batchProcess[i].createTime}}</p>
+							<p class="apply">{{= batchProcess[i].action}}</p>
+						</div>
+					</div>
+					{{ } }}
+				</script>
+			</div>
+			<div id="formal">
+				<script type="text/html" id="template_formal">
+				{{ if (batchInfo.status == 4) { }}
+					<p class="formal" >正式激活：
+						<span class="activation-time">{{= batchInfo.activateTime}}</span>
+					</p>
+				{{ } }}
+				</script>
+			</div>
+		</div>
+		<!-- 激活中状态 -->
+		<div class="activation-content invisible">
+			<div class="unactivation-bg">
+			  	<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qc/activation_img.png" class="activation-product">
+			</div>
+			<div class="activate-content">
+			  	<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qc/activate.png" class="activate-img">
+			</div>
+		</div>
+	</div>
+	<div class="no-scan">
+		<div class="scan-code_img">
+		    <img src="//weiop.oss-cn-beijing.aliyuncs.com/common/img/scan-code.png" alt=""/>
+		    <div class="scan-line"></div>
+		</div>
+		<div class="btn" id="scanQRCode">扫码</div>
+		<!-- <div class="btn" id="goBack">返回</div> -->
+	</div>
+	<script src="//pv.tbul.cn/pv.js?sid=UUxE9ifwx"></script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/babel/polyfill.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/common/common.min.js"></script>
+	<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/microtemplating/microtemplating.min.js"></script>
+	<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/qc/quality_check.min.js"></script>
+</body>
+</html>

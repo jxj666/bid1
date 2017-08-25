@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>质检激活</title>
+<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/normalize.min.css">
+<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/common.min.css">
+<script type="text/javascript">
+    function get_hfs() {
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+    }
+    get_hfs();
+
+    function throttle(method, context) {
+        clearTimeout(method.timer);
+        method.timer = setTimeout(function() {
+            method.call(context);
+        }, 100);
+    }
+    window.onresize = function() {
+        throttle(get_hfs);
+    }
+</script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/pace/pace.min.js"></script>
+	<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/qc/in_production.min.css">
+</head>
+<body>
+	<div class="header-fixed-top">
+    <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/m_logo.png" class="m_logo">
+    <a class="menu" data-click="menu">
+        <span class="menu-icon1"></span>
+        <span class="menu-icon2"></span>
+        <span class="menu-icon3"></span>
+    </a>
+    <span class="current">生产中</span>
+</div>
+<div class="right-nav invisible">
+    <div class="nav-content">
+        <div class="menu-content clearfix">
+            <span id="show">生产中</span>
+            <!-- <div class="v-menu" data-click="menu">
+                <span class="v-menu-icon1"></span>
+                <span class="v-menu-icon2"></span>
+                <span class="v-menu-icon3"></span>
+            </div> -->
+            <a class="menu" data-click="menu">
+                <span class="menu-icon1"></span>
+                <span class="menu-icon2"></span>
+                <span class="menu-icon3"></span>
+            </a>
+        </div>
+        <ul class="menu-list">
+            <li class="all-item">
+                <a href="/html/marketing/index.html" class="nav-btn ">仪表盘</a>
+            </li>
+            <li class="menu-item">
+                <a href="javascript:;" class="menu-trigger code-bg">二维码管理</a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/html/qr/code_manage.html" class="dropdown-item ">码包管理</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">产品库</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">扫码数据</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="javascript:;" class="menu-trigger spread-bg">传播营销</a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">模板管理</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">活动列表</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">奖品管理</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">活动数据</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="javascript:;" class="menu-trigger base-bg">基础管理</a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">用户管理</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">订单管理</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="javascript:;" class="menu-trigger enterprise-bg">企业配置</a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">用户管理</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">订单管理</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+	<div class="in_production_bg">
+		<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qc/clock.png" class="clock">
+		<div class="circle_bg">
+			<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qc/activation_img.png" class="activation_img">
+		</div>
+	</div>
+	<div class="product-content">
+		<p class="product-name">芙蓉王（硬）</p>
+		<p>规格：<span class="product-size">盒</span></p>
+		<p>生产商：<span class="producter">湖南中烟工业有限责任公司</span></p>
+	</div>
+	<div class="production-batch">
+		<p>二维码批次</p>
+		<p class="code-num">20160929000029</p>
+		<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qc/in_production_img.png" class="in_production_img">
+		<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qc/already_activation.png" class="already_activation invisible">
+	</div>
+	<div class="activation-list invisible">
+		<div class="activation-info">
+	    <p>12/06/2016</p>
+	    <p>常德二分厂入库质检</p>
+	    <p>申请激活</p>
+	  </div>
+	  <p class="formal">正式激活：<span class="activation-time">12/06/2016</span></p>
+	</div>
+
+	<a href="javascript:;" class="activation-btn" data-click="activation-btn">激活本批次</a>
+	<a href="javascript:;" class="again-activation-btn invisible">继续激活其他批次</a>
+	<div class="activation-content">
+		<div class="unactivation-bg">
+		  	<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qc/activation_img.png" class="activation-img">
+		</div>
+		<div class="activate-content">
+		  	<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qc/activate.png" class="activate">
+		</div>
+	</div>
+	<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/common/common.min.js"></script>
+	<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/qualiy_check.js"></script>
+</body>
+</html>

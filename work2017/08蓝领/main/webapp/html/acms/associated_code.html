@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<title>活动列表</title>
+<link rel="icon" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/common/cj.png">
+<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/common.min.css">
+<script type="text/javascript">
+    function get_hfs(designWidth, rem2px) {
+        designWidth = designWidth || 750;
+        rem2px = rem2px || 100;
+        var d = window.document.createElement('div');
+        d.style.width = '1rem';
+        d.style.display = "none";
+        var head = window.document.getElementsByTagName('head')[0];
+        head.appendChild(d);
+        var defaultFontSize = parseFloat(window.getComputedStyle(d, null).getPropertyValue('width'));
+//        d.remove();
+//        document.documentElement.style.fontSize = window.innerWidth / designWidth * rem2px / defaultFontSize * 100 + '%';
+        var st = document.createElement('style');
+        var portrait = "@media screen and (min-width: " + window.innerWidth + "px) {html{font-size:" + ((window.innerWidth / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+        var landscape = "@media screen and (min-width: " + window.innerHeight + "px) {html{font-size:" + ((window.innerHeight / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+        st.innerHTML = portrait + landscape;
+        head.appendChild(st);
+        return defaultFontSize;
+    }
+    get_hfs();
+</script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/pace/pace.min.js"></script>
+	<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/acms/associated_code.min.css">
+</head>
+<body>
+	<div class="banner">
+		<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/banner_img.png" class="banner-img">
+		<p class="banner-text">2017/04/18-2017/06/30 <span class="banner-right">#扫码抽奖</span></p>
+	</div>
+	<!-- 芙蓉王扫码活动 -->
+	<div class="f-scan-code">
+		<h3 class="f-scan-title">芙蓉王扫码活动</h3>
+		<!-- 基础数据 -->
+		<div class="list-content">
+			<p class="basis-count">基础数据</p>
+			<div class="list-container">
+				<ul class="f-list">
+					<li class="f-item">
+						<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/f_person_img.png" class="f-img">
+						<p class="f-name f-p">用户访问量</p>
+						<p class="f-person_num f-p f-num">1,947,294,723</p>
+					</li>
+					<li class="f-item">
+						<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/f_page_img.png" class="f-img">
+						<p class="f-name f-p">用户访问量</p>
+						<p class="f-person_num f-p f-num">1,947,294,723</p>
+					</li>
+					<li class="f-item">
+						<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/f_code_img.png" class="f-img">
+						<p class="f-name f-p">用户访问量</p>
+						<p class="f-person_num f-p f-num">1,947,294,723</p>
+					</li>
+					<li class="f-item">
+						<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/f_code_img.png" class="f-img">
+						<p class="f-name f-p">用户访问量</p>
+						<p class="f-person_num f-p f-num">1,947,294,723</p>
+					</li>
+					<li class="f-item">
+						<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/f_code_img.png" class="f-img">
+						<p class="f-name f-p">用户访问量</p>
+						<p class="f-person_num f-p f-num">1,947,294,723</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 展示列表 -->
+		<div class="show-container">
+			<ul class="show-list clearfix">
+				<li><a href="javascript:;" class="show-item">活动属性</a></li>
+				<li><a href="javascript:;" class="show-item">公告配置</a></li>
+				<li><a href="javascript:;" class="show-item">礼品和策略</a></li>
+				<li><a href="javascript:;" class="show-item active">关联码包</a></li>
+				<li><a href="javascript:;" class="show-item">权限管理</a></li>
+			</ul>
+		</div>
+		<!-- 关联码包 -->
+		<a href="javascript:;" class="add-code-btn"> <span class="btn-icon">+</span>新增关联码包</a>
+		<div class="card-list">
+			<div class="card clearfix">
+				<div class="card-left">
+					<p class="plan">投放计划：<span class="paln-name">芙蓉王2017春季华北市场</span></p>
+					<p class="l-p">投放区域：<span class="region-name">河北、天津、北京
+					安徽</span></p>
+					<p class="l-p">投放时间：<span class="interval">2017.04.18-2017.06.30</span></p>
+					<p class="l-p">关联二维码批次：<span class="batch-num">201705118787</span></p>
+					<p class="l-p">关联活动：<span class="activity-name">芙蓉王扫码抽奖</span></p>
+				</div>
+				<div class="card-right">
+					<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/underway.png" class="underway-img">
+					<ul class="operate-list">
+						<li><a href="javascript:;" class="operate-item" data-click="launch">编辑</a></li>
+						<li><a href="javascript:;" class="operate-item" data-click="rules">扫码规则</a></li>
+						<li><a href="javascript:;" class="operate-item" data-click="offline">下线</a></li>
+						<li><a href="javascript:;" class="operate-item log" data-click="log">日志</a></li>	
+					</ul>
+				</div>
+			</div>
+			<div class="card clearfix">
+				<div class="card-left">
+					<p class="plan">投放计划：<span class="paln-name">芙蓉王2017春季华北市场</span></p>
+					<p class="l-p">投放区域：<span class="region-name">河北、天津、北京
+					安徽</span></p>
+					<p class="l-p">投放时间：<span class="interval">2017.04.18-2017.06.30</span></p>
+					<p class="l-p">关联二维码批次：<span class="batch-num">201705118787</span></p>
+					<p class="l-p">关联活动：<span class="activity-name">芙蓉王扫码抽奖</span></p>
+				</div>
+				<div class="card-right">
+					<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/underway.png" class="underway-img">
+					<ul class="operate-list">
+						<li><a href="javascript:;" class="operate-item">编辑</a></li>
+						<li><a href="javascript:;" class="operate-item">扫码规则</a></li>
+						<li><a href="javascript:;" class="operate-item">下线</a></li>
+						<li><a href="javascript:;" class="operate-item log">日志</a></li>	
+					</ul>
+				</div>
+			</div>
+			<div class="card clearfix">
+				<div class="card-left">
+					<p class="plan">投放计划：<span class="paln-name">芙蓉王2017春季华北市场</span></p>
+					<p class="l-p">投放区域：<span class="region-name">河北、天津、北京
+					安徽</span></p>
+					<p class="l-p">投放时间：<span class="interval">2017.04.18-2017.06.30</span></p>
+					<p class="l-p">关联二维码批次：<span class="batch-num">201705118787</span></p>
+					<p class="l-p">关联活动：<span class="activity-name">芙蓉王扫码抽奖</span></p>
+				</div>
+				<div class="card-right">
+					<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/underway.png" class="underway-img">
+					<ul class="operate-list">
+						<li><a href="javascript:;" class="operate-item">编辑</a></li>
+						<li><a href="javascript:;" class="operate-item">扫码规则</a></li>
+						<li><a href="javascript:;" class="operate-item">下线</a></li>
+						<li><a href="javascript:;" class="operate-item log">日志</a></li>	
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="btns">
+		<a href="javascript:;" class="btn data-btn">活动数据</a>
+		<a href="javascript:;" class="btn experience-btn">点击体验</a>
+	</div>
+	<!-- 弹窗 -->
+	<div class="pop invisible">
+		<!-- 扫码规则 -->
+		<div class="rules-pop clearfix invisible">
+			<h3 class="rules-title">扫码规则</h3>
+			<div class="rules-content">
+				<p class="rules-top">奖励规则</p>
+				<div class="rules-p">每码验真有奖限制前几次
+					<div class="select">未限制
+						<span class="dropdown-icon"></span>
+						<ul class="option invisible">
+							<li></li>
+						</ul>
+					</div>
+				</div>
+				<div class="rules-p">每人一天奖励限制次数
+					<div class="select">12
+						<span class="dropdown-icon"></span>
+						<ul class="option invisible">
+							<li></li>
+						</ul>
+					</div>
+				</div>
+				<p class="rules-top">扫码落地页文案</p>
+				<textarea class="textarea">请输入包装内6位验证码验真参与活动，请输入包装内6位验证码验真参与活动，请输入包装内6位验证码验真参与活动，请输入包装内6位验证码验真参与</textarea>
+				<p class="rules-top">验真结果页文案</p>
+				<textarea class="textarea">请输入包装内6位验证码验真参与活动，请输入包装内6位验证码验真参与活动，请输入包装内6位验证码验真参与活动，请输入包装内6位验证码验真参与</textarea>
+			</div>
+			<a href="javascript:;" class="compile-btn" data-click="compile-btn">确定修改</a>
+			<a href="javascript:;" class="cancel-btn" data-click="cancel-btn">取消</a>
+		</div>
+		<!-- 投放新增 -->
+		<div class="launch-pop clearfix invisible">
+			<h3 class="launch-title">码包管理</h3>
+			<div class="form-group">
+				<label class="form-item"> 
+					<input class="import" type="text" name="name" placeholder="计划名称">
+				</label>
+			</div>
+			<div class="form-group">
+				<label class="form-item"> 
+					<input class="import" type="text" name="name" placeholder="投放时间">
+				</label>
+			</div>
+			<div class="import">
+				<span>投放区域</span>
+
+			</div>
+			<a href="javascript:;" class="compile-btn" data-click="compile-btn">确定修改</a>
+			<a href="javascript:;" class="cancel-btn" data-click="cancel-btn">取消</a>
+		</div>
+		<!-- 计划下线 -->
+		<div class="offline-pop clearfix invisible">
+			<img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/off_line.png" class="offline-img">
+			<p class="warning">下线后对饮策略均会失效</p>
+			<a href="javascript:;" class="compile-btn" data-click="compile-btn">确定下线</a>
+			<a href="javascript:;" class="cancel-btn" data-click="cancel-btn">取消</a>
+		</div>
+		<!-- 投放计划操作日志 -->
+		<div class="log-pop invisible">
+			<h3 class="log-title">投放计划操作日志</h3>
+			<ul class="log-list">
+				<li class="log-item clearfix">
+					<p class="log-operat">二维码批次修改<span class="operat-name">王二宝</span></p>
+					<p class="log-time">2017.03.07 14:02:02</p>
+				</li>
+				<li class="log-item clearfix">
+					<p class="log-operat">二维码批次修改<span class="operat-name">王二宝</span></p>
+					<p class="log-time">2017.03.07 14:02:02</p>
+				</li>
+				<li class="log-item clearfix">
+					<p class="log-operat">二维码批次修改<span class="operat-name">王二宝</span></p>
+					<p class="log-time">2017.03.07 14:02:02</p>
+				</li>
+				<li class="log-item clearfix">
+					<p class="log-operat">二维码批次修改<span class="operat-name">王二宝</span></p>
+					<p class="log-time">2017.03.07 14:02:02</p>
+				</li>
+			</ul>
+			<a href="javascript:;" data-click="return" class="return text-center border-radius">返回</a>
+		</div>
+	</div>
+	<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/jquery.min.js"></script>
+	<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/acms/m_associated_code.min.js"></script>
+</body>
+</html>

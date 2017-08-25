@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<title>码包管理</title>
+<link rel="icon" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/common/cj.png">
+<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/common.min.css">
+<script type="text/javascript">
+    function get_hfs(designWidth, rem2px) {
+        designWidth = designWidth || 750;
+        rem2px = rem2px || 100;
+        var d = window.document.createElement('div');
+        d.style.width = '1rem';
+        d.style.display = "none";
+        var head = window.document.getElementsByTagName('head')[0];
+        head.appendChild(d);
+        var defaultFontSize = parseFloat(window.getComputedStyle(d, null).getPropertyValue('width'));
+//        d.remove();
+//        document.documentElement.style.fontSize = window.innerWidth / designWidth * rem2px / defaultFontSize * 100 + '%';
+        var st = document.createElement('style');
+        var portrait = "@media screen and (min-width: " + window.innerWidth + "px) {html{font-size:" + ((window.innerWidth / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+        var landscape = "@media screen and (min-width: " + window.innerHeight + "px) {html{font-size:" + ((window.innerHeight / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+        st.innerHTML = portrait + landscape;
+        head.appendChild(st);
+        return defaultFontSize;
+    }
+    get_hfs();
+</script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/pace/pace.min.js"></script>
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/qr/code_manage.min.css">
+</head>
+<body>
+<div class="header-fixed-top">
+    <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/marketing/m_logo.png" class="m_logo">
+    <a class="menu" data-click="menu">
+        <span class="menu-icon1"></span>
+        <span class="menu-icon2"></span>
+        <span class="menu-icon3"></span>
+    </a>
+    <span class="current">码包管理</span>
+</div>
+<div class="right-nav invisible">
+    <div class="right-nav_mask"></div>
+    <div class="nav-content">
+        <div class="menu-content clearfix">
+            <span id="show">码包管理</span>
+            <a class="menu" data-click="menu">
+                <span class="menu-icon1"></span>
+                <span class="menu-icon2"></span>
+                <span class="menu-icon3"></span>
+            </a>
+        </div>
+        <ul class="nav-menu_list">
+            <li class="all-item">
+                <a href="/html/marketing/index.html" class="nav-btn ">仪表盘</a>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger code-bg">二维码管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/qr/code_manage.html" class="dropdown-item active">码包管理</a>
+                    </li>
+                    <li>
+                        <a href="/html/qc/quality_check.html" class="dropdown-item ">质检激活</a>
+                    </li>
+                    <li>
+                        <a href="/html/qr/status_query.html" class="dropdown-item ">单码状态查询</a>
+                    </li>
+                    <!-- <li>
+                        <a href="javascript:;" class="dropdown-item ">扫码数据</a>
+                    </li> -->
+                </ul>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger spread-bg">活动管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/acms/project-template-list.html" class="dropdown-item ">模板列表</a>
+                    </li>
+                    <li>
+                        <a href="/html/acms/activity-list.html" class="dropdown-item ">活动列表</a>
+                    </li>
+                    <li>
+                        <a href="/html/data/data-nav.html" class="dropdown-item ">活动数据</a>
+                    </li>
+                    <li>
+                        <a href="/html/order/order-main.html" class="dropdown-item ">订单列表</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-menu_item invisible">
+                <div class="menu-trigger enterprise-bg">数据管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">数据查询</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">数据报告</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">用户关系</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger base-bg">基础管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/public/public.html" class="dropdown-item ">公众号授权</a>
+                    </li>
+                    <li>
+                        <a href="/html/product/product_notice.html" class="dropdown-item ">产品公告</a>
+                    </li>
+                    <li>
+                        <a href="/html/account/account_info.html" class="dropdown-item ">账户信息</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="content">
+    <div class="code-content">
+        <!-- 定位导航 -->
+        <div class="top-fixed">
+            <div class="fixed-content">
+                <div class="add-content">
+                    <a href="javascript:;" class="add-join" data-click="add-enter"><span class="add-icon">+</span>新增二维码</a>
+                </div>
+                <ul class="nav-view">
+                    <li class="nav-item listener" data-click="product-qr-batch">
+                        <span class="text">按产品</span>
+                        <span class="dropdown-icon"></span>
+                        <div class="dropdown-list">
+                            <ul class="list" id="productid-list">
+                                <script type="text/html" id="template_productlist">
+                                    {{ for(var i = 0,len=productList.length; i < len; i++){ }}
+                                    <li class="dropdown-item" data-pid="{{= productList[i].productId}}"
+                                        data-click="product">{{= productList[i].name}}
+                                    </li>
+                                    {{ } }}
+                                </script>
+                                <li class="dropdown-item" data-pid="" data-click="product">全部</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item listener" data-click="time-qr-batch">
+                        <span class="text">按时间</span>
+                        <span class="dropdown-icon"></span>
+                        <div class="dropdown-list">
+                            <ul class="list">
+                                <li class="dropdown-item">本周</li>
+                                <li class="dropdown-item">本月</li>
+                                <li class="dropdown-item">上月</li>
+                                <li class="dropdown-item">本季度</li>
+                                <li class="dropdown-item">全部</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item listener" data-click="status-qr-batch">
+                        <span class="text">按状态</span>
+                        <span class="dropdown-icon"></span>
+                        <div class="dropdown-list">
+                            <ul class="list">
+                                <li class="dropdown-item" data-code="1" data-click="status">待成码</li>
+                                <li class="dropdown-item" data-code="2" data-click="status">正在生成</li>
+                                <li class="dropdown-item" data-code="3" data-click="status">待激活</li>
+                                <li class="dropdown-item" data-code="4" data-click="status">已投放</li>
+                                <li class="dropdown-item" data-code="5" data-click="status">已作废</li>
+                                <li class="dropdown-item" data-code="-2" data-click="status">已删除</li>
+                                <li class="dropdown-item" data-code="" data-click="status">全部</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 展示列表 -->
+        <div class="code-list" id="code-list">
+            <script type="text/html" id="template_codelist">
+                {{ if(data.length <= 0){ }}
+                <div class="code-item">
+                    还未创建过二维码批次
+                </div>
+                {{ }else{ }}
+                {{ for(var i = 0,len=data.length; i < len; i++){ }}
+                <div class="code-item" data-name="{{= data[i].batch.name}}" data-domain="{{= data[i].batch.domain}}">
+                    <!-- 码包内容 -->
+                    <div class="code-top clearfix">
+                        <div class="left">
+                            <p class="code-num">码包名称：<b>{{= data[i].batch.name}}</b></p>
+                            <p>码包号：<span class="num">{{= data[i].batch.serialNo}}</span></p>
+                            <p>关联产品：<span class="name">{{= data[i].batch.product.name}}</span></p>
+                            <p>产品规格：<span
+                                    class="rules">{{= data[i].batch.product.packageType === 0 ? '条' : '盒' }}</span></p>
+                            <p>本批次二维码数量：<span class="count">{{= data[i].batch.size}}</span></p>
+                            <p>成码时间：<span
+                                    class="time">{{= data[i].batch.createTime.split(' ')[0].split('-')[0]}}年</span><span
+                                    class="time">{{= data[i].batch.createTime.split(' ')[0].split('-')[1]}}月</span><span
+                                    class="time">{{= data[i].batch.createTime.split(' ')[0].split('-')[2]}}日</span></p>
+                            <p>包含数字验证码：<span
+                                    class="captcha">{{= data[i].batch.withPinPasswd === true ? "是" : "否"}}</span></p>
+                            <p class="pin" style="display:none;" data-pin="{{= data[i].batch.pinPasswdLength}}"></p>
+                            <p>码包备注：<span class="remarks">{{= (data[i].batch.memo === "" || data[i].batch.memo === null) ? '无' : data[i].batch.memo}}</span></p>
+                        </div>
+                        <div class="right" data-status="{{= data[i].batch.status}}">
+                            <div class="code_activate-content">
+                                {{ if (data[i].batch.status > 3) {}}
+                                <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qr/code_activate.png" class="code_activate">
+                                {{ } }}
+                            </div>
+                            <ul class="btn-list" data-batchno="{{= data[i].batch.batchNo}}">
+                                <li class="btn-item"><a href="javascript:;" class="enter"
+                                                        data-click="download-enter">下载</a>
+                                </li>
+                                <li class="btn-item"><a href="javascript:;" class="enter" data-clicl="log-enter">日志</a>
+                                </li>
+                                <li class="btn-item"><a href="javascript:;" class="enter" data-click="compile-enter"
+                                                        data-pid="{{= data[i].batch.productId}}"
+                                                        data-status="{{= data[i].batch.status}}">编辑</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 关联活动 -->
+                    <div class="code-bottom">
+                        <span class="bottom-title">关联活动</span>
+                        <ul class="connect-list">
+                            {{ if (data[i].activities) { }}
+                            {{ for(var key in data[i].activities){ }}
+                            <li class="connect-item">{{= data[i].activities[key].activity.name}}
+                                <a class="click-join"
+                                   href="/html/acms/project-template-main.html?activityid={{= data[i].activities[key].activity.activityId}}">点击进入</a>
+                            </li>
+                            {{ } }}
+                            {{ }else{ }}
+                            <li class="connect-item">暂无关联活动</li>
+                            {{ } }}
+                        </ul>
+                    </div>
+                </div>
+                {{ } }}
+                {{ } }}
+            </script>
+        </div>
+        <!--复制按钮-->
+        <button type="button" class="hide" id="shareBtn" data-clipboard-target=".copy-text">我是个隐藏的复制按钮</button>
+
+        <!-- 弹窗 -->
+        <div class="pop invisible">
+            <!-- 下载弹窗 -->
+            <div class="download invisible" id="download">
+                <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qr/download.png" class="download-img">
+                <div class="copy-text">
+                    <!-- <p class="linkurl"></p> -->
+                    <!-- <p class="pdk">查看文件密钥:<span class="secret"></span></p> -->
+                </div>
+                <div class="share-btn" data-cj="shareBtn">复制链接分享给同事</div>
+            </div>
+            <!-- 新增弹窗 编辑弹窗-->
+            <div class="add-code clearfix invisible">
+                <h3 class="add-title">新增码包</h3>
+                <div class="pop-content">
+                    <div class="form-group">
+                        <label class="form-item import">
+                            <input class="reset input" type="text" name="name" placeholder="码包名称" val="">
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-item import">
+                            <input class="reset input" type="tel" name="count" placeholder="二维码数量" val="0">
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <a class="import listener" data-click="relevance">
+                            <span class="relevance-name">关联产品</span>
+                            <span class="formdown-icon"></span>
+                            <span style="display: none;" class="relevance-id"></span>
+                            <div class="dropdown-list" id="relevance-product">
+                                <ul>
+                                    <script type="text/html" id="template_relevance">
+                                        {{ for(var i = 0,len=productList.length; i < len; i++){ }}
+                                        <li class="dropdown-item"
+                                            data-type="{{= productList[i].packageType === 1 ? '盒' : '条'}}"
+                                            data-productid="{{= productList[i].productId}}">{{= productList[i].name}}
+                                        </li>
+                                        {{ } }}
+                                    </script>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="form-group rules-content">
+                        <a href="javascript:;" class="form-rules listener" data-click="form-down">
+                            <span class="rules-text">产品规格</span>
+                        </a>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="textarea" rows="4" maxlength="40" type="text" name="remarks"
+                                  placeholder="码包备注,最多40个字符"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <span class="form-item">是否包含数字验证码</span>
+                        <div class="menu_c">
+                            <div class="yes_c  j_active">是</div>
+                            <div class="no_c">否</div>
+                        </div>
+                    </div>
+                    <div class="form-group code-checkes clearfix">
+                        <label class="code-check1 code-check checked">
+                            <input class="check" checked type="radio" name="code" value="4"> 四位验证码
+                        </label>
+                        <label class="code-check2 code-check">
+                            <input class="check" type="radio" name="code" value="6"> 六位验证码
+                        </label>
+                    </div>
+
+                    <div class="add-btns clearfix">
+                        <a href="javascript:;" class="add-btn" data-click="add-btn">确定新增</a>
+                        <a href="javascript:;" class="compile-btn" data-click="compile-btn">确认修改</a>
+                        <a href="javascript:;" class="cancel-btn" data-click="cancel-btn">取消</a>
+                    </div>
+                    <div class="tip">提示：成码域名为 <span class="tip-url">空</span></div>
+                </div>
+            </div>
+            <!-- 作废弹窗 -->
+            <!-- <div class="void-code clearfix invisible">
+                <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qr/void.png" class="void">
+                <p class="void-text">作废后将无法恢复，<br>所有批次内二维码均无法访问</p>
+                <a href="javascript:;" class="void-btn" data-click="void-btn">确认作废</a>
+                <a href="javascript:;" class="cancel-btn" data-click="cancel-btn">取消</a>
+            </div> -->
+            <!-- 日志弹窗 -->
+            <div class="log-pop invisible">
+                <h3 class="log-title">码包操作日志</h3>
+                <ul class="log-list" id="log-list">
+                    <script type="text/html" id="template_loglist">
+                        {{ if (batchProcess.length <= 0){ }}
+                        <li>操作日志为空</li>
+                        {{ }else { }}
+                        {{for (var i = 0,len = batchProcess.length; i < len; i++) { }}
+                        <li class="log-item clearfix">
+                            <p class="log-operat">{{= batchProcess[i].action.replace(/(,)|(，)/g, ' ').split(' ')[0]}}<br><span
+                                    class="operat-name">{{= batchProcess[i].operator}}</span></p>
+
+                            <p class="log-time">{{= batchProcess[i].createTime}}</p>
+                            {{ } }}
+                            {{ } }}
+                        </li>
+                    </script>
+
+                </ul>
+                <a href="javascript:;" data-click="return" class="return text-center">返回</a>
+            </div>
+            <div class="backspace" data-click="backspace"></div>
+        </div>
+    </div>
+</div>
+<script src="//pv.tbul.cn/pv.js?sid=UUxE9ifwx"></script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/babel/polyfill.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/common/common.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/clipboard/dist/clipboard.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/microtemplating/microtemplating.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/moment/min/moment.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/moment/locale/zh-cn.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/dropload/dist/dropload.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/qr/code_manage.min.js"></script>
+</body>
+</html>

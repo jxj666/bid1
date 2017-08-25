@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<title>活动管理</title>
+<link rel="icon" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/common/cj.png">
+<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/common.min.css">
+<script type="text/javascript">
+    function get_hfs(designWidth, rem2px) {
+        designWidth = designWidth || 750;
+        rem2px = rem2px || 100;
+        var d = window.document.createElement('div');
+        d.style.width = '1rem';
+        d.style.display = "none";
+        var head = window.document.getElementsByTagName('head')[0];
+        head.appendChild(d);
+        var defaultFontSize = parseFloat(window.getComputedStyle(d, null).getPropertyValue('width'));
+//        d.remove();
+//        document.documentElement.style.fontSize = window.innerWidth / designWidth * rem2px / defaultFontSize * 100 + '%';
+        var st = document.createElement('style');
+        var portrait = "@media screen and (min-width: " + window.innerWidth + "px) {html{font-size:" + ((window.innerWidth / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+        var landscape = "@media screen and (min-width: " + window.innerHeight + "px) {html{font-size:" + ((window.innerHeight / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+        st.innerHTML = portrait + landscape;
+        head.appendChild(st);
+        return defaultFontSize;
+    }
+    get_hfs();
+</script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/pace/pace.min.js"></script>
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/flatpickr/dist/flatpickr.css">
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/flatpickr/dist/plugins/confirmDate/confirmDate.css">
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/flatpickr/dist/themes/material_blue.css">
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/acms/project-template-main.min.css">
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/acms/project-template-code.min.css">
+</head>
+<!-- ^_^
+特殊前后缀说明:
+前缀:1. g_ 布局 2. m_ 模块 3. j_ 交互
+后缀:1. _h 头部 2. _b 主体 3. _f 尾部 4. _s 段落 5. _n 导航 6. _a 部分/其他 7. _c 控制 8. _e 说明
+^_^ -->
+
+<body class="body">
+    <!-- 头部大图 -->
+    <div class="banner"></div>
+    <!-- 活动与数据 -->
+    <div class="g_notice_data">
+        <div class="data_title">
+            <h3></h3>
+            <button type="button" class="btn demo_btn">点击体验</button>
+        </div>
+        <div class="base_data">
+            <h5>基础数据</h5>
+            <div class="base-data">
+                <button type="button" class="base-data_btn" data-cj="goData">查看数据</button>
+            </div>
+            <div class="data_wall">
+                <div class="data_boxs">
+                    <div class="data_box">
+                        <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/notice_07.png" alt="tb">
+                        <h6>用户访问量</h6>
+                        <p data-info="yUV"></p>
+                    </div>
+                    <div class="data_box">
+                        <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/notice_09.png" alt="tb">
+                        <h6>页面访问量</h6>
+                        <p data-info="yPV"></p>
+                    </div>
+                    <div class="data_box">
+                        <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/notice_12.png" alt="tb">
+                        <h6>扫码访问量</h6>
+                        <p data-info="yScan"></p>
+                    </div>
+                    <div class="data_box">
+                        <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/choujiang.png" alt="tb">
+                        <h6>抽奖总数</h6>
+                        <p data-info="yDraw"></p>
+                    </div>
+                    <div class="data_box">
+                        <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/order.png" alt="tb">
+                        <h6>订单总数</h6>
+                        <p data-info="yOrder"></p>
+                    </div>
+                    <div class="data_box">
+                        <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/acms/fee.png" alt="tb">
+                        <h6>订单总金额</h6>
+                        <p data-info="yOrderMoney"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 相关配置 -->
+    <div class="g_notice_set">
+        <div class="set_switch">
+            <div class="switch_n">
+                <ul class="nav clearfix">
+                    <li class="j_active" data-cj="tab" data-target="#attr">活动属性</li>
+                    <li data-cj="tab" data-target="#notice">公告配置</li>
+                    <li data-cj="tab" data-target="#strategy">礼品和策略</li>
+                    <li data-cj="tab" data-target="#codePackage">关联码包</li>
+                    <!--<li data-cj="tab" data-target="#power">权限管理</li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="tab-content g_strategy_set">
+            <!--活动属性-->
+            <form class="set_menu fade active in" id="attr">
+                <!--<div class="attr-edit_head clearfix">
+                <a href="#modal-attr" class="attr-edit_btn fr" data-cj="modal">编辑</a>
+            </div>-->
+                <script type="text/html" id="template_params">
+                    <div class="attr-edit_block">
+                        <div class="attr-edit_title">
+                            <span class="icon icon-color">色系</span>
+                        </div>
+                        <div class="attr-edit_content m-t-20">
+                            <ul class="color-block_container" data-act_style="{{= params['acms.act.style'] && params['acms.act.style'].value }}">
+                                <li class="color-block_item">
+                                    <a href="javascript:;" class="color-block color-ffe5bc"></a>
+                                </li>
+                                <li class="color-block_item">
+                                    <a href="javascript:;" class="color-block color-ffe1cf"></a>
+                                </li>
+                                <li class="color-block_item active">
+                                    <a href="javascript:;" class="color-block color-96e6fd"></a>
+                                </li>
+                                <li class="color-block_item">
+                                    <a href="javascript:;" class="color-block color-eee"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="attr-edit_block">
+                        <div class="attr-edit_title">
+                            <span class="icon icon-theme">主题设置</span>
+                        </div>
+                        <div class="attr-edit_content">
+                            <ul class="attr-edit_show">
+                                <li class="attr-show_item clearfix">
+                                    <div class="label">活动主题文字：</div>
+                                    <input class="value width" type="text" maxlength="16" data-parsley-maxlength="16" placeholder="活动主题，字数不可超过16字..." name="acms.act.title" value="{{= params['acms.act.title'] && params['acms.act.title']['value'] }}">
+                                </li>
+                                <li class="attr-show_item clearfix">
+                                    <div class="label">背景图：</div>
+                                    <a href="#modal-upLoadImg" class="value" data-cj="modal" data-img="act-background">
+                                    {{= params['acms.act.background'] && params['acms.act.background']['value']?
+                                    params['acms.act.background']['value']:'点击上传图片'}}
+
+                                </a>
+                                    <input type="hidden" value="{{= params['acms.act.background'] && params['acms.act.background']['value'] }}" name="acms.act.background">
+                                </li>
+                                <li class="attr-show_item clearfix">
+                                    <div class="label">活动主题banner图：</div>
+                                    <a href="#modal-upLoadImg" class="value" data-cj="modal" data-img="banner">
+                                    点击上传图片
+                                </a>
+                                    <input type="hidden" id="banner">
+                                </li>
+                                <li class="attr-show_item clearfix">
+                                    <div class="label">页面二维码：</div>
+                                    <a href="#modal-upLoadImg" class="value" data-cj="modal" data-img="qrcode">
+                                    {{= params['acms.act.qr'] && params['acms.act.qr']['value']?
+                                    params['acms.act.qr']['value']:'点击上传图片'}}
+
+                                </a>
+                                    <input type="hidden" value="{{= params['acms.act.qr'] && params['acms.act.qr']['value'] }}" name="acms.act.qr">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="attr-edit_block copywriting-content">
+                        <div class="attr-edit_title">
+                            <span class="icon icon-info">文案编辑</span>
+                        </div>
+                        <div class="attr-edit_content">
+                            <ul class="attr-edit_show">
+                                <li class="attr-show_item clearfix">
+                                    <div class="label">奖项规则：</div>
+                                    <!-- <input class="value" value="{{= params['acms.act.rules'] && params['acms.act.rules']['value'] }}" name="acms.act.rules"> -->
+                                    <div contenteditable=true  class="copywriting value" id="copywriting_rules">{{= params['acms.act.rules'] && params['acms.act.rules']['value'] }}</div>
+                                </li>
+                                <li class="attr-show_item clearfix">
+                                    <div class="label">联系客服文案：</div>
+                                    <div contenteditable=true  class="copywriting value" id="copywriting_kefu">{{= params['acms.act.cstext'] && params['acms.act.cstext']['value'] }}</div>
+                                </li>
+                                <li class="attr-show_item clearfix">
+                                    <div class="label">底部文案：</div>
+                                    <div contenteditable=true class="copywriting value" id="copywriting_footer">{{= params['acms.act.copyright'] && params['acms.act.copyright']['value'] }}</div>
+                                </li>
+                                <li class="attr-show_item clearfix">
+                                    <div class="label">活动主办方：</div>
+                                    <div contenteditable=true  class="copywriting value" id="copywriting_sponsor">{{= params['acms.act.org'] && params['acms.act.org']['value'] }}</div>
+                                </li>
+                                <li class="attr-show_item clearfix">
+                                    <div class="label">公众号：</div>
+                                    <!-- <div contenteditable=true  class="copywriting value" id="copywriting_wechat">{{= params['acms.act.wechat'] && params['acms.act.wechat']['value'] }}</div> -->
+                                    <select class="copywriting value" id="copywriting_wechat">
+                                    <option>{{= params['acms.act.wechat'] && params['acms.act.wechat']['value'] }}</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="attr-edit_block">
+                        <div class="attr-edit_title">
+                            <span class="icon icon-time">时间设置</span>
+                        </div>
+                        <ul class="attr-edit_content attr-edit_show">
+                            <li class="attr-show_item clearfix">
+                                <label class="label" for="actBeginTime">开始时间：</label>
+                                <input type="text" class="value flatpickr flatpickr-input" id="actBeginTime" data-parsley-required>
+                            </li>
+                            <li class="attr-show_item clearfix">
+                                <label class="label" for="actEndTime">结束时间：</label>
+                                <input type="text" class="value flatpickr flatpickr-input" id="actEndTime" data-parsley-required>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="attr-edit_block">
+                        <div class="attr-edit_title">
+                            <span class="icon icon-bc">小广播设置</span>
+                        </div>
+                        <div class="attr-edit_content">
+                            <ul class="attr-edit_show">
+                                {{ if(params['acms.act.broadcast.type']){ }}
+                                <li class="attr-show_item">
+                                    {{ if(params['acms.act.broadcast.type']['value'] == 0){ }}
+                                    <label class="radio checked">
+                                        <input type="radio" checked hidden name="acms.act.broadcast.type" value="0">不显示
+                                    </label>
+                                    {{ }else{ }}
+                                    <label class="radio">
+                                        <input type="radio" hidden name="acms.act.broadcast.type" value="0">不显示
+                                    </label>
+                                    {{ } }}
+                                </li>
+                                <li class="attr-show_item">
+                                    {{ if(params['acms.act.broadcast.type']['value'] == 1){ }}
+                                    <label class="radio checked">
+                                        <input type="radio" checked hidden name="acms.act.broadcast.type" value="1">显示最新中奖记录
+                                    </label>
+                                    {{ }else{ }}
+                                    <label class="radio">
+                                        <input type="radio" hidden name="acms.act.broadcast.type" value="1">显示最新中奖记录
+                                    </label>
+                                    {{ } }}
+                                </li>
+                                <li class="attr-show_item">
+                                    {{ if(params['acms.act.broadcast.type']['value'] == 2){ }}
+                                    <label class="radio checked">
+                                        <input type="radio" checked hidden name="acms.act.broadcast.type" value="2">显示指定商品的中奖记录
+                                    </label>
+                                    {{ }else{ }}
+                                    <label class="radio">
+                                        <input type="radio" hidden name="acms.act.broadcast.type" value="2">显示指定商品的中奖记录
+                                    </label>
+                                    {{ } }}
+                                </li>
+                                {{ }else{ }}
+                                <li class="attr-show_item">
+                                    <label class="radio">
+                                        <input type="radio" hidden name="acms.act.broadcast.type" value="0">不显示
+                                    </label>
+                                </li>
+                                <li class="attr-show_item">
+                                    <label class="radio">
+                                        <input type="radio" hidden name="acms.act.broadcast.type" value="1">显示最新中奖记录
+                                    </label>
+                                </li>
+                                <li class="attr-show_item">
+                                    <label class="radio">
+                                        <input type="radio" hidden name="acms.act.broadcast.type" value="2">显示指定商品的中奖记录
+                                    </label>
+                                </li>
+                                {{ } }}
+                                <li class="attr-show_item">
+                                    <ul class="prizes-block_container">
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="submit" class="hide">保存属性</button>
+                </script>
+            </form>
+            <!--公告-->
+            <div class="set_menu fade" id="notice">
+                <div class="menu_h">
+                    <p>是否启用公告列表</p>
+                    <div class="menu_c">
+                        <div class="yes_c  j_active">是</div>
+                        <div class="no_c">否</div>
+                    </div>
+                </div>
+                <div class="menu_b">
+                </div>
+            </div>
+            <!--礼品策略-->
+            <form class="set_menu set_boxs fade" id="strategy">
+                <div class="m_set gift">
+                    <h3>礼品列表</h3>
+                    <div class="gifts">
+                        <div class="gifts_box" id="existsList">
+                            <div class="gift_s">
+                                <a href="#modal-strategy" data-cj="modal"><h3 class="j_add_gift"></h3></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m_set strategy">
+                    <h3>策略配置</h3>
+                    <div class="first_set">
+                        <a href="#modal-rate" data-cj="modal" data-group="first">对应概率</a>
+                        首次必中：
+                        <select name="acms.act.award.first.sku" id="firstSku">
+                            <option value="-1">暂无奖品</option>
+                        </select>
+                        <ul class="attr-edit_show">
+                            <li class="attr-show_item clearfix">
+                                <label class="label" for="firstBeginTime">开始时间：</label>
+                                <input type="text" class="value flatpickr flatpickr-input" placeholder="点击选择时间" id="firstBeginTime">
+                            </li>
+                            <li class="attr-show_item clearfix">
+                                <label class="label" for="firstEndTime">结束时间：</label>
+                                <input type="text" class="value flatpickr flatpickr-input" placeholder="点击选择时间" id="firstEndTime">
+                            </li>
+                        </ul>
+                        <!--<select name="third_bag" id="">
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                    </select>
+                    次之后概率降低
+                    <select name="third_time" id="">
+                        <option value="all">整个活动期间</option>
+                        <option value="month3">三个月</option>
+                        <option value="month1">一个月</option>
+                        <option value="week">一周</option>
+                        <option value="day">一天</option>
+                    </select>-->
+                    </div>
+                    <!--<div class="people_set">
+                    <div class="set_a">
+                        <p>灰名单策略</p>
+                        <button>对应概率</button>
+                        <button>灰名单规则</button>
+                        <button>灰名单名单</button>
+                    </div>
+                    <div class="set_a">
+                        <p>白名单策略</p>
+                        <button>对应概率</button>
+                        <button>白名单规则</button>
+                        <button>白名单名单</button>
+                    </div>
+                </div>-->
+                </div>
+                <div class="m_set waring">
+                    <h3>预警配置</h3>
+                    <div class="set_l">
+                        <p>礼品库存提醒点</p>
+                        <input type="tel" name="acms.act.alert.quantity" value="0" data-parsley-required data-parsley-type="integer" data-parsley-min="0">
+                    </div>
+                    <div class="set_l">
+                        <p>当日礼品总费用提醒点</p>
+                        <input type="tel" name="acms.act.alert.cost.day" value="0" data-parsley-required data-parsley-type="integer" data-parsley-min="0">
+                    </div>
+                    <div class="set_l">
+                        <p>礼品总费用提醒点</p>
+                        <input type="tel" name="acms.act.alert.cost.total" value="0" data-parsley-required data-parsley-type="integer" data-parsley-min="0">
+                    </div>
+                </div>
+                <button type="submit" class="hide">礼品设置</button>
+            </form>
+            <!-- 关联码包 -->
+            <div class="set_menu fade" id="codePackage">
+                <a href="#modal-codepackage" class="add-code-btn" data-cj="modal"> <span class="btn-icon">+</span>新增关联码包</a>
+                <div class="card-list"></div>
+            </div>
+            <!--权限设置-->
+            <!--<div class="set_menu fade" id="power">
+            <div class="power-edit_head clearfix">
+                <a href="#modal-power" class="power-edit_btn fr" data-cj="modal">编辑</a>
+            </div>
+            <div class="power-edit_block">
+                <div class="power-edit_title">
+                    <span class="icon icon-user">活动编辑人员</span>
+                </div>
+                <div class="power-edit_content">
+                    <div class="power-content_item m-t-20">
+                        <div>王二宝</div>
+                        <ul class="power-block_container">
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可上线</a>
+                            </li>
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可下线</a>
+                            </li>
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可编辑</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="power-content_item m-t-20">
+                        <div>王二宝</div>
+                        <ul class="power-block_container">
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可下线</a>
+                            </li>
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可编辑</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="power-edit_block">
+                <div class="power-edit_title">
+                    <span class="icon icon-power">数据报告查看权限</span>
+                </div>
+                <div class="power-edit_content">
+                    <div class="power-content_item m-t-20">
+                        <div>王二宝</div>
+                        <ul class="power-block_container">
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可上线</a>
+                            </li>
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可下线</a>
+                            </li>
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可编辑</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="power-content_item m-t-20">
+                        <div>王二宝</div>
+                        <ul class="power-block_container">
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可下线</a>
+                            </li>
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可编辑</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        </div>
+        <!-- 底部按钮 -->
+        <div class="footer-btn_container">
+            <button type="button" data-cj="updateParams" class="btn footer-btn_save">保存</button>
+            <button type="button" data-cj="resetParams" class="btn footer-btn_reset">重置</button>
+        </div>
+    </div>
+    <!--上传图片弹窗-->
+    <form class="g_notice_pop hide" id="modal-upLoadImg">
+        <div class="pop_box">
+            <div class="box_g clearfix">
+                <div class="overflow-x m-t-40">
+                    <ul class="bg-img_container">
+                        <li class="bg-img_item" data-type="file">
+                            <div class="pic bg-img">
+                                <img src="//saascore.oss-cn-beijing.aliyuncs.com/custom/img/common/upload-m.jpg" alt="分享图">
+                                <input type="file" class="file" accept="image/png,image/jpg,image/jpeg" name="file" value="上传图片" data-cj="imgUpload">
+                                <div class="weixin-upload" data-cj="wxUpLoad">微信上传按钮</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <input type="text" class="form-control" name="thumb" required data-info="url" />
+                    <p>* 点击上传本地图片或直接输入图片url地址</p>
+                </div>
+                <h6 class="text-center validate-error"></h6>
+                <div class="modal-footer m-t-40">
+                    <button type="button" class="btn save" data-cj="imgSave">确定</button>
+                    <a href="#modal-upLoadImg" data-dismiss="modal" class="btn default">取消</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- 公告弹窗 -->
+    <div class="g_notice_pop hide" id="modal-notice">
+        <div class="pop_box">
+            <div class="box_h">
+                <h2>内容编辑</h2></div>
+            <div class="box_g">
+                <div class="box_a">
+                    <h5>公告图片上传</h5>
+                    <div class="img_up">
+                        <h5>+</h5>
+                        <h6>点击上传</h6>
+                        <p>建议图片尺寸（690*340）</p>
+                    </div>
+                    <input id="j_img_up" type="file" name="" style="width: 0;height: 0;visibility: hidden;">
+                </div>
+                <div class="box_a">
+                    <h5>主题设置</h5>
+                    <div class="title_set">
+                        <h6>活动主题文字:</h6>
+                        <input type="text" name="" maxlength="16" placeholder="请输入活动主题，字数不可超过16字">
+                    </div>
+                </div>
+                <div class="box_a">
+                    <h5>时间设置</h5>
+                    <div class="time_a">
+                        <div class="time_s"><span>开始时间:</span>
+                            <input type="date" id="noticeBeginTime" placeholder="点击选择时间">
+                        </div>
+                        <div class="time_s"><span>结束时间:</span>
+                            <input type="date" id="noticeEndTime" placeholder="点击选择时间">
+                        </div>
+                    </div>
+                </div>
+                <div class="box_a">
+                    <div class="link">
+                        <div class="link_e">（非必填选项）</div>
+                        <input type="text" name="" placeholder="请输入跳转链接">
+                    </div>
+                </div>
+            </div>
+            <div class="box_f">
+                <div class="menu_h">
+                    <p>是否顶置</p>
+                    <div class="menu_c">
+                        <div class="yes_c  j_active">是</div>
+                        <div class="no_c">否</div>
+                    </div>
+                    <div class="modal-footer m-t-40 p-b-60">
+                        <a href="javascript:;" class="btn save">保存</a>
+                        <a href="#modal-notice" data-dismiss="modal" class="btn default">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 礼品策略弹窗 -->
+    <div class="g_strategy_pop hide" id="modal-strategy">
+        <!-- 礼品配置 -->
+        <div class="pop_box" id="orgEdit">
+            <div class="box_h">
+                <h2>礼品配置</h2>
+            </div>
+            <div class="box_gift_b">
+                
+                <div class="gift_s">
+                    <h5>礼品选择</h5>
+                    <div class="gift_boxs">
+                        <div class="gift_box clearfix">
+                            <div class="m_box" data-cj="modal" data-target="#org-quantity">
+                                <h3 class="j_add_gift"></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gift_c" id="quantity-config">
+                    <div class="gift_l total_a">
+                        <h5>库存设置</h5>
+                        <div class="m_input">
+                            <span>增加库存:</span>
+                            <input type="tel" name="quantity" placeholder="0" disabled value="" data-parsley-required data-parsley-type="integer" data-parsley-min="0">
+                            <span class="m-input_info">最多可添加<b data-info="allQuantity"></b></span>
+                        </div>
+                    </div>
+                    <div class="gift_l mode_a">
+                        <h5>参与方式</h5>
+                        <h6>是否需要拆礼盒</h6>
+                        <div class="menu_c">
+                            <div class="yes_c" data-cj="changeStatus">是</div>
+                            <div class="no_c j_active" data-cj="changeStatus">否</div>
+                            <input type="hidden" name="needHelp" data-parsley-required value="0">
+                        </div>
+                    </div>
+                    <div class="gift_l percent_a">
+                        <h5>概率设置</h5>
+                        <div class="m_input">
+                            <p>默认概率:</p>
+                            <input type="tel" name="defaultRate" placeholder="请输入默认概率" disabled value="0" data-parsley-required data-parsley-type="number" data-parsley-min="0" data-parsley-max="100">
+                        </div>
+                        <!-- <h6 class="validate-error" data-info="validate"></h6> -->
+                    </div>
+                </div>
+                <h6 class="validate-error" data-info="validate"></h6>
+            </div>
+            <div class="box_f">
+                <div class="menu_h">
+                    <div class="menu_btns">
+                        <button type="button" data-cj="updateEexists" class="j_yes">确定</button>
+                        <button type="button" data-target="#modal-strategy" data-dismiss="modal" class="j_no">取消
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--总奖品库-->
+        <div class="pop_box hide" id="org-quantity">
+            <div class="box_h">
+                <h2>选择奖品</h2>
+            </div>
+            <div class="box_gift_b">
+                <div class="gift_s">
+                    <h5>礼品列表</h5>
+                    <form class="org-list">
+                    </form>
+                </div>
+            </div>
+            <div class="box_f">
+                <div class="menu_h">
+                    <div class="menu_btns">
+                        <button type="button" class="j_yes" data-cj="notAdd2Eexists">确定</button>
+                        <button type="button" data-target="#org-quantity" data-dismiss="modal" class="j_no">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 黑白名单 -->
+        <!--<div class="pop_box pop_box3 hide">
+        <div class="box_h">
+            <h2>名单</h2>
+            <h3>(总数: <span>233</span> 人)</h3>
+        </div>
+        <div class="box_list_b">
+            <div class="m_people">
+                <h5 class="name">微信名称</h5>
+                <h5 class="phone">12311112222</h5>
+            </div>
+            <div class="m_people">
+                <h5 class="name">微信名称</h5>
+                <h5 class="phone">12311112222</h5>
+            </div>
+            <div class="m_people">
+                <h5 class="name">微信名称</h5>
+                <h5 class="phone">12311112222</h5>
+            </div>
+            <div class="m_people">
+                <h5 class="name">微信名称</h5>
+                <h5 class="phone">12311112222</h5>
+            </div>
+            <div class="m_people">
+                <h5 class="name">微信名称</h5>
+                <h5 class="phone">12311112222</h5>
+            </div>
+            <div class="m_people">
+                <h5 class="name">微信名称</h5>
+                <h5 class="phone">12311112222</h5>
+            </div>
+            <div class="m_people">
+                <h5 class="name">微信名称</h5>
+                <h5 class="phone">12311112222</h5>
+            </div>
+        </div>
+        <div class="box_f">
+            <div class="menu_h">
+                <div class="menu_btns">
+                    <button class="j_yes">确定</button>
+                    <button class="j_no">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    </div>
+    <!--对应概率-->
+    <form class="g_strategy_pop hide" id="modal-rate">
+        <!-- 对应概率 -->
+        <div class="pop_box">
+            <div class="box_h">
+                <h2>对应概率</h2>
+            </div>
+            <div class="box_num_b">
+            </div>
+            <div class="box_f">
+                <div class="menu_h">
+                    <div class="menu_btns">
+                        <button type="button" class="j_yes" data-cj="save">确定</button>
+                        <button type="button" data-target="#modal-rate" data-dismiss="modal" class="j_no">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- 关联码包弹窗 -->
+    <div class="pop hide" id="modal-codepackage">
+        <!-- 扫码规则 -->
+        <div class="rules-pop clearfix invisible">
+            <h3 class="rules-title">扫码规则</h3>
+            <div class="rules-content">
+                <p class="rules-top">奖励规则</p>
+                <div class="rules-p">每码验真有奖限制前几次
+                    <input type="tel" placeholder="请输入数字" name="limit_per_day" min="0">
+                </div>
+                <div class="rules-p">每人一天奖励限制次数
+                    <input type="tel" placeholder="请输入数字" name="rewards_per_code" min="0">
+                </div>
+                <!--<p class="rules-top">扫码落地页文案</p>
+                <textarea class="textarea">请输入包装内6位验证码验真参与活动，请输入包装内6位验证码验真参与活动，请输入包装内6位验证码验真参与活动，请输入包装内6位验证码验真参与</textarea>
+                <p class="rules-top">验真结果页文案</p>
+                <textarea class="textarea">请输入包装内6位验证码验真参与活动，请输入包装内6位验证码验真参与活动，请输入包装内6位验证码验真参与活动，请输入包装内6位验证码验真参与</textarea>
+                -->
+            </div>
+            <div class="clearfix">
+                <div class="compile-btn" data-click="compile-btn">确定修改</div>
+                <a href="#modal-codepackage" class="cancel-btn" data-dismiss="modal">取消</a>
+            </div>
+            <h6 class="validate-error text-center"></h6>
+        </div>
+        <!-- 投放新增 -->
+        <div class="launch-pop clearfix invisible">
+            <h3 class="launch-title">码包管理</h3>
+            <div class="launch-content">
+                <div class="form-group">
+                    <label class="form-item">
+                        <input class="import" type="text" id="planName" placeholder="计划名称">
+                    </label>
+                </div>
+                <!-- <div class="form-group">
+                <label class="form-item">
+                    <input class="import flatpickr flatpickr-input" type="text" id="planTime" placeholder="投放时间">
+                </label>
+                </div> -->
+                <div class="form-group">
+                    <label class="form-item">
+                        <input type="text" class="before-content import flatpickr flatpickr-input" id="planBeginTime" placeholder="开始时间" data-click-opens="true">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="form-item">
+                        <input type="text" class="before-content import flatpickr flatpickr-input" id="planEndTime" placeholder="结束时间">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <div class="relevance" data-cj="relevance">
+                        <div class="relevance-title">
+                            <span>选择投放区域</span>
+                            <span class="dropdown-icon"></span>
+                        </div>
+
+                        <div class="dropdown-list invisible">
+                            <ul id="provinceList" class="pid-list">
+                            </ul>
+                            <ul id="cityList" class="batch-no-list">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="show-region">
+
+                    </div>
+                    <script type="text/html" id="template_showregion">
+                        {{ if (provinceObj.provinces && !$.isEmptyObject(provinceObj.provinces)) { }}
+                        {{ for (var key in provinceObj.provinces) { }}
+                        <div class="batch-list">
+                            {{ if(provinceObj.provinces[key].status == 1){ }}
+                            <span class="product checked" data-province="{{= key }}">{{= provinceObj.provinces[key].short_name }}</span>
+                            {{ }else if(provinceObj.provinces[key].cities && !$.isEmptyObject(provinceObj.provinces[key].cities)){ }}
+                            <span class="product" data-province="{{= key }}">{{= provinceObj.provinces[key].short_name }}</span>
+                            {{ } }}
+                            {{ if (provinceObj.provinces[key].cities && !$.isEmptyObject(provinceObj.provinces[key].cities)) { }}
+                            {{ for(var index in provinceObj.provinces[key].cities){ }}
+                            <span class="batch bg-color" data-provincecode="{{= key }}" data-city="{{= index }}">{{= provinceObj.provinces[key].cities[index] }}</span>
+                            {{ } }}
+                            {{ } }}
+                        </div>
+                        {{ } }}
+                        {{ } }}
+                    </script>
+                </div>
+                <div class="form-group">
+                    <div class="relevance" data-cj="relevance">
+                        <div class="relevance-title">
+                            <span>选择关联批次</span>
+                            <span class="dropdown-icon"></span>
+                        </div>
+
+                        <div class="dropdown-list invisible">
+                            <ul id="pidList" class="pid-list">
+                                <li>暂无产品</li>
+                            </ul>
+                            <ul id="batchNoList" class="batch-no-list">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="show-batch">
+                    </div>
+                    <script type="text/html" id="template_showbatch">
+                        {{ if (batchParamsObj.pids && !$.isEmptyObject(batchParamsObj.pids)) { }}
+                        {{ for (var key in batchParamsObj.pids) { }}
+                        <div class="batch-list">
+                            {{ if(batchParamsObj.pids[key].status == 1){ }}
+                            <span class="product checked" data-pid="{{= key }}">{{= batchParamsObj.pids[key].name }}</span>
+                            {{ }else if(batchParamsObj.pids[key].batches && !$.isEmptyObject(batchParamsObj.pids[key].batches)){ }}
+                            <span class="product" data-pid="{{= key }}">{{= batchParamsObj.pids[key].name }}</span>
+                            {{ } }}
+                            {{ if (batchParamsObj.pids[key].batches && !$.isEmptyObject(batchParamsObj.pids[key].batches)) { }}
+                            {{ for(var index in batchParamsObj.pids[key].batches){ }}
+                            <span class="batch bg-color" data-productid="{{= key }}" data-batchno="{{= index }}">{{= batchParamsObj.pids[key].batches[index] }}</span>
+                            {{ } }}
+                            {{ } }}
+                        </div>
+                        {{ } }}
+                        {{ } }}
+                    </script>
+                </div>
+                <div class="clearfix">
+                    <div class="compile-btn" data-click="compile-btn">确定</div>
+                    <a href="#modal-codepackage" class="cancel-btn" data-dismiss="modal">取消</a>
+                </div>
+                <h6 class="validate-error text-center"></h6>
+            </div>
+        </div>
+        <!-- 计划下线 -->
+        <div class="offline-pop clearfix invisible">
+            <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/qr/off_line.png" class="offline-img">
+            <p class="warning">下线后对应策略均会失效</p>
+            <div class="clearfix">
+                <div class="compile-btn" data-cj="offLine">确定下线</div>
+                <a href="#modal-codepackage" class="cancel-btn" data-dismiss="modal">取消</a>
+            </div>
+        </div>
+        <!-- 投放计划操作日志 -->
+        <div class="log-pop invisible">
+            <h3 class="log-title">投放计划操作日志</h3>
+            <ul class="log-list">
+                <li class="log-item clearfix">
+                    <p class="log-operat">二维码批次修改<span class="operat-name">王二宝</span></p>
+                    <p class="log-time">2017.03.07 14:02:02</p>
+                </li>
+            </ul>
+            <a href="#modal-codepackage" data-dismiss="modal" class="return text-center border-radius">返回</a>
+        </div>
+    </div>
+    <!-- 权限弹窗 -->
+    <!--<div class="g_notice_pop hide" id="modal-power">
+<div class="pop_box">
+    <div class="box_h">
+        <h2>权限编辑</h2></div>
+    <div class="box_g">
+        <div class="box_a">
+            <div class="power-edit_block">
+                <div class="power-edit_title">
+                    活动编辑人员
+                </div>
+                <div class="power-edit_content">
+                    <div class="power-content_item m-t-20">
+                        <div>王二宝</div>
+                        <ul class="power-block_container">
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可上线</a>
+                            </li>
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可下线</a>
+                            </li>
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可编辑</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="power-content_item m-t-20">
+                        <div>王二宝</div>
+                        <ul class="power-block_container">
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可下线</a>
+                            </li>
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可编辑</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box_a">
+            <div class="power-edit_block">
+                <div class="power-edit_title">
+                    数据报告查看权限
+                </div>
+                <div class="power-edit_content">
+                    <div class="power-content_item m-t-20">
+                        <div>王二宝</div>
+                        <ul class="power-block_container">
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可上线</a>
+                            </li>
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可下线</a>
+                            </li>
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可编辑</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="power-content_item m-t-20">
+                        <div>王二宝</div>
+                        <ul class="power-block_container">
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可下线</a>
+                            </li>
+                            <li class="power-block_item">
+                                <a href="javascript:;" class="power-block">可编辑</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer m-t-60 p-b-60">
+            <a href="javascript:;" class="btn save">确定</a>
+            <a href="#modal-power" data-dismiss="modal" class="btn default">取消</a>
+        </div>
+    </div>
+</div>
+</div>-->
+    <script type="text/html" id="template_area">
+        {{ for(var i=0;i
+        < district_list.length;i++){ }} <option value="{{= district_list[i].code }}">{{= district_list[i].name }}</option>
+            {{ } }}
+    </script>
+    <script src="//pv.tbul.cn/pv.js?sid=UUxE9ifwx"></script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/babel/polyfill.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/common/common.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/dropload/dist/dropload.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/flatpickr/dist/l10n/zh.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/flatpickr/dist/plugins/confirmDate/confirmDate.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/parsley/dist/parsley.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/parsley/dist/i18n/zh_cn.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/microtemplating/microtemplating.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/acms/location_data.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/acms/project-template-main.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/acms/project-template-notice.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/acms/project-template-code.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>扫码</title>
+</head>
+<body>
+<div class="scan-code_img">
+    <img src="//weiop.oss-cn-beijing.aliyuncs.com/common/img/scan-code.png" alt=""/>
+    <div class="scan-line"></div>
+</div>
+<div class="btn" id="scanQRCode">扫码</div>
+<div class="btn" id="goBack">返回</div>
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+    var ua = navigator.userAgent.toLowerCase();
+    var isWeixin = ua.indexOf('micromessenger') != -1;
+    if (isWeixin) {
+        var prevent = {};
+        prevent.please = '${token}', prevent.dnot = '${timestamp_token}', prevent.passit = '${page.pageId}';
+        var weixin_token = {
+            appId: '${appid}',
+            timestamp: ${timestamp},
+            nonceStr: '${noncestr}',
+            signature: '${jssdk_sign}'
+        };
+        wx.config({
+            debug: false, //
+            appId: weixin_token.appId, // 必填，公众号的唯一标识
+            timestamp: weixin_token.timestamp, // 必填，生成签名的时间戳
+            nonceStr: weixin_token.nonceStr, // 必填，生成签名的随机串
+            signature: weixin_token.signature,// 必填，签名，见附录1
+            jsApiList: [
+                'scanQRCode',
+                'closeWindow',
+                'hideAllNonBaseMenuItem'
+            ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+        var urlReg = /^https?:\/\/(([a-zA-Z0-9_-])+(\.)?)*(:\d+)?(\/((\.)?(\?)?=?&?[a-zA-Z0-9_-](\?)?)*)*$/i;
+        var ruReg = new RegExp('[?&]ru=(.*)', 'ig');
+        var ru = location.href.match(ruReg) ? location.href.match(ruReg)[0].replace(ruReg, function (res, $1) {
+                return $1;
+            })
+            : null;
+
+        function scanQRCode() {
+            wx.scanQRCode({
+                needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+                success: function (res) {
+                    var result = res.resultStr + ''; // 当needResult 为 1 时，扫码返回的结果
+                    result.indexOf(',') !== -1 && (result = result.split(',')[1].replace(/^\\s|\\s$/g, ''));
+                    if (urlReg.test(result)) {
+                        var tbulReg = /https?:\/\/.+?\.tbul.cn\/\?c=(.+)/ig;
+                        if (tbulReg.test(result)) {
+                            result = result.replace(tbulReg, function (res, $1) {
+                                return $1;
+                            });
+                        }
+                        else {
+                            var i = result.lastIndexOf('/');
+                            i !== -1 && (result = result.slice(i + 1));
+                        }
+                    }
+                    if (urlReg.test(ru)) {
+                        location.replace(ru.indexOf('?') === -1 ? ru + '?scancode=' + result : ru + '&scancode=' + result);
+                    }
+                    else {
+                        alert(result);
+                    }
+                }
+            });
+        }
+
+        function get_hfs(designWidth, rem2px) {
+            designWidth = designWidth || 750;
+            rem2px = rem2px || 100;
+            var d = window.document.createElement('div');
+            d.style.width = '1rem';
+            d.style.display = "none";
+            var head = window.document.getElementsByTagName('head')[0];
+            head.appendChild(d);
+            var defaultFontSize = parseFloat(window.getComputedStyle(d, null).getPropertyValue('width'));
+            var st = document.createElement('style');
+            var portrait = "@media screen and (min-width: " + window.innerWidth + "px) {html{font-size:" + ((window.innerWidth / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+            var landscape = "@media screen and (min-width: " + window.innerHeight + "px) {html{font-size:" + ((window.innerHeight / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+            var sty = 'body{font-family:-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,STHeiti,Microsoft YaHei,Microsoft JhengHei,Source Han Sans SC,Noto Sans CJK SC,Source Han Sans CN,Noto Sans SC,Source Han Sans TC,Noto Sans CJK TC,WenQuanYi Micro Hei,SimSun,sans-serif}.scan-code_img{position:relative;width:3.3rem;margin:1.6rem auto 0}.scan-code_img img{display:block;width:100%}.scan-code_img .scan-line{position:absolute;left:.13rem;right:.13rem;top:.13rem;height:.5rem;background-image:-webkit-linear-gradient(top,#f2f2f2,hsla(0,0%,95%,0));background-image:linear-gradient(180deg,#f2f2f2,hsla(0,0%,95%,0));-webkit-animation:a 3s linear infinite;animation:a 3s linear infinite}.btn{border-radius:.1rem;background-image:-webkit-linear-gradient(344deg,#009cff,#11b7ff);background-image:linear-gradient(106deg,#009cff,#11b7ff);box-shadow:0 0 .104rem .026rem rgba(3,126,241,.3);width:6.9rem;height:1rem;font-size:.44rem;color:#fff;line-height:1rem;text-align:center;position:fixed;left:.3rem}#goBack{bottom:.8rem}#scanQRCode{bottom:2.26rem}@-webkit-keyframes a{0%{top:.13rem}50%{top:2.54rem}to{top:.13rem}}@keyframes a{0%{top:.13rem}50%{top:2.54rem}to{top:.13rem}}';
+            st.innerHTML = portrait + landscape + sty;
+            head.appendChild(st);
+            return defaultFontSize;
+        }
+
+        get_hfs();
+        wx.ready(function () {
+            scanQRCode();
+            wx.hideAllNonBaseMenuItem();
+            var btn = document.getElementById('scanQRCode');
+            btn.onclick = function () {
+                scanQRCode();
+            };
+            var backBtn = document.getElementById('goBack');
+            backBtn.onclick = function () {
+                if(ru){
+                    history.back();
+                }
+                else{
+                    wx.closeWindow();
+                }
+            };
+        });
+    }
+    else {
+        document.head.innerHTML = '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+        document.body.innerHTML = '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请在微信客户端打开链接</h4></div></div>';
+    }
+</script>
+<script src="//pv.tbul.cn/pv.js?sid=UUxE9ifwx"></script>
+</body>
+</html>

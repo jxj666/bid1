@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<title>奖品数据</title>
+<link rel="icon" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/common/cj.png">
+<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/common.min.css">
+<script type="text/javascript">
+    function get_hfs(designWidth, rem2px) {
+        designWidth = designWidth || 750;
+        rem2px = rem2px || 100;
+        var d = window.document.createElement('div');
+        d.style.width = '1rem';
+        d.style.display = "none";
+        var head = window.document.getElementsByTagName('head')[0];
+        head.appendChild(d);
+        var defaultFontSize = parseFloat(window.getComputedStyle(d, null).getPropertyValue('width'));
+//        d.remove();
+//        document.documentElement.style.fontSize = window.innerWidth / designWidth * rem2px / defaultFontSize * 100 + '%';
+        var st = document.createElement('style');
+        var portrait = "@media screen and (min-width: " + window.innerWidth + "px) {html{font-size:" + ((window.innerWidth / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+        var landscape = "@media screen and (min-width: " + window.innerHeight + "px) {html{font-size:" + ((window.innerHeight / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+        st.innerHTML = portrait + landscape;
+        head.appendChild(st);
+        return defaultFontSize;
+    }
+    get_hfs();
+</script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/pace/pace.min.js"></script>
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/data/reset.min.css">
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/data/data.min.css">
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/swiper/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/flatpickr/dist/themes/material_blue.css">
+</head>
+<body class="body">
+<div class="header-fixed-top">
+    <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/marketing/m_logo.png" class="m_logo">
+    <a class="menu" data-click="menu">
+        <span class="menu-icon1"></span>
+        <span class="menu-icon2"></span>
+        <span class="menu-icon3"></span>
+    </a>
+    <span class="current">奖品数据</span>
+</div>
+<div class="right-nav invisible">
+    <div class="right-nav_mask"></div>
+    <div class="nav-content">
+        <div class="menu-content clearfix">
+            <span id="show">奖品数据</span>
+            <a class="menu" data-click="menu">
+                <span class="menu-icon1"></span>
+                <span class="menu-icon2"></span>
+                <span class="menu-icon3"></span>
+            </a>
+        </div>
+        <ul class="nav-menu_list">
+            <li class="all-item">
+                <a href="/html/marketing/index.html" class="nav-btn ">仪表盘</a>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger code-bg">二维码管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/qr/code_manage.html" class="dropdown-item ">码包管理</a>
+                    </li>
+                    <li>
+                        <a href="/html/qc/quality_check.html" class="dropdown-item ">质检激活</a>
+                    </li>
+                    <li>
+                        <a href="/html/qr/status_query.html" class="dropdown-item ">单码状态查询</a>
+                    </li>
+                    <!-- <li>
+                        <a href="javascript:;" class="dropdown-item ">扫码数据</a>
+                    </li> -->
+                </ul>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger spread-bg">活动管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/acms/project-template-list.html" class="dropdown-item ">模板列表</a>
+                    </li>
+                    <li>
+                        <a href="/html/acms/activity-list.html" class="dropdown-item ">活动列表</a>
+                    </li>
+                    <li>
+                        <a href="/html/data/data-nav.html" class="dropdown-item ">活动数据</a>
+                    </li>
+                    <li>
+                        <a href="/html/order/order-main.html" class="dropdown-item ">订单列表</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-menu_item invisible">
+                <div class="menu-trigger enterprise-bg">数据管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">数据查询</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">数据报告</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">用户关系</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger base-bg">基础管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/public/public.html" class="dropdown-item ">公众号授权</a>
+                    </li>
+                    <li>
+                        <a href="/html/product/product_notice.html" class="dropdown-item ">产品公告</a>
+                    </li>
+                    <li>
+                        <a href="/html/account/account_info.html" class="dropdown-item ">账户信息</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="type_box clearfix">
+    <div><a id="type_scan"  href="#">扫码数据</a></div>
+    <div><a id="type_user" href="#">用户数据</a></div>
+    <div  class="active"><a href="#">奖品数据</a></div>
+</div>
+
+<div class="time_box">
+    <div class="time_datapicker">
+        <input type="text" class="flatpickr-input"/>
+    </div>
+
+    <div class="time_btn_box">
+        <span class="time_item">周期</span><span class="down_icon"></span>
+    </div>
+
+    <ul>
+        <li tag="1" class="active">昨天</li>
+        <li  tag="14">14天</li>
+        <li tag="28">28天</li>
+        <li tag="all">全部</li>
+    </ul>
+</div>
+
+<div class="page-tag" style="display: none">
+    <div class="page-tag-item page active">小包数据</div>
+    <div class="page-tag-item bar">条盒数据</div>
+</div>
+
+<div class="swiper-container card-box">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/data/draw_total_icon.png"/>
+            <p class="info">总抽奖次数</p>
+            <p class="num" id="draw_total"></p>
+        </div>
+
+    </div>
+</div>
+
+
+
+<ul class="prize-type-box" style="display: none">
+    <li class="active">扫码抽奖</li>
+    <li>积分兑换</li>
+    <li>双11活动</li>
+    <li>实物奖品</li>
+</ul>
+
+<table class="prize-table" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <td colspan="2" style="padding-right: 30px">周期消耗数据</td>
+            <td>剩余库存</td>
+            <td>累计领取</td>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<div class="data_box">
+    <h1>单品品类消耗排行榜<span>?</span></h1>
+    <p class="time"></p>
+    <div class="chart_box" id="type_rank"></div>
+
+</div>
+
+<div class="data_box">
+    <h1>兑换区域排行榜<span>?</span></h1>
+    <p class="time"></p>
+    <div class="chart_box" id="city_rank"></div>
+</div>
+
+<div class="data_box" style="display: none">
+    <h1>地域排行</h1>
+    <div class="tag_box">
+        <div class="active">扫码次数</div>
+        <div>单品扫码量</div>
+        <div>首次验真数</div>
+    </div>
+
+</div>
+<div class="footer">数据来源：成聚移动</div>
+<script src="//pv.tbul.cn/pv.js?sid=UUxE9ifwx"></script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/babel/polyfill.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/common/common.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/echart/echarts.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/echart/theme.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/moment/min/moment.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/moment/locale/zh-cn.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/flatpickr/dist/flatpickr.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/flatpickr/dist/l10n/zh.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/data/prize_data.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<title>订单列表</title>
+<link rel="icon" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/common/cj.png">
+<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/common.min.css">
+<script type="text/javascript">
+    function get_hfs(designWidth, rem2px) {
+        designWidth = designWidth || 750;
+        rem2px = rem2px || 100;
+        var d = window.document.createElement('div');
+        d.style.width = '1rem';
+        d.style.display = "none";
+        var head = window.document.getElementsByTagName('head')[0];
+        head.appendChild(d);
+        var defaultFontSize = parseFloat(window.getComputedStyle(d, null).getPropertyValue('width'));
+//        d.remove();
+//        document.documentElement.style.fontSize = window.innerWidth / designWidth * rem2px / defaultFontSize * 100 + '%';
+        var st = document.createElement('style');
+        var portrait = "@media screen and (min-width: " + window.innerWidth + "px) {html{font-size:" + ((window.innerWidth / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+        var landscape = "@media screen and (min-width: " + window.innerHeight + "px) {html{font-size:" + ((window.innerHeight / (designWidth / rem2px) / defaultFontSize) * 100) + "%;}}";
+        st.innerHTML = portrait + landscape;
+        head.appendChild(st);
+        return defaultFontSize;
+    }
+    get_hfs();
+</script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/pace/pace.min.js"></script>
+    <link href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/order/order.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="header-fixed-top">
+    <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/marketing/m_logo.png" class="m_logo">
+    <a class="menu" data-click="menu">
+        <span class="menu-icon1"></span>
+        <span class="menu-icon2"></span>
+        <span class="menu-icon3"></span>
+    </a>
+    <span class="current">订单列表</span>
+</div>
+<div class="right-nav invisible">
+    <div class="right-nav_mask"></div>
+    <div class="nav-content">
+        <div class="menu-content clearfix">
+            <span id="show">订单列表</span>
+            <a class="menu" data-click="menu">
+                <span class="menu-icon1"></span>
+                <span class="menu-icon2"></span>
+                <span class="menu-icon3"></span>
+            </a>
+        </div>
+        <ul class="nav-menu_list">
+            <li class="all-item">
+                <a href="/html/marketing/index.html" class="nav-btn ">仪表盘</a>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger code-bg">二维码管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/qr/code_manage.html" class="dropdown-item ">码包管理</a>
+                    </li>
+                    <li>
+                        <a href="/html/qc/quality_check.html" class="dropdown-item ">质检激活</a>
+                    </li>
+                    <li>
+                        <a href="/html/qr/status_query.html" class="dropdown-item ">单码状态查询</a>
+                    </li>
+                    <!-- <li>
+                        <a href="javascript:;" class="dropdown-item ">扫码数据</a>
+                    </li> -->
+                </ul>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger spread-bg">活动管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/acms/project-template-list.html" class="dropdown-item ">模板列表</a>
+                    </li>
+                    <li>
+                        <a href="/html/acms/activity-list.html" class="dropdown-item ">活动列表</a>
+                    </li>
+                    <li>
+                        <a href="/html/data/data-nav.html" class="dropdown-item ">活动数据</a>
+                    </li>
+                    <li>
+                        <a href="/html/order/order-main.html" class="dropdown-item active">订单列表</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-menu_item invisible">
+                <div class="menu-trigger enterprise-bg">数据管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">数据查询</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">数据报告</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">用户关系</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger base-bg">基础管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/public/public.html" class="dropdown-item ">公众号授权</a>
+                    </li>
+                    <li>
+                        <a href="/html/product/product_notice.html" class="dropdown-item ">产品公告</a>
+                    </li>
+                    <li>
+                        <a href="/html/account/account_info.html" class="dropdown-item ">账户信息</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+    <div class="content">
+        <div class="m-container">
+            <!-- 搜索框 -->
+            <div class="search-content" style="display: none">
+                <input type="text" name="" class="search" placeholder="活动名称">
+                <span class="dropdown-icon"></span>
+                <div class="btns">
+                    <a href="javascript:;" aria-hidden="true" class="search_btn">
+                        <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/order/m-search.png" class="search-icon">
+                    </a>
+<!--                     <span class="divider"></span>
+                    <a href="javascript:;" class="share-icon share_btn"></a> -->
+                </div>
+            </div>
+            <!-- id/ 手机搜索 -->
+            <div class="search_mobile_id">
+                <input type="text" placeholder="手机号或者订单ID">
+                <div class="dis_btn_search" style="display:none"></div>
+                <div class="clear_text"></div>
+                <div class="btn_back_search back">取消</div>
+            </div>
+            <!-- 类型列表 -->
+            <ul class="step-list">
+                <!-- 状态:active -->
+                <li class="step-item  order-status "><span class="title">订单状态</span>
+                    <span class="dropdown-icon"></span>
+                    <ul class="dropdown-menu dropdown_list1 invisible">
+                        <li>选项</li>
+                        <li>选项</li>
+                    </ul>
+                </li>
+                <li class="step-item pay-status">
+                    <span class="title">支付状态</span>
+                    <span class="dropdown-icon"></span>
+                    <ul class="dropdown-menu  dropdown_list2 invisible">
+                        <li>选项</li>
+                        <li>选项</li>
+                    </ul>
+                </li>
+                <li class="step-item create-time">
+                    <span class="title">创建时间</span>
+                    <span class="dropdown-icon"></span>
+                    <ul class="dropdown-menu dropdown_list3  invisible">
+                        <li>选项</li>
+                        <li>选项</li>
+                    </ul>
+                </li>
+                <li class="step-item prize-type">
+                    <span class="title">奖品类型</span>
+                    <span class="dropdown-icon"></span>
+                    <ul class="dropdown-menu dropdown_list4  invisible">
+                        <li>选项</li>
+                        <li>选项</li>
+                    </ul>
+                </li>
+                <!-- <div class="class_background invisible"></div> -->
+            </ul>
+        </div>
+        <div class="show-content">
+            <!-- 数据展示 -->
+            <div class="show-count">共 <span class="total">00</span> 条订单， <span class="paid-count">00</span> 条已支付</div>
+            <div class="show-list clearfix"></div>
+        </div>
+        <div class="pop clearfix invisible">
+            <!-- 修改订单信息操作 -->
+            <div class="order-pop invisible">
+            </div>
+            <!-- 日志弹出框 -->
+            <div class="log-pop invisible">
+            </div>
+        </div>
+    </div>
+    <script src="//pv.tbul.cn/pv.js?sid=UUxE9ifwx"></script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/babel/polyfill.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/common/common.min.js"></script>
+
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/microtemplating/microtemplating.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/moment/min/moment.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/moment/locale/zh-cn.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/dropload/dist/dropload.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/common/address_data.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/order/order.min.js"></script>
+</body>
+</html>

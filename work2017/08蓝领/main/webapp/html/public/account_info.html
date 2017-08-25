@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<title>账户信息</title>
+<link rel="icon" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/common/cj.png">
+<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/normalize.min.css">
+<link rel="stylesheet" href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/common/common.min.css">
+<script type="text/javascript">
+    function get_hfs() {
+        var deviceWidth = document.documentElement.clientWidth <= 750 ? document.documentElement.clientWidth : 750;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    }
+    get_hfs();
+
+    window.onresize = function () {
+        get_hfs();
+    };
+</script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/pace/pace.min.js"></script>
+    <link href="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/css/account/account_info.min.css" rel="stylesheet" />
+</head>
+<!-- 
+前后缀缩写说明:
+前缀:1. g_ grid布局 2. m_ module模块 3. j_ js交互
+后缀:1. _h head头部 2. _b body主体 3. _f foot尾部 4. _s section段落 5. _n nav导航 6. _a article/aside部分/其他 7. _c control控制 8. _e explain说明 9. _l list列表 0. _i input输入
+ -->
+
+<body>
+    <div class="header-fixed-top">
+    <img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/marketing/m_logo.png" class="m_logo">
+    <a class="menu" data-click="menu">
+        <span class="menu-icon1"></span>
+        <span class="menu-icon2"></span>
+        <span class="menu-icon3"></span>
+    </a>
+    <span class="current">账户信息</span>
+</div>
+<div class="right-nav invisible">
+    <div class="right-nav_mask"></div>
+    <div class="nav-content">
+        <div class="menu-content clearfix">
+            <span id="show">账户信息</span>
+            <a class="menu" data-click="menu">
+                <span class="menu-icon1"></span>
+                <span class="menu-icon2"></span>
+                <span class="menu-icon3"></span>
+            </a>
+        </div>
+        <ul class="nav-menu_list">
+            <li class="all-item">
+                <a href="/html/marketing/index.html" class="nav-btn ">仪表盘</a>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger code-bg">二维码管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/qr/code_manage.html" class="dropdown-item ">码包管理</a>
+                    </li>
+                    <li>
+                        <a href="/html/qc/quality_check.html" class="dropdown-item ">质检激活</a>
+                    </li>
+                    <li>
+                        <a href="/html/qr/status_query.html" class="dropdown-item ">单码状态查询</a>
+                    </li>
+                    <!-- <li>
+                        <a href="javascript:;" class="dropdown-item ">扫码数据</a>
+                    </li> -->
+                </ul>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger spread-bg">活动管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="/html/acms/project-template-list.html" class="dropdown-item ">模板列表</a>
+                    </li>
+                    <li>
+                        <a href="/html/acms/activity-list.html" class="dropdown-item ">活动列表</a>
+                    </li>
+                    <li>
+                        <a href="/html/data/data-nav.html" class="dropdown-item ">活动数据</a>
+                    </li>
+                    <li>
+                        <a href="/html/order/order-main.html" class="dropdown-item ">订单列表</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger enterprise-bg">数据管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">数据查询</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">数据报告</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">用户关系</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-menu_item">
+                <div class="menu-trigger base-bg">基础管理</div>
+                <ul class="nav-menu_dropdown">
+                    <li>
+                        <a href="javascript:;" class="dropdown-item ">公众号授权</a>
+                    </li>
+                    <li>
+                        <a href="/html/product/product_notice.html" class="dropdown-item ">产品公告</a>
+                    </li>
+                    <li>
+                        <a href="/html/account/account_info.html" class="dropdown-item active">账户信息</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+    <div class="g_account_info" id="g_account_info">
+        <div class="g_message">
+            <div class="m_message" style="visibility: hidden;">
+                <div class="message_a"></div>
+                <div class="message_e"><span>11</span></div>
+            </div>
+            <div class="m_img"></div>
+            <div class="m_name">
+                <h3>王二宝</h3>
+                <h5>企业: <span>湖南中烟</span></h5>
+            </div>
+        </div>
+        <div class="g_option">
+            <div class="m_option_l">
+                <div class="option_a">
+                    <div class="option_img"><img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/account/account_09.png"></div>
+                    <div class="option_e users">用户组<span>芙蓉王市场部</span></div>
+                </div>
+                <div class="option_a">
+                    <div class="option_img"><img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/account/account_13.png"></div>
+                    <div class="option_e mobile">关联手机号<span>12211112222</span></div>
+                </div>
+                <div class="option_a">
+                    <div class="option_img"><img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/account/account_16.png"></div>
+                    <div class="option_e mail">关联邮箱<span>webjxj@foxmail.com</span></div>
+                </div>
+                <div class="option_a" style="visibility: hidden">
+                    <div class="option_img"><img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/account/account_19.png"></div>
+                    <div class="option_e">消费记录<span class="gt">&nbsp;&nbsp;&nbsp;</span></div>
+                </div>
+                <div class="option_a" style="visibility:hidden">
+                    <div class="option_img"><img src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/img/account/account_21.png"></div>
+                    <div class="option_e">邀请同事<span class="gt">&nbsp;&nbsp;&nbsp;</span></div>
+                </div>
+            </div>
+            <div class="exit">退出登录</div>
+        </div>
+        <div class="g_company">
+            <!--             <div class="company_l clearfix">
+                <div class="company_type">当前企业</div>
+                <div class="company_img active"></div>
+                <div class="company_name">湖南中烟有限责任公司</div>
+            </div>
+            <div class="company_l clearfix">
+                <div class="company_type">已关联企业</div>
+                <div class="company_img"></div>
+                <div class="company_name">云南中烟有限责任公司</div>
+            </div> -->
+        </div>
+    </div>
+    <script src="//pv.tbul.cn/pv.js?sid=UUxE9ifwx"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/jquery/jquery-3.2.1.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/babel/polyfill.min.js"></script>
+<script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/common/common.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/plugins/microtemplating/microtemplating.min.js"></script>
+    <script src="//saascore.oss-cn-beijing.aliyuncs.com/mobile/custom/js/account/account_info.min.js"></script>
+</body>
+
+</html>
