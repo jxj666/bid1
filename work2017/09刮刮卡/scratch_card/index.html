@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>刮刮卡</title>
+    <script type="text/javascript">
+    (function(a, t) {
+        a = a || 750, t = t || 100;
+        var e = window.document.createElement("div");
+        e.style.width = "1rem", e.style.display = "none";
+        var i = window.document.getElementsByTagName("head")[0];
+        i.appendChild(e);
+        var n = parseFloat(window.getComputedStyle(e, null).getPropertyValue("width")),
+            d = document.createElement("style"),
+            s = "@media screen and (min-width: " + window.innerWidth + "px) {html{font-size:" + window.innerWidth / (a / t) / n * 100 + "%;}}",
+            c = "@media screen and (min-width: " + window.innerHeight + "px) {html{font-size:" + window.innerHeight / (a / t) / n * 100 + "%;}}";
+        return d.innerHTML = s + c, i.appendChild(d), n
+    }())
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/scratch_card.min.css">
+</head>
+
+<body>
+    <div class="title">
+        <h2>恭喜您<br>获得一次抽奖机会</h2>
+        <img src="img/title.png" class="title-img">
+    </div>
+    <section class="draw_container">
+        <img alt="奖品" class="prize-img">
+        <img id="draw-mask" src="img/draw_mask.png" class="draw_mask">
+    </section>
+    <footer id="prize_chance_bg" class="prize_chance_bg">
+        <p class="prize-chance">你还有 <em>1</em> 次机会</p>
+    </footer>
+    <!-- 恭喜奖品 -->
+    <div class="pop-bg pop-bg1 gonxi_t t1" id="winAward">
+        <div class="pop_head"></div>
+        <div class="lucky-pop">
+            <div class="img-content">
+                <img class="yogurt" src="img/phone_03.png">
+            </div>
+            <p class="lucky-title">华为手机</p>
+            <a href="javascript:void(0)" class="lucky-get">点击领取</a>
+        </div>
+    </div>
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/jquery_eraser/jquery.eraser.min.js"></script>
+    <script src="js/scratch_card.min.js"></script>
+</body>
+
+</html>
