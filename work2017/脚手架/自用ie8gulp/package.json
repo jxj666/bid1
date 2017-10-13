@@ -32,6 +32,8 @@
     "cssnext": "^1.8.4",
     "gulp-clean": "^0.3.2",
     "gulp-file-include": "^1.2.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-jsmin": "^0.1.5",
     "gulp-plumber": "^1.1.0",
     "gulp-replace": "^0.5.4",
     "gulp-scss": "^1.4.0",
