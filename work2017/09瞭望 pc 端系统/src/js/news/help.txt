@@ -1,0 +1,47 @@
+${ i % 2 == 0 ? 'bg_write' : 'bg_gray' }
+tr_id = '${list[i].news.id}'
+
+${ list[i].news.id }
+${ list[i].news.field }
+${ list[i].news.title }
+${ list[i].news.author }
+${ list[i].news.totalRead }
+${ list[i].news.createTime }
+
+var channel = list[i].news.moniChannel ? list[i].news.moniChannel.split(',') : '';
+for (var j = 0; j < channel.length; j++) {
+    if (channel[j]) {
+        html2 += `<span>【${channel[j]}】</span>`;
+    }
+}
+
+switch (list[i].news.status) {
+    case 0:
+        html3 = "待审核";
+        break;
+    case 1:
+        html3 = '一审通过';
+        break;
+    case 2:
+        html3 = '二审通过';
+        break;
+    case 3:
+        html3 = '三审通过';
+        break;
+    case 4:
+        html3 = '已发刊'
+        break;
+    case -1:
+        html3 = '草稿'
+        break;
+    default:
+        html3 = "未知状态";
+        break;
+}
+
+var person = list[i].newsReviews;
+for (var j = 0; j < person.length; j++) {
+    if (person[j].stage > 0) {
+        html5 += `<span>【${person[j].stage==3?'三':person[j].stage==2?'二':'一'}审】${person[j].user.username}</span><br>`
+    }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>发布管理</title>
+    <meta name="viewport" content="width=1200,initial-scale=0.5,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="../../css/news/j_reset.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/news/nav.min.css">
+<!-- 
+前后缀缩写说明:
+前缀:1. g_ grid布局 2. m_ module模块 3. j_ js交互
+后缀:1. _h head头部 2. _b body主体 3. _f foot尾部 4. _s section段落 5. _n nav导航 6. _a article/aside部分/其他 7. _c control控制 8. _e explain说明 9. _l list列表 0. _i input输入 
+-->
+    <link rel="stylesheet" type="text/css" href="../../css/news/publish_manage.min.css">
+</head>
+
+<body>
+    <div id="g_nav">
+    <div class="nav_box">
+        <div class="nav_title" onclick="location.href=location.origin+'/page/p/index/index'">
+        </div>
+        <div class="nav_list">
+            <ul>
+                <!-- .active -->
+                <li onclick="location.href=location.origin+'/page/p/news/selfLibrary'"><a href="javascript:void(0)" class="news">新闻管理</a></li>
+                <li onclick="location.href=location.origin+'/page/p/collect/recommendHot'"><a href="javascript:void(0)" class="collect">采集库</a></li>
+                <li onclick="location.href=location.origin+'/page/p/data/countSend'"><a href="javascript:void(0)" class="data">数据中心</a></li>
+                <li><a href="javascript:void(0)" class='platform'>智库云平台</a></li>
+            </ul>
+        </div>
+        <div class="nav_user">
+            <div class="hirt"><img src="../../img/user_07.png" alt=""></div>
+            <div class="people"><img src="../../img/user_11.png" alt=""></div>
+            <div class="user"><span>用户名</span><img src="../../img/down.png" alt=""></div>
+        </div>
+        <div class="pop_alert pop hide">
+            <div class="up_arrow"></div>
+            <ul>
+                <a href="javascript:void(0)">
+                    <li>待审核<span>5</span></li>
+                </a>
+                <a href="javascript:void(0)">
+                    <li>选题<span>3</span></li>
+                </a>
+                <a href="javascript:void(0)">
+                    <li>消息中心<span>2</span></li>
+                </a>
+            </ul>
+        </div>
+        <div class="pop_exit pop hide">
+            <div class="up_arrow"></div>
+            <ul>
+                <a href="javascript:void(0)">
+                    <li>安全注销</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+</div>
+    <div id="g_self_library">
+        <div class="left_side">
+            <ul class="left-list" style="height: 330px;">
+    <li class="left-item item1" onclick="location.href=location.origin+'/page/p/news/selfLibrary'"><img src="../../img/left_tab1.png" alt="个人稿库">个人稿库</li>
+    <li class="left-item item2" onclick="location.href=location.origin+'/page/p/news/auditWord.html'"><img src="../../img/left_tab2.png" alt="审核稿库">审核稿库</li>
+    <li class="left-item item3" onclick="location.href=location.origin+'/page/p/news/waitNews'"><img src="../../img/left_tab3.png" alt="待发稿库">待发稿库</li>
+    <li class="left-item item4" onclick="location.href=location.origin+'/page/p/news/publishManage'"><img src="../../img/left_tab4.png" alt="发布管理">发布管理</li>
+    <li class="left-item item5" onclick="location.href=location.origin+'/page/p/topic/themeManage'"><img src="../../img/left_tab5.png" alt="选题管理">选题管理</li>
+</ul>
+        </div>
+        <div class="contain">
+            <div class="contain_h">
+                <h2>发布管理</h2>
+            </div>
+            <div class="contain_b">
+                <div class="publish">
+                    <h6>自动推送渠道</h6>
+                    <div class="check">
+                        <span><input type="checkbox" name="">期刊名称</span>
+                        <span><input type="checkbox" name="">公众号名称</span>
+                        <span><input type="checkbox" name="">期刊名称</span>
+                        <span><input type="checkbox" name="">公众号名称</span>
+                        <span><input type="checkbox" name="">期刊名称</span>
+                        <span><input type="checkbox" name="">公众号名称</span>
+                        <span><input type="checkbox" name="">期刊名称</span>
+                        <span><input type="checkbox" name="">公众号名称</span>
+                        <span><input type="checkbox" name="">期刊名称</span>
+                        <span><input type="checkbox" name="">公众号名称</span>
+                        <span><input type="checkbox" name="">期刊名称</span>
+                        <span><input type="checkbox" name="">公众号名称</span>
+                    </div>
+                    <div class="btns">
+                        <button class="bg_blue">保存设置</button>
+                        <button class='bg_gray'>取消</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contain_f"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src='../../js/news/jquery.min.js'></script>
+<script type="text/javascript" src='../../js/news/common.min.js'></script>
+<script type="text/javascript" src='../../js/news/ajax.min.js'></script>
+    <script type="text/javascript" src='../../js/news/publish_manage.min.js'></script>
+</body>
+
+</html>

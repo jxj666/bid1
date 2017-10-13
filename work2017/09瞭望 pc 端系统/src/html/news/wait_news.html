@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>待发稿库</title>
+    <meta name="viewport" content="width=1200,initial-scale=0.5,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="../../css/news/j_reset.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/news/nav.min.css">
+<!-- 
+前后缀缩写说明:
+前缀:1. g_ grid布局 2. m_ module模块 3. j_ js交互
+后缀:1. _h head头部 2. _b body主体 3. _f foot尾部 4. _s section段落 5. _n nav导航 6. _a article/aside部分/其他 7. _c control控制 8. _e explain说明 9. _l list列表 0. _i input输入 
+-->
+    <link rel="stylesheet" type="text/css" href="../../css/news/wait_news.min.css">
+</head>
+
+<body>
+    <div id="g_nav">
+    <div class="nav_box">
+        <div class="nav_title" onclick="location.href=location.origin+'/page/p/index/index'">
+        </div>
+        <div class="nav_list">
+            <ul>
+                <!-- .active -->
+                <li onclick="location.href=location.origin+'/page/p/news/selfLibrary'"><a href="javascript:void(0)" class="news">新闻管理</a></li>
+                <li onclick="location.href=location.origin+'/page/p/collect/recommendHot'"><a href="javascript:void(0)" class="collect">采集库</a></li>
+                <li onclick="location.href=location.origin+'/page/p/data/countSend'"><a href="javascript:void(0)" class="data">数据中心</a></li>
+                <li><a href="javascript:void(0)" class='platform'>智库云平台</a></li>
+            </ul>
+        </div>
+        <div class="nav_user">
+            <div class="hirt"><img src="../../img/user_07.png" alt=""></div>
+            <div class="people"><img src="../../img/user_11.png" alt=""></div>
+            <div class="user"><span>用户名</span><img src="../../img/down.png" alt=""></div>
+        </div>
+        <div class="pop_alert pop hide">
+            <div class="up_arrow"></div>
+            <ul>
+                <a href="javascript:void(0)">
+                    <li>待审核<span>5</span></li>
+                </a>
+                <a href="javascript:void(0)">
+                    <li>选题<span>3</span></li>
+                </a>
+                <a href="javascript:void(0)">
+                    <li>消息中心<span>2</span></li>
+                </a>
+            </ul>
+        </div>
+        <div class="pop_exit pop hide">
+            <div class="up_arrow"></div>
+            <ul>
+                <a href="javascript:void(0)">
+                    <li>安全注销</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+</div>
+    <div id="g_self_library">
+        <div class="left_side">
+            <ul class="left-list" style="height: 330px;">
+    <li class="left-item item1" onclick="location.href=location.origin+'/page/p/news/selfLibrary'"><img src="../../img/left_tab1.png" alt="个人稿库">个人稿库</li>
+    <li class="left-item item2" onclick="location.href=location.origin+'/page/p/news/auditWord.html'"><img src="../../img/left_tab2.png" alt="审核稿库">审核稿库</li>
+    <li class="left-item item3" onclick="location.href=location.origin+'/page/p/news/waitNews'"><img src="../../img/left_tab3.png" alt="待发稿库">待发稿库</li>
+    <li class="left-item item4" onclick="location.href=location.origin+'/page/p/news/publishManage'"><img src="../../img/left_tab4.png" alt="发布管理">发布管理</li>
+    <li class="left-item item5" onclick="location.href=location.origin+'/page/p/topic/themeManage'"><img src="../../img/left_tab5.png" alt="选题管理">选题管理</li>
+</ul>
+        </div>
+        <div class="contain">
+            <div class="contain_h"><div id="switch">
+	<ul>
+		<!-- .active -->
+		<li class="switch1">未刊发</li>
+		<li class="switch2">已刊发</li>
+	</ul>
+</div> <div id="m_table_h">
+    <div class="float_l input">
+        <input type="text" name="" placeholder="请输入新闻标题或关键字" id="s_input">
+    </div>
+    <div class="float_l select">
+        <select id="s_field">
+            <option>所有领域</option>
+        </select>
+    </div>
+    <div class="float_l select">
+        <select id="s_channel">
+            <option>所有渠道</option>
+        </select>
+    </div>
+    <div class="float_l search">
+        <button id="s_search">搜索</button>
+    </div>
+</div>
+            </div>
+            <div class="contain_b">
+                <div class="tableno "><table border="1">
+    <thead>
+        <tr>
+            <th class="w60">ID</th>
+            <th class="w240">标题</th>
+            <th class="w60">作者</th>
+            <th class="w110">审核人</th>
+            <th class="w100">拟发布渠道</th>
+            <th class="w60">状态</th>
+            <th class="w100">录入时间</th>
+            <th class="w140">操作选项</th>
+            <th class="w">采用统计</th>
+        </tr>
+    </thead>
+    <tbody><!-- 
+        <tr class="bg_write">
+            <td class="type1">
+                00031
+            </td>
+            <td class="type2">
+                <span>【领域名称】</span><a href="">长标题示例示例示例示例示例示例示例示例示例示例示例示例示例</a>
+            </td>
+            <td class="type3">
+                作者
+            </td>
+            <td class="type4">
+                <span>【一审】姓名</span>
+                <br><span>【二审】姓名</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type3">
+                未刊发
+            </td>
+            <td class="type6">
+                2017-9-09 15:33:22
+            </td>
+            <td class="type5"><a href="">编辑</a>
+                <a href="">查看</a>
+                <a href="">对比</a>
+            </td>
+            <td class="type5"><a href="">摘要</a>
+            </td>
+        </tr>
+        <tr class="bg_gray">
+            <td class="type1">
+                00031
+            </td>
+            <td class="type2">
+                <span>【领域名称】</span><a href="">长标题示例示例示例示例示例示例示例示例示例示例示例示例示例</a>
+            </td>
+            <td class="type3">
+                作者
+            </td>
+            <td class="type4">
+                <span>【一审】姓名</span>
+                <br><span>【二审】姓名</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type3">
+                未刊发
+            </td>
+            <td class="type6">
+                2017-9-09 15:33:22
+            </td>
+            <td class="type5"><a href="">编辑</a>
+                <a href="">查看</a>
+                <a href="">对比</a>
+            </td>
+            <td class="type5"><a href="">摘要</a>
+            </td>
+        </tr>
+        <tr class="bg_write">
+            <td class="type1">
+                00031
+            </td>
+            <td class="type2">
+                <span>【领域名称】</span><a href="">长标题示例示例示例示例示例示例示例示例示例示例示例示例示例</a>
+            </td>
+            <td class="type3">
+                作者
+            </td>
+            <td class="type4">
+                <span>【一审】姓名</span>
+                <br><span>【二审】姓名</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type3">
+                未刊发
+            </td>
+            <td class="type6">
+                2017-9-09 15:33:22
+            </td>
+            <td class="type5"><a href="">编辑</a>
+                <a href="">查看</a>
+                <a href="">对比</a>
+            </td>
+            <td class="type5"><a href="">摘要</a>
+            </td>
+        </tr>
+        <tr class="bg_gray">
+            <td class="type1">
+                00031
+            </td>
+            <td class="type2">
+                <span>【领域名称】</span><a href="">长标题示例示例示例示例示例示例示例示例示例示例示例示例示例</a>
+            </td>
+            <td class="type3">
+                作者
+            </td>
+            <td class="type4">
+                <span>【一审】姓名</span>
+                <br><span>【二审】姓名</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type3">
+                未刊发
+            </td>
+            <td class="type6">
+                2017-9-09 15:33:22
+            </td>
+            <td class="type5"><a href="">编辑</a>
+                <a href="">查看</a>
+                <a href="">对比</a>
+            </td>
+            <td class="type5"><a href="">摘要</a>
+            </td>
+        </tr>
+        <tr class="bg_write">
+            <td class="type1">
+                00031
+            </td>
+            <td class="type2">
+                <span>【领域名称】</span><a href="">长标题示例示例示例示例示例示例示例示例示例示例示例示例示例</a>
+            </td>
+            <td class="type3">
+                作者
+            </td>
+            <td class="type4">
+                <span>【一审】姓名</span>
+                <br><span>【二审】姓名</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type3">
+                未刊发
+            </td>
+            <td class="type6">
+                2017-9-09 15:33:22
+            </td>
+            <td class="type5"><a href="">编辑</a>
+                <a href="">查看</a>
+                <a href="">对比</a>
+            </td>
+            <td class="type5"><a href="">摘要</a>
+            </td>
+        </tr>
+        <tr class="bg_gray">
+            <td class="type1">
+                00031
+            </td>
+            <td class="type2">
+                <span>【领域名称】</span><a href="">长标题示例示例示例示例示例示例示例示例示例示例示例示例示例</a>
+            </td>
+            <td class="type3">
+                作者
+            </td>
+            <td class="type4">
+                <span>【一审】姓名</span>
+                <br><span>【二审】姓名</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type3">
+                未刊发
+            </td>
+            <td class="type6">
+                2017-9-09 15:33:22
+            </td>
+            <td class="type5"><a href="">编辑</a>
+                <a href="">查看</a>
+                <a href="">对比</a>
+            </td>
+            <td class="type5"><a href="">摘要</a>
+            </td>
+        </tr> -->
+    </tbody>
+</table></div>
+                <div class="tableyes hide"><table border="1">
+    <thead>
+        <tr>
+            <th class="w50">ID</th>
+            <th class="w180">标题</th>
+            <th class="w50">作者</th>
+            <th class="w90">审核人</th>
+            <th class="w100">拟发布渠道</th>
+            <th class="w100">已发布渠道</th>
+            <th class="w60">状态</th>
+            <th class="w50">阅读数</th>
+            <th class="w80">录入时间</th>
+            <th class="w70">操作选项</th>
+            <th class="w60">期刊号</th>
+            <th class="w fs12">采用统计</th>
+        </tr>
+    </thead>
+    <tbody><!-- 
+        <tr class="bg_write">
+            <td class="type1">
+                00031
+            </td>
+            <td class="type2">
+                <span>【领域名称】</span><a href="">长标题示例示例示例示例示例示例示例示例示例示例示例示例示例</a>
+            </td>
+            <td class="type3">
+                作者
+            </td>
+            <td class="type4">
+                <span>【一审】姓名</span>
+                <br><span>【二审】姓名</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type3">
+                已刊发
+            </td>
+            <td class="type1">
+                10w+
+            </td>
+            <td class="type6">
+                2017-9-09 15:33:22
+            </td>
+            <td class="type5"><a href="">编辑</a>
+                <a href="">查看</a>
+                <a href="">对比</a>
+            </td>
+            <td class="type5"><a href="">变更</a>
+            </td>
+        </tr>
+        <tr class="bg_gray">
+            <td class="type1">
+                00031
+            </td>
+            <td class="type2">
+                <span>【领域名称】</span><a href="">长标题示例示例示例示例示例示例示例示例示例示例示例示例示例</a>
+            </td>
+            <td class="type3">
+                作者
+            </td>
+            <td class="type4">
+                <span>【一审】姓名</span>
+                <br><span>【二审】姓名</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type3">
+                已刊发
+            </td>
+            <td class="type1">
+                10w+
+            </td>
+            <td class="type6">
+                2017-9-09 15:33:22
+            </td>
+            <td class="type5"><a href="">编辑</a>
+                <a href="">查看</a>
+                <a href="">对比</a>
+            </td>
+            <td class="type5"><a href="">变更</a>
+            </td>
+        </tr>
+        <tr class="bg_write">
+            <td class="type1">
+                00031
+            </td>
+            <td class="type2">
+                <span>【领域名称】</span><a href="">长标题示例示例示例示例示例示例示例示例示例示例示例示例示例</a>
+            </td>
+            <td class="type3">
+                作者
+            </td>
+            <td class="type4">
+                <span>【一审】姓名</span>
+                <br><span>【二审】姓名</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type3">
+                已刊发
+            </td>
+            <td class="type1">
+                10w+
+            </td>
+            <td class="type6">
+                2017-9-09 15:33:22
+            </td>
+            <td class="type5"><a href="">编辑</a>
+                <a href="">查看</a>
+                <a href="">对比</a>
+            </td>
+            <td class="type5"><a href="">变更</a>
+            </td>
+        </tr>
+        <tr class="bg_gray">
+            <td class="type1">
+                00031
+            </td>
+            <td class="type2">
+                <span>【领域名称】</span><a href="">长标题示例示例示例示例示例示例示例示例示例示例示例示例示例</a>
+            </td>
+            <td class="type3">
+                作者
+            </td>
+            <td class="type4">
+                <span>【一审】姓名</span>
+                <br><span>【二审】姓名</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type3">
+                已刊发
+            </td>
+            <td class="type1">
+                10w+
+            </td>
+            <td class="type6">
+                2017-9-09 15:33:22
+            </td>
+            <td class="type5"><a href="">编辑</a>
+                <a href="">查看</a>
+                <a href="">对比</a>
+            </td>
+            <td class="type5"><a href="">变更</a>
+            </td>
+        </tr>
+        <tr class="bg_write">
+            <td class="type1">
+                00031
+            </td>
+            <td class="type2">
+                <span>【领域名称】</span><a href="">长标题示例示例示例示例示例示例示例示例示例示例示例示例示例</a>
+            </td>
+            <td class="type3">
+                作者
+            </td>
+            <td class="type4">
+                <span>【一审】姓名</span>
+                <br><span>【二审】姓名</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type3">
+                已刊发
+            </td>
+            <td class="type1">
+                10w+
+            </td>
+            <td class="type6">
+                2017-9-09 15:33:22
+            </td>
+            <td class="type5"><a href="">编辑</a>
+                <a href="">查看</a>
+                <a href="">对比</a>
+            </td>
+            <td class="type5"><a href="">变更</a>
+            </td>
+        </tr>
+        <tr class="bg_gray">
+            <td class="type1">
+                00031
+            </td>
+            <td class="type2">
+                <span>【领域名称】</span><a href="">长标题示例示例示例示例示例示例示例示例示例示例示例示例示例</a>
+            </td>
+            <td class="type3">
+                作者
+            </td>
+            <td class="type4">
+                <span>【一审】姓名</span>
+                <br><span>【二审】姓名</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type4">
+                <span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span><span>【财经国家周刊】</span>
+            </td>
+            <td class="type3">
+                已刊发
+            </td>
+            <td class="type1">
+                10w+
+            </td>
+            <td class="type6">
+                2017-9-09 15:33:22
+            </td>
+            <td class="type5"><a href="">编辑</a>
+                <a href="">查看</a>
+                <a href="">对比</a>
+            </td>
+            <td class="type5"><a href="">变更</a>
+            </td>
+        </tr> -->
+    </tbody>
+</table></div>
+            </div>
+            <div class="contain_f"><div class="m_skip" id="page_skip">
+    <div><span>共00条</span></div>
+    <div><span class="sum">每页<!-- <input type="text" name="" value="20"> -->20条</span></div>
+    <div class="prev_est"></div>
+    <div class="prev"></div>
+    <div class="page_num">
+        <div class="num num1">1</div>
+        <div class="num num2">2</div>
+        <div class="num num3">3</div>
+        <div class="clear"></div>
+    </div>
+    <div class="last"></div>
+    <div class="last_est"></div>
+    <div><span class="intro">当前1/3页</span></div>
+    <div><span>转到第<input type="text" name="" class="arrow">页</span></div>
+</div></div>
+        </div>
+    </div>
+    <div class="pop hide">
+        <div class="pop_base">
+    <div class="box">
+        <h2>状态变更</h2>
+        <div class="type3 zhuantai">
+            稿件状态&nbsp;:&nbsp;
+            <select>
+                <option value="0">未刊发</option>
+                <option value="1">已刊发</option>
+            </select>
+        </div>
+        <div class="type4 qudao">
+            发布渠道&nbsp;:&nbsp;
+            <div class="check">
+            	<input type="checkbox" name=""><span>杂志</span>
+            	<input type="checkbox" name=""><span>期刊</span>
+            	<input type="checkbox" name=""><span>杂志</span>
+            	<input type="checkbox" name=""><span>期刊</span>
+            	<input type="checkbox" name=""><span>杂志</span>
+            	<input type="checkbox" name=""><span>期刊</span>
+            	<input type="checkbox" name=""><span>杂志</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="type5 yuedu">
+            &nbsp;&nbsp;&nbsp;阅读数&nbsp;:&nbsp;
+            <input type="text" name="">
+        </div>
+        <div class="type5 qikan">
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;期刊&nbsp;:&nbsp;
+            <input type="text" name="" placeholder="期">
+        </div>
+        <div class="type2 anniu">
+            <button class="bg_blue">保存修改</button>
+            <button class="bg_gray">取消</button>
+        </div>
+    </div>
+</div>
+    </div>
+    <div class="pop_look hide">
+	<div class="close">关闭</div>
+	<div class="text_box">
+		
+	</div>
+</div>
+    <script type="text/javascript" src='../../js/news/jquery.min.js'></script>
+<script type="text/javascript" src='../../js/news/common.min.js'></script>
+<script type="text/javascript" src='../../js/news/ajax.min.js'></script>
+    <script type="text/javascript" src='../../js/news/wait_news.min.js'></script>
+</body>
+
+</html>
