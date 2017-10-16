@@ -1,0 +1,100 @@
+@import 'common';
+.input_box {
+    width: 960px;
+    margin: 0 auto;
+    .btn_l {
+        button {
+            width: 132px;
+            height: 44px;
+            line-height: 44px;
+            background: $mainblue;
+            color: #fff;
+            border: 1px solid $mainblue;
+            border-radius: 5px;
+            margin: 30px 0 10px 70px;
+            font-size: 16px;
+            &:hover {
+                background: #fff;
+                color: $mainblue;
+            }
+        }
+    }
+    .line {
+        width: 658px;
+        height: 0px;
+        border: 1px dashed $gray8;
+        margin: 30px 0;
+    }
+    .input_l {
+        margin: 10px 0;
+        line-height: 34px;
+        button {
+            width: 132px;
+            height: 44px;
+            line-height: 44px;
+            font-size: 16px;
+            background: $mainblue;
+            color: #fff;
+            border: 1px solid $mainblue;
+            border-radius: 5px;
+            margin: 30px 0 10px 70px;
+            &:hover {
+                background: #fff;
+                color: $mainblue;
+            }
+        }
+        select {
+            margin-left: 5px;
+            width: 150px;
+            height: 34px;
+            padding: 5px;
+            box-sizing: border-box;
+            background: url('../../img/arrow_down_03.jpg') no-repeat 130px center;
+            border-radius: 3px;
+        }
+        span {
+            min-width: 75px;
+            font-size: 14px;
+            color: #878998;
+            display: inline-block;
+            text-align: right;
+        }
+        input {
+            box-sizing: border-box;
+            padding: 0 5px;
+            width: 150px;
+            height: 32px;
+            border: 1px solid $lightgray;
+            margin: 0 5px;
+            border-radius: 3px;
+        }
+        form {
+            box-sizing: border-box;
+            text-align: left;
+            width: 90%;
+            float: right;
+            padding-right: 20%;
+            div {
+                margin-bottom: 10px;
+                display: inline-block;
+                label {
+                    display: inline-block;
+                    min-width: 100px;
+                    color: #878998;
+                    box-sizing: border-box;
+                    padding-right: 5px;
+                    text-align: right;
+                }
+                input {
+                    width: 75px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    h3 {
+        line-height: 50px;
+        font-size: 18px;
+        color: $mainblue;
+    }
+}

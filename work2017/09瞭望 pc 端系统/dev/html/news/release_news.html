@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>发布新闻</title>
+    @@include('../m/link_h.html')
+    <link rel="stylesheet" href="../../css/news/left_tab.min.css">
+    <link rel="stylesheet" href="../../css/news/release_news.min.css">
+    <link rel="stylesheet" href="../../util/themes/default/_css/umeditor.css">
+    <link rel="stylesheet" href="../../util/dist/css/layui.css" media="all">
+</head>
+<body>
+    @@include('../m/nav.html')
+    <div class="container">
+        @@include('../m/left_tab.html')
+        <div class="content">
+            <p class="title">发布新闻</p>
+            @@include('../m/news_part.html')
+            <ul class="btn-groups">
+                <li class="button">预览</li>
+                <li class="button">保存草稿</li>
+                <li class="button">提交审核</li>
+                <li class="button">返回</li>
+            </ul>
+        </div>
+    </div>
+    @@include('../m/link_f.html')
+    <script src="../../util/third-party/template.min.js"></script>
+    <script src="../../util/umeditor.config.js" charset="utf-8"></script>
+    <script src="../../util/editor_api.js"></script>
+    <script src="../../util/lang/zh-cn/zh-cn.js"></script>
+    <script src="../../util/dist/layui.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        var um1 = UM.getEditor('myEditor1');
+    </script>
+    <script src="../../js/news/release_news.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>选题管理</title>
+    @@include('../m/link_h.html')
+    <link rel="stylesheet" type="text/css" href="../../css/news/theme_manage.min.css">
+</head>
+
+<body>
+    @@include('../m/nav.html')
+    <div id="g_theme_manage">
+        <div class="left_side">
+            @@include('../m/left_tab.html')
+        </div>
+        <div class="contain">
+            <div class="contain_h">
+                <div class="create">
+                    创建选题
+                </div>@@include('../m/switch_theme_manage.html')
+            </div>
+            <div class="contain_b">
+                <div class="table" id="table-lib"> @@include('../m/tablesum_theme_manage.html')</div>
+                <div class="table hide" id="table-my"> @@include('../m/tablemy_theme_manage.html')</div>
+                <div class="table hide" id="table-ver"> @@include('../m/tabletest_theme_manage.html')</div>
+            </div>
+            <div class="contain_f">@@include('../m/skip.html')</div>
+        </div>
+    </div>
+    <!-- @@include('../m/link_f.html') -->
+    <script type="text/javascript" src='../../js/news/jquery.min.js'></script>
+    <script type="text/javascript" src='../../js/news/theme_manage.min.js'></script>
+</body>
+
+</html>

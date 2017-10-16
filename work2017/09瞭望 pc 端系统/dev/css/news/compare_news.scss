@@ -1,0 +1,61 @@
+@import 'common';
+@import 'left_tab';
+@import 'table_base';
+
+@import 'search_top';
+@import 'switch';
+@import 'skip';
+@import 'pop';
+
+#g_self_library {
+    color: #32333c;
+    width: 1200px;margin:0 auto;
+    min-height: 200px;
+    border-left: 0;
+    position: relative;
+    .left_side {
+        position: absolute;
+        top: 1px;
+        left: -180px;
+    }
+    .contain {
+        min-height: 100px;
+        width: 1000px;
+        margin: 0 auto;
+        padding-top: 1px;
+        .contain_h {
+            width: 960px;
+            margin: 0 auto;
+            h2 {
+                line-height: 70px;
+                font-size: 20px;
+                color: $mainblue;
+            }
+            .compare_now {                    line-height: 50px;
+                    margin-bottom: 10px;
+                span {
+                    font-size: 12px;
+                    text-decoration: underline;
+
+                    a {
+                        color: $mainblue;
+                    }
+                }
+                button {
+                    width: 76px;
+                    height: 32px;
+                    background: $mainblue;
+                    color: #fff;
+                    font-size: 14px;
+                    border:0;
+                    margin-left: 10px;
+                    border-radius: 5px;
+                }
+            }
+        }
+        .contain_b {}
+        .contain_f {
+            text-align: center;
+        }
+    }
+}

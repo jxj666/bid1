@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>文件对比</title>
+    @@include('../m/link_h.html')
+    <link rel="stylesheet" type="text/css" href="../../css/news/diff.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/news/compare_news.min.css">
+</head>
+
+<body>
+    @@include('../m/nav.html')
+    <div id="g_self_library">
+        <div class="left_side">
+            @@include('../m/left_tab.html')
+        </div>
+        <div class="contain">
+            <div class="contain_h">
+                <h2>内容比对</h2>
+                <div class="compare_now">
+                    <span>【领域名称】<a href="">新闻标题文字内容新闻标题文字内容</a></span>
+                    <button>进行比对</button>
+                </div>
+            </div>
+            <div class="contain_b">
+                @@include('../m/table_compare_news.html')
+            </div>
+            <div class="contain_f">@@include('../m/skip.html')</div>
+        </div>
+    </div>
+    <div class="pop_diff hide">
+        @@include('../m/diff.html')
+    </div>
+    @@include('../m/link_f.html')
+    <script type="text/javascript" src='../../js/news/compare_news.min.js'></script>
+    <script type="text/javascript" src='../../js/news/diff.min.js'></script>
+</body>
+</html>

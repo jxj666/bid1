@@ -1,0 +1,125 @@
+@import 'common';
+table {
+    width: 960px;
+    margin: 0 auto;
+    color: #32333c;
+    border-color: #f4f5f7;
+    thead {
+        border-color: $mainblue;
+        height: 48px;
+        color: #fff;
+        font-size: 16px;
+        background: $mainblue;
+        tr {
+            height: 48px;
+            th {
+                text-align: center;
+                line-height: 48px;
+            }
+        }
+    }
+    tbody {
+        tr {
+            td {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.bg_write {
+    background: #fff;
+}
+
+.bg_gray {
+    background: #f4f5f7;
+}
+
+.type1 {
+    font-size: 12px;
+    line-height: 50px;
+}
+
+
+.type2 {
+    line-height: 20px;
+    font-size: 14px;
+    padding: 5px;
+    text-align: left;
+    a {
+        color: $mainblue;
+    }
+    .explain {
+        margin-left: 5px;
+        position: relative;
+        &:hover {
+            .explain_box {
+                display: block;
+            }
+        }
+        .explain_box {
+
+            position: absolute;
+            top: -5px;
+            right: -160px;
+            color: #e60012;
+            font-size: 12px;
+            line-height: 20px;
+            padding: 5px;
+            width: 145px;
+            background: #ffd101;
+            display: none;
+            border-radius: 5px;
+            .yellow_arrow {
+                position: absolute;
+                top: 5px;
+                left: -6px;
+                width: 6px;
+                height: 10px;
+                display: block;
+                background: url('../../img/yellow_arrow_03.png') no-repeat center center;
+            }
+        }
+    }
+}
+
+.type3 {
+    font-size: 14px;
+    line-height: 50px;
+}
+
+.type4 {
+    line-height: 20px;
+    font-size: 12px;
+    padding: 5px;
+    text-align: left;
+}
+
+.type5 {
+    a {
+        line-height: 25px;
+        display: inline-block;
+        width: 40px;
+        height: 25px;
+        font-size: 12px;
+        color: $mainblue;
+        box-sizing: border-box;
+        border:1px solid #fff;
+        border-radius: 3px;
+        &:hover {
+            border: 1px solid $mainblue;
+            
+        }
+    }
+}
+
+.type6 {
+    line-height: 20px;
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+}
+.fs12{
+    font-size: 12px;
+
+}

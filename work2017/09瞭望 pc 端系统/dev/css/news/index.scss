@@ -1,0 +1,100 @@
+@import 'common';
+#g_index {
+    width: 1200px;
+    margin: 40px auto;
+    .link_l {
+        width: 250px;
+        margin-top: 55px;
+        .link {
+            height: 150px;
+            width: 100%;
+            margin-bottom: 45px;
+            border-radius: 10px;
+            font-size: 20px;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+            h5 {
+                margin-top: 100px;
+            }
+        }
+        .link1 {
+            background: url('../../img/link_03.png') no-repeat center center;
+        }
+        .link2 {
+            background: url('../../img/link_06.png') no-repeat center center;
+        }
+        .link3 {
+            background: url('../../img/link_08.png') no-repeat center center;
+        }
+    }
+    .m_text_l {
+        width: 475px;
+
+        h3 {
+            line-height: 56px;
+            color: $mainblue;
+            font-size: 20px;
+            text-indent: 70px;
+        }
+        .text_box {
+            background: #fff;
+            box-shadow: 0 0 5px #eee;
+            width: 400px;
+            height: 540px;
+            border: 1px solid #eee;
+            margin: 0 auto;
+            position: relative;
+            .text_hot {
+
+                color: 32333c;
+                font-size: 16px;
+                padding: 10px 30px;
+                li {
+                    line-height: 60px;
+                    height: 60px;
+                    overflow: hidden;
+                    &:hover {
+                        background: url('../../img/user_03.png') no-repeat 0 22px;
+                        a {
+                            padding-left: 40px;
+
+                            color: $mainblue;
+                        }
+                    }
+                }
+            }
+            .text_notice {
+
+                color: 32333c;
+                font-size: 16px;
+                padding: 20px 30px;
+                li {
+                    margin: 15px 0;
+                    line-height: 30px;
+                    height: 60px;
+                    overflow: hidden;
+                    &:hover {
+                        a {
+                            color: $mainblue;
+                        }
+                    }
+                }
+            }
+            .more {
+                position: absolute;
+                color: $mainblue;
+                font-size: 16px;
+                bottom: 30px;
+                right: 30px;
+            }
+        }
+    }
+    .blue {
+        color: #3b83ee;
+        font-size: 18px;
+        margin-right: 5px;
+        position: relative;
+        top: -1px;
+    }
+}

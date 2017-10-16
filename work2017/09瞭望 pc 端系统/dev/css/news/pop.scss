@@ -1,0 +1,120 @@
+@import 'common';
+
+.pop_base {
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+    background: rgba(50, 51, 60, 0.3);
+    .box {
+        padding: 1px;
+        width: 510px;
+        min-height: 100px;
+        background: #fff;
+        border-radius: 5px;
+        margin: 200px auto 0;
+        text-align: center;
+        h2 {
+            line-height: 80px;
+            font-size: 18px;
+            color: $mainblue;
+        }
+        .type3 {
+            padding: 5px 30px;
+            line-height: 60px;
+            font-size: 16px;
+            text-align: left;
+            select {
+                width: 165px;
+                height: 38px;
+                border: 1px solid $mainblue;
+                border-radius: 3px;
+                box-sizing: border-box;
+                padding: 0 10px 0 20px;
+                font-size: 14px;
+                margin-left: 10px;
+                background: url('../../img/arrow_down_03.jpg') no-repeat 120px center;
+            }
+        }
+
+        .type4 {
+
+            text-align: left;
+            padding: 5px 30px;
+
+            line-height: 60px;
+            font-size: 16px;
+            .check {
+                line-height: 28px;
+                width: 80%;
+                float: right;
+                input{
+                	margin-top:-5px;
+                	vertical-align: 2px;
+                }
+                span {
+                    padding: 0 5px;
+                    color: #999aa7;
+                    font-size: 14px;
+                }
+            }
+        }
+        .type5 {
+            text-align: left;
+            padding: 5px 30px;
+
+            line-height: 60px;
+            font-size: 16px;
+            input {
+                margin-left: 10px;
+                width: 116px;
+                height: 36px;
+                padding: 5px;
+                line-height: 36px;
+                border: 1px solid $lightgray;
+                border-radius: 5px;
+                text-align: center;
+            }
+        }
+
+        .type1 {
+            height: 128px;
+            line-height: 128px;
+            font-size: 16px;
+            select {
+                width: 165px;
+                height: 38px;
+                border: 1px solid $mainblue;
+                border-radius: 3px;
+                box-sizing: border-box;
+                padding: 0 10px 0 20px;
+                font-size: 14px;
+                margin-left: 10px;
+                background: url('../../img/arrow_down_03.jpg') no-repeat 120px center;
+            }
+        }
+        .type2 {
+            text-align: center;
+            line-height: 100px;
+            margin-bottom: 10px;
+            button {
+                border: 0;
+                width: 115px;
+                height: 48px;
+                color: #fff;
+                font-size: 20px;
+                border-radius: 3px;
+                margin: 0 40px;
+            }
+            .bg_blue {
+                background: $mainblue;
+            }
+            .bg_gray {
+                background: #c2c3ca;
+            }
+        }
+    }
+}

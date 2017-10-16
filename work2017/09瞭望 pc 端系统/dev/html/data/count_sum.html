@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>总编室统计</title>
+    @@include('../m/link_h.html')
+    <link rel="stylesheet" type="text/css" href="../../css/news/count_sum.min.css">
+</head>
+
+<body>
+    @@include('../m/nav.html')
+    <div id="g_count_sum">
+        <div class="left_side">
+            @@include('../m/left_tab3.html')
+        </div>
+        <div class="contain">
+            <div class="contain_h">
+                <h2 class="title">稿费统计</h2>@@include('../m/switch_count_sum.html')
+            </div>
+            <div class="contain_b">
+            <div class="input1 hide">
+                @@include('../m/input1_count_sum.html')
+            </div>
+            <div class="input2 hide">
+                @@include('../m/input2_count_sum.html')
+            </div>
+            <div class="input3 ">
+                @@include('../m/input3_count_sum.html')
+            </div>
+            <div class="table1 hide">
+                @@include('../m/table1_count_sum.html')
+            </div>
+            <div class="table2 ">
+                @@include('../m/table2_count_sum.html')
+            </div>
+            </div>
+            <div class="contain_f hide">@@include('../m/skip.html')</div>
+        </div>
+    </div>
+    <div class="pop hide">
+        @@include('../m/pop_wait_news.html')
+    </div>
+    @@include('../m/link_f.html')
+    <script type="text/javascript" src='../../js/news/count_sum.min.js'></script>
+</body>
+
+</html>

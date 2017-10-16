@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>热点推荐</title>
+    @@include('../m/link_h.html')
+    <link rel="stylesheet" type="text/css" href="../../css/news/recommend_hot.min.css">
+</head>
+
+<body>
+    @@include('../m/nav.html')
+    <div id="g_recommend_hot">
+        <div class="left_side">
+            @@include('../m/left_tab2.html')
+        </div>
+        <div class="contain">
+            <div class="contain_h"> @@include('../m/search_hot.html')
+            </div>
+            <div class="contain_b">
+                <div class="table "> @@include('../m/table_recommend_hot.html')</div>
+            </div>
+            <div class="contain_f">@@include('../m/skip.html')</div>
+        </div>
+    </div>
+    <div class="pop hide">
+        @@include('../m/pop_audit_word.html')
+    </div>
+    @@include('../m/link_f.html')
+    <script type="text/javascript" src='../../js/news/recommend_hot.min.js'></script>
+</body>
+
+</html>

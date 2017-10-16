@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>待发稿库</title>
+    @@include('../m/link_h.html')
+    <link rel="stylesheet" type="text/css" href="../../css/news/wait_news.min.css">
+</head>
+
+<body>
+    @@include('../m/nav.html')
+    <div id="g_self_library">
+        <div class="left_side">
+            @@include('../m/left_tab.html')
+        </div>
+        <div class="contain">
+            <div class="contain_h">@@include('../m/switch_wait_news.html') @@include('../m/search_wait_news.html')
+            </div>
+            <div class="contain_b">
+                <div class="tableno ">@@include('../m/tableno_wait_news.html')</div>
+                <div class="tableyes hide">@@include('../m/tableyes_wait_news.html')</div>
+            </div>
+            <div class="contain_f">@@include('../m/skip.html')</div>
+        </div>
+    </div>
+    <div class="pop hide">
+        @@include('../m/pop_wait_news.html')
+    </div>
+    @@include('../m/pop_look.html')
+    @@include('../m/link_f.html')
+    <script type="text/javascript" src='../../js/news/wait_news.min.js'></script>
+</body>
+
+</html>

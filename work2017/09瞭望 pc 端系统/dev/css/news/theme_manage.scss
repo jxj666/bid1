@@ -1,0 +1,47 @@
+@import 'common';
+@import 'left_tab';
+@import 'table_base';
+@import 'switch';
+@import 'skip';
+
+
+#g_theme_manage {
+    color: #32333c;
+    width: 1200px;margin:0 auto;
+    min-height: 200px;
+    border-left: 0;
+    position: relative;
+    .left_side {
+        position: absolute;
+        top: 1px;
+        left: -180px;
+    }
+    .contain {
+        min-height: 100px;
+        width: 1000px;
+        margin: 0 auto;
+        padding-top: 1px;
+        .contain_h {
+            margin-bottom: 30px;
+            .create{
+                position: absolute;
+                width: 82px;
+                height: 32px;
+                color: $mainblue;
+                border:1px solid $mainblue;
+                border-radius: 3px;
+                font-size: 16px;
+                right: 30px;
+                top: 0;
+                line-height: 32px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            position: relative;
+        }
+        .contain_b {}
+        .contain_f {
+            text-align: center;
+        }
+    }
+}

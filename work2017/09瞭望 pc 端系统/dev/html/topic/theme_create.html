@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>创建选题</title>
+    @@include('../m/link_h.html')
+    <link rel="stylesheet" href="../../css/news/left_tab.min.css">
+    <link rel="stylesheet" href="../../css/news/release_news.min.css">
+    <link rel="stylesheet" href="../../util/themes/default/_css/umeditor.css">
+    <link rel="stylesheet" href="../../util/dist/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../css/news/theme_create.min.css">
+</head>
+
+<body>
+    @@include('../m/nav.html')
+    <div id="g_theme_create">
+        <div class="left_side">
+            @@include('../m/left_tab.html')
+        </div>
+        <div class="contain">
+            <div class="contain_h">
+                <h2>
+                  创建选题  
+               </h2>
+            </div>
+            <div class="contain_b">
+                <div class="ctreat_theme">
+                    <div class="theme_l name">
+                        <div class="title"><span>*</span>选题标题 : </div>
+                        <div class="content">
+                            <input type="text" name="">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="theme_l text">
+                        <div class="title"><span>*</span>选题内容 : </div>
+                        <div class="content">
+                            <div class="item-content">
+                                <script type="text/plain" id="myEditor1" style="width:620px;height:300px;"></script>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="theme_l person hide">
+                        <div class="title"><span>*</span>审批人 : </div>
+                        <div class="content">
+                            <select>
+                                <option>请选择审批人</option>
+                            </select>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="theme_l employee">
+                        <div class="title">参与人员 : </div>
+                        <div class="content"><span><input type="checkbox" name="">全部人员</span>
+                            <br/><span><input type="checkbox" name="">人员</span><span><input type="checkbox" name="">人员</span><span><input type="checkbox" name="">人员</span><span><input type="checkbox" name="">人员</span><span><input type="checkbox" name="">人员</span><span><input type="checkbox" name="">人员</span><span><input type="checkbox" name="">人员</span><span><input type="checkbox" name="">人员</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="contain_f">
+                <div class="btns">
+                    <button>预览</button>
+                    <button>创建选题</button>
+                    <button>返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @@include('../m/link_f.html')
+    <script src="../../util/third-party/template.min.js"></script>
+    <script src="../../util/umeditor.config.js" charset="utf-8"></script>
+    <script src="../../util/editor_api.js"></script>
+    <script src="../../util/lang/zh-cn/zh-cn.js"></script>
+    <script src="../../util/dist/layui.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    var um1 = UM.getEditor('myEditor1');
+    </script>
+    <script src="../../js/news/theme_create.min.js"></script>
+</body>
+</html>

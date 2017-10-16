@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>审核稿库</title>
+    @@include('../m/link_h.html')
+    <link rel="stylesheet" type="text/css" href="../../css/news/audit_word.min.css">
+</head>
+
+<body>
+    @@include('../m/nav.html')
+    <div id="g_self_library">
+        <div class="left_side">
+            @@include('../m/left_tab.html')
+        </div>
+        <div class="contain">
+            <div class="contain_h">@@include('../m/switch_audit_word.html') @@include('../m/search_audit_word.html')
+            </div>
+            <div class="contain_b">
+                <div class="table12 "> @@include('../m/table12_audit_word.html')</div>
+                <div class="table3 hide"> @@include('../m/table3_audit_word.html')</div>
+                <div class="tablemy hide"> @@include('../m/tablemy_audit_word.html')</div>
+                <div class="tableself hide"> @@include('../m/tableed_audit_word.html')</div>
+            </div>
+            <div class="contain_f">@@include('../m/skip.html')</div>
+        </div>
+    </div>
+    <div class="pop hide">
+        @@include('../m/pop_audit_word.html')
+    </div>
+    @@include('../m/pop_look.html') @@include('../m/link_f.html')
+    <script type="text/javascript" src='../../js/news/audit_word.min.js'></script>
+</body>
+
+</html>

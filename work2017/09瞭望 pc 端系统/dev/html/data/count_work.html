@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>工作量统计</title>
+    @@include('../m/link_h.html')
+    <link rel="stylesheet" type="text/css" href="../../css/news/count_work.min.css">
+</head>
+
+<body>
+    @@include('../m/nav.html')
+    <div id="g_count_work">
+        <div class="left_side">
+            @@include('../m/left_tab3.html')
+        </div>
+        <div class="contain">
+            <div class="contain_h">@@include('../m/input_count_work.html') 
+            </div>
+            <div class="contain_b">
+                <div class="table_work">@@include('../m/table_count_work.html')</div>
+            </div>
+            <div class="contain_f">@@include('../m/skip.html')</div>
+        </div>
+    </div>
+    <div class="pop hide">
+        @@include('../m/pop_wait_news.html')
+    </div>
+    @@include('../m/link_f.html')
+    <script type="text/javascript" src='../../js/news/count_work.min.js'></script>
+</body>
+
+</html>
