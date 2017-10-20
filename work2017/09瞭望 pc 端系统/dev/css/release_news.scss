@@ -1,0 +1,131 @@
+@import 'common';
+$borderColor: #c2c3ca;
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    min-height: 840px;
+    overflow: hidden;
+}
+
+.content {
+    width: 960px;
+    float: right;
+    margin-right: 30px;
+
+    .title {
+        font-size: 16px;
+        color: $mainblue;
+        line-height: 70px;
+    }
+}
+
+.box {
+    font-size: 0;
+    margin-bottom: 20px;
+    
+    /*必填样式*/
+    .required:before {
+        content: '*';
+        color: red;
+        padding-right: 5px;
+        position: relative;
+        top: 2px;
+    }
+
+    .item-title {
+        width: 130px;
+        color: #878998;
+        font-size: 14px;
+        text-align: right;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .vertical-top {
+        vertical-align: top;
+        padding-top: 10px;
+    }
+
+    .item-content {
+        display: inline-block;
+        font-size: 14px;
+    }
+}
+
+.item-content {
+
+    .input, .short-input, .tiny-input {
+        height: 30px;
+        border: 1px solid $borderColor;
+        border-radius: 5px;
+        padding-left: 5px;
+
+        &:focus {
+            border: 1px solid $mainblue;
+        }
+    }
+
+    .input { width: 550px; }
+    .short-input { width: 290px; }
+    .tiny-input { width: 100px; margin-left: 10px; }
+
+    .select, .short-select, .tiny-select {
+        height: 32px;
+        padding: 10px 0;
+        background-color: transparent;
+        font-size: 14px;
+        border-color: $borderColor;
+    }
+
+    .select { width: 557px; }
+    .short-select { width: 120px; }
+    .tiny-select { width: 102px; }
+
+    #abstract {
+        width: 550px;
+        height: 100px;
+        border: 1px solid $borderColor;
+        padding: 10px;
+    }
+
+    label {
+        font-size: 14px;
+        cursor: pointer;
+        margin-right: 10px;
+
+        .radio {
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    }
+}
+
+.btn-groups {
+    width: 100%;
+    text-align: center;
+
+    .button {
+        width: 100px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border: 1px solid $mainblue;
+        border-radius: 5px;
+        display: inline-block;
+        color: $mainblue;
+        cursor: pointer;
+        margin: 40px 20px;
+
+        &:hover {
+            color: white;
+            background-color: $mainblue;
+        }
+    }
+}
+
+
+
+
+
+

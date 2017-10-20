@@ -1,0 +1,87 @@
+.pop_diff {
+	background: #fff;
+	overflow: auto;
+    position: fixed;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 1000;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #3b83ee;
+    table,
+    tbody,
+    tr,
+    td {
+        min-height: 88%;
+        border: 1px solid #eee;
+    }
+    table {
+        table-layout: fixed;
+        width: 100%;
+        margin-top: 20px;
+    }
+    td {
+        width: 33%;
+        padding: 3px 4px;
+        border: 1px solid #eee;
+        vertical-align: top;
+        font: 1em monospace;
+        text-align: left;
+        white-space: pre-wrap;
+        overflow: auto;
+    }
+    h1 {
+        display: inline;
+        font-size: 100%;
+    }
+    del {
+        text-decoration: none;
+        color: #b30000;
+        background: #fadad7;
+    }
+    ins {
+        background: #eaf2c2;
+        color: #406619;
+        text-decoration: none;
+    }
+
+    #settings {
+        position: absolute;
+        top: 0;
+        left: 5px;
+        right: 5px;
+        height: 5px;
+        line-height: 30px;
+		a{
+			float: right;
+			color: #3b83ee;
+			font-size: 18px;
+			margin:0 5px
+		}
+    }
+    #settings label {
+        margin-left: 10px;
+    }
+
+    .source {
+        position: absolute;
+        right: 1%;
+        top: 20px;
+    }
+
+    [contentEditable] {
+        background: #F9F9F9;
+        border-color: #BBB #D9D9D9 #DDD;
+        border-radius: 4px;
+        -webkit-user-modify: read-write-plaintext-only;
+        outline: none;
+    }
+    [contentEditable]:focus {
+        background: #FFF;
+        border-color: #6699cc;
+        box-shadow: 0 0 4px #2175c9;
+    }
+}

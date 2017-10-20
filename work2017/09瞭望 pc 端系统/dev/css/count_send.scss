@@ -1,0 +1,36 @@
+@import 'common';
+@import 'left_tab';
+@import 'table_base';
+
+@import 'input_base';
+@import 'switch';
+@import 'skip';
+@import 'pop';
+
+#g_count_send {
+    color: #32333c;
+    width: 1200px;margin:0 auto;
+    min-height: 200px;
+    border-left: 0;
+    position: relative;
+    .left_side {
+        position: absolute;
+        top: 1px;
+        left: -180px;
+    }
+    .contain {
+        min-height: 100px;
+        width: 1000px;
+        margin: 0 auto;
+        padding-top:1px;
+        .contain_h {
+
+        }
+        .contain_b {
+
+        }
+        .contain_f {
+        	text-align: center;
+        }
+    }
+}

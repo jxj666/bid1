@@ -1,0 +1,85 @@
+@import 'common';
+@import 'left_tab';
+@import 'table_base';
+@import 'search_top';
+@import 'switch';
+@import 'skip';
+@import 'pop';
+
+#g_self_library {
+    color: #32333c;
+    width: 1200px;margin:0 auto;
+    min-height: 200px;
+    border-left: 0;
+    position: relative;
+    .left_side {
+        position: absolute;
+        top: 1px;
+        left: -180px;
+    }
+    .contain {
+        min-height: 100px;
+        width: 1000px;
+        margin: 0 auto;
+        padding-top: 1px;
+        .contain_h {
+            width: 960px;
+            margin: 0 auto;
+            h2 {
+                line-height: 70px;
+                font-size: 20px;
+                color: $mainblue;
+            }
+        }
+        .contain_b {
+            .publish {
+                width: 960px;
+                mrgin: 0 auto;
+                border: 1px solid $lightgray;
+                min-height: 100px;
+                border-radius: 5px;
+                h6 {
+                    padding: 0 50px;
+                    line-height: 80px;
+                    font-size: 16px;
+                }
+            }
+            button {
+                border: 0;
+                width: 115px;
+                height: 48px;
+                color: #fff;
+                font-size: 20px;
+                border-radius: 3px;
+                margin: 0 40px;
+            }
+            .check{
+                padding:0 100px;
+            span{
+                min-width: 250px;
+                line-height: 60px;
+                display: inline-block;
+                color: #878998;
+                font-size: 16px;
+                input{
+                    vertical-align: 20%;
+                    margin-right: 5px;
+                }
+            }
+            }
+            .btns{
+                margin:50px 0;
+                text-align: center;
+            }
+            .bg_blue {
+                background: $mainblue;
+            }
+            .bg_gray {
+                background: #c2c3ca;
+            }
+        }
+        .contain_f {
+            text-align: center;
+        }
+    }
+}

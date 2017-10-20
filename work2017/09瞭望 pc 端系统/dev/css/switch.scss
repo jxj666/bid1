@@ -1,0 +1,28 @@
+@import 'common';
+.switch,#switch {
+    margin: 30px auto 1px;
+    width: 960px;
+    border-bottom: 1px solid $lightgray;
+    box-sizing: border-box;
+    ul {
+    	padding:0 20px;
+        li {
+        	display: inline-block;
+        	width: 85px;
+        	height: 38px;
+        	line-height: 38px;
+        	margin-right:10px;
+        	text-align: center;
+        	color: $blueblack;
+        	font-size: 16px;
+        	background: $lightgray;
+        	border-top-left-radius: 3px;
+        	border-top-right-radius: 3px;
+            cursor: pointer;
+        }
+        .active{
+        	background: $mainblue;
+        	color: #fff;
+        }
+    }
+}
