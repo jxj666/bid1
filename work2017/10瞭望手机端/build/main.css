@@ -25540,15 +25540,15 @@ body {
 }
 
 #lw_root .title .back_icon {
-  background: url("/assets/img/back_03.png") no-repeat center center;
+  background: url("./../../assets/img/back_03.png") no-repeat center center;
 }
 
 #lw_root .title .list_icon {
-  background: url("/assets/img/list_03.png") no-repeat center center;
+  background: url("./../../assets/img/list_03.png") no-repeat center center;
 }
 
 #lw_root .title .pass_icon {
-  background: url("/assets/img/ok_03.png") no-repeat center center;
+  background: url("./../../assets/img/ok_03.png") no-repeat center center;
 }
 
 #lw_root .title .left_icon {
@@ -25745,12 +25745,12 @@ page-audit-success .audit_list .list .label {
 }
 
 page-audit-success .audit_list .list .label.label1 {
-  background: url("../../assets/img/label_07.png") no-repeat center 0;
+  background: url("./../../assets/img/label_07.png") no-repeat center 0;
   background-size: contain;
 }
 
 page-audit-success .audit_list .list .label.label2 {
-  background: url("../../assets/img/label_10.png") no-repeat center 0;
+  background: url("./../../assets/img/label_10.png") no-repeat center 0;
   background-size: contain;
 }
 
@@ -25836,12 +25836,12 @@ page-audit-text .theme_list .list_c .list_content .switch .on_off {
 }
 
 page-audit-text .theme_list .list_c .list_content .switch .on {
-  background: url(../../assets/img/switch_03.png) no-repeat center center;
+  background: url(./../../assets/img/switch_03.png) no-repeat center center;
   background-size: contain;
 }
 
 page-audit-text .theme_list .list_c .list_content .switch .off {
-  background: url(../../assets/img/switch2_03.png) no-repeat center center;
+  background: url(./../../assets/img/switch2_03.png) no-repeat center center;
   background-size: contain;
 }
 
