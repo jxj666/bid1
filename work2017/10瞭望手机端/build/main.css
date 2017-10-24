@@ -25540,15 +25540,15 @@ body {
 }
 
 #lw_root .title .back_icon {
-  background: url("./../../assets/img/back_03.png") no-repeat center center;
+  background: url("/assets/img/back_03.png") no-repeat center center;
 }
 
 #lw_root .title .list_icon {
-  background: url("./../../assets/img/list_03.png") no-repeat center center;
+  background: url("/assets/img/list_03.png") no-repeat center center;
 }
 
 #lw_root .title .pass_icon {
-  background: url("./../../assets/img/ok_03.png") no-repeat center center;
+  background: url("/assets/img/ok_03.png") no-repeat center center;
 }
 
 #lw_root .title .left_icon {
