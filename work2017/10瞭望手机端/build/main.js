@@ -388,7 +388,7 @@ var IndexPage = (function () {
 }());
 IndexPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-index',template:/*ion-inline-start:"/Users/xiaojianjin/Desktop/lwfgpt_2/src/pages/index/index.html"*/'<header>\n    <div class="title" title="瞭望管理系统">\n    <div class="left_icon back_icon"></div>\n    <div class="right_icon"></div>\n    瞭望管理系统\n  </div>\n</header>\n<content>\n  <div class="people">\n    <div class="head_img"><img src="/assets/img/me.jpg" alt="placeholder+image"></div>\n    <h2>登录用户姓名</h2>\n    <h3>身份名称身份名称身份名称</h3>\n  </div>\n  <div class="btns">\n    <div class="btn btn1"  [navPush]="tab2Root" ><span>5</span></div>\n    <div class="btn btn2"  [navPush]="tab1Root" ><span>5</span></div>\n  </div>\n</content>\n'/*ion-inline-end:"/Users/xiaojianjin/Desktop/lwfgpt_2/src/pages/index/index.html"*/
+        selector: 'page-index',template:/*ion-inline-start:"/Users/xiaojianjin/Desktop/lwfgpt_2/src/pages/index/index.html"*/'<header>\n    <div class="title" title="瞭望管理系统">\n    <div class="left_icon back_icon"></div>\n    <div class="right_icon"></div>\n    瞭望管理系统\n  </div>\n</header>\n<content>\n  <div class="people">\n    <div class="head_img"><img src="./../../assets/img/me.jpg" alt="placeholder+image"></div>\n    <h2>登录用户姓名</h2>\n    <h3>身份名称身份名称身份名称</h3>\n  </div>\n  <div class="btns">\n    <div class="btn btn1"  [navPush]="tab2Root" ><span>5</span></div>\n    <div class="btn btn2"  [navPush]="tab1Root" ><span>5</span></div>\n  </div>\n</content>\n'/*ion-inline-end:"/Users/xiaojianjin/Desktop/lwfgpt_2/src/pages/index/index.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], IndexPage);
