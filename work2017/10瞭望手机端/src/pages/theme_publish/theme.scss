@@ -1,0 +1,68 @@
+page-theme-publish {
+  background: #fff;
+  .theme_list {
+    .list_c {
+      display: flex;
+      justify-content: space-between;
+      line-height: 0.8rem;
+      margin-top: 0.3rem;
+      background: #fff;
+      padding: 0.3rem;
+      font-size: 0.3rem;
+      line-height: 1.5;
+      .list_title {
+        width: 20%;
+        font-size: 0.28rem;
+        color: #32333c;
+      }
+      &.list_type1 {
+        margin: 0;
+        border-top: 0.05rem solid #f4f5f7;
+      }
+      &.list_type2 {
+        margin:0;
+        border-top:1px solid #dee0e2;
+      }
+      .list_content {
+        width: 80%;
+        .textarea {
+          width: 100%;
+          display: block;
+          height: auto;
+          min-height: 0.45rem;
+          word-break: break-all;
+          border: 0;
+          overflow: hidden;
+        }
+        select {
+          border: 0;
+          width: 100%;
+          vertical-align: middle;
+          text-align: center;
+          background: #fff;
+          height: 0.45rem;
+          margin: 0;
+          margin-top: -0.05rem;
+          line-height: 0.45rem;
+          padding: 0;
+        }
+
+        .list_people {
+          display: inline-block;
+          padding: 0.05rem;
+          border: 1px solid #999aa7;
+          margin: 0.1rem;
+          color: #999aa7;
+          border-radius: 0.05rem;
+          font-size: 0.24rem;
+        }
+        .list_active {
+            border: 1px solid #3b83ee;
+            color: #3b83ee;
+          // background: #3b83ee;
+          // color: #fff;
+        }
+      }
+    }
+  }
+}

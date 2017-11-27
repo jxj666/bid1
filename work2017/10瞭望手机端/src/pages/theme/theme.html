@@ -1,0 +1,25 @@
+<header>
+  <div class="title" title="选题">
+    <div class="left_icon back_icon" [navPush]="tab1Root" ></div>
+    <div class="right_icon list_icon" [navPush]="tab2Root" ></div>
+    选题库
+  </div>
+</header>
+<content>
+  <div class="list_toggle hide">
+    <div class="list1 active">选题库</div>
+    <div class="list2">选题审核</div>
+  </div>
+  <div class="theme_list">
+    <div class="list" *ngFor='let x of theme_list' [navPush]="tab3Root" (click)='saveId(x.topic.id)'>
+      <div class="list_h">{{x.topic.title || '未填写'}}</div>
+      <div class="list_b">
+        <span class="info1">{{x.publish.username}}</span><span class="info2">{{x.topic.createTime| date:"yyyy-MM-dd HH:ss"}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="theme_audit hide">
+  </div>
+</content>
+<!-- <button class="test1" (click)='pushParams()'>发送模拟数据</button> -->
+<!-- <button class="test2" (click)='pushParams()'>测试</button> -->

@@ -1,0 +1,23 @@
+<header>
+  <div class="title" title="稿件审核">
+    <div class="left_icon back_icon" [navPush]=tab1Root></div>
+    我已审核
+  </div>
+</header>
+<content>
+  <div class="audit_list">
+    <div class="list" *ngFor='let i of audit_list'>
+      <div class="list_h">
+        <div class='new_title'>【{{i.news.field}}】{{i.news.title}}
+          <div [class]="i.news.status>2?'status status2':'status status1'">{{i.news.status>2?'已通过':'已驳回'}}</div>
+        </div>
+      </div>
+      <div class="list_b">
+        <span class="info1">【一审】{{i.newsReviews[0]?i.newsReviews[0].user.username:"未审核"}} 【二审】{{i.newsReviews[i.newsReviews.length-1]?i.newsReviews[i.newsReviews.length-1].user.username:'未审核'}}</span><span class="info2">{{i.news.createTime|date:"yyyy-MM-dd HH:ss"}}</span>
+        <div class='author'>{{i.news.author}}</div>
+        <div class="clear"></div>
+      </div>
+      <!--       <div class='label' [class]="i.news.status>2?'label2':'label1'"></div> -->
+    </div>
+  </div>
+</content>

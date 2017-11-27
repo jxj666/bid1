@@ -1,0 +1,114 @@
+<header>
+  <div class="title" title="稿件审核">
+    <div class="left_icon back_icon" [navPush]=tab1Root></div>
+    <div class="right_icon" (click)='audit(1)' [navPush]=tab1Root>通过</div>
+    审核
+  </div>
+</header>
+<content>
+  <div class="theme_list">
+    <div class="list_c list_type1">
+      <div class="list_title">标题</div>
+      <div class="list_content">
+        <textarea class="textarea" placeholder="必填" [(ngModel)]="title1" [style.height.rem]="title1.length<20?'0.38':title1.length/28"></textarea>
+      </div>
+    </div>
+    <div class="list_c list_type3">
+      <div class="list_title">副标题</div>
+      <div class="list_content">
+        <textarea class="textarea" placeholder="必填" [(ngModel)]="title2" [style.height.rem]="title2.length<30?'0.38':title2.length/30"></textarea>
+      </div>
+    </div>
+    <div class="list_c list_type3">
+      <div class="list_title">作者姓名</div>
+      <div class="list_content">
+        <textarea class="textarea" placeholder="必填" [(ngModel)]="author" [style.height.rem]="author.length<30?'0.38':author.length/30"></textarea>
+      </div>
+    </div>
+    <div class="list_c list_type3">
+      <div class="list_title">关键词</div>
+      <div class="list_content">
+        <textarea class="textarea" placeholder="必填" [(ngModel)]="word" [style.height.rem]="word.length<30?'0.38':word.length/30"></textarea>
+      </div>
+    </div>
+    <div class="list_c list_type3">
+      <div class="list_title">作者职务</div>
+      <div class="list_content">
+        <textarea class="textarea" placeholder="必填" [(ngModel)]="job" [style.height.rem]="job.length<30?'0.38':job.length/30"></textarea>
+      </div>
+    </div>
+    <div class="list_c list_type2 list_type2_1">
+      <div class="list_title">来源</div>
+      <div class="list_content">
+        <div [class]='i.id==sourceId?"list_people list_active":"list_people"' *ngFor='let i of dictSources' (click)='sourceId=i.id'>{{i.name}}</div>
+      </div>
+    </div>
+    <div class="list_c list_type2 ">
+      <div class="list_title">涉及领域</div>
+      <div class="list_content">
+        <div class="list_people" [class]='i.id==fieldId?"list_people list_active":"list_people"' *ngFor='let i of dictFields' (click)='fieldId=i.id'>{{i.name}}</div>
+      </div>
+    </div>
+    <div class="list_c list_type2 list_type2_2">
+      <div class="list_title">发布渠道</div>
+      <div class="list_content">
+        <div class="list_people" [class.list_h1]='i.name.length>5' [class.list_active]='channelId.search(i.id+",")>-1' *ngFor='let i of dictChannels' (click)='channel(i.id)'>{{i.name}}</div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="list_c list_type4">
+      <div class="list_title">摘要</div>
+      <div class="list_content">
+        <textarea class="textarea" placeholder="请输入摘要" [(ngModel)]="contentMin" [style.height.rem]="contentMin.length<90?'2.7':contentMin.length/55"></textarea>
+      </div>
+    </div>
+    <div class="list_c list_type4">
+      <div class="list_title">内容</div>
+      <div class="list_content">
+        <div class="switch"><span [class]="onOff2?'explain':'unexplain'">{{onOff2?'注意:修改会造成文档样式缺失':'仅浏览'}}</span><span [class]="onOff2?'on_off on':'on_off off'" (click)='onOff2=!onOff2'></span></div>
+        <textarea [disabled]="onOff2?flase:true" class="textarea" placeholder="必填" [(ngModel)]="content2" [style.height.rem]="content2.length<90?'2.7':content2.length/55"></textarea>
+        <!--  <div class="textarea">{{content2}}</div> -->
+      </div>
+    </div>
+    <div class="list_c">
+      <div class="list_title">是否需要稿签</div>
+      <div class="list_content">
+        <div class="switch"><span [class]="onOff?'on_off on':'on_off off'" (click)='onOff=!onOff'></span></div>
+        <!--         <div class="list_people" >上传稿签图片</div>
+        <div class="list_people" (click)='deleteImg()'>删除图片</div> -->
+        <div class="list_people img_up" *ngIf='onOff'>上传稿签图片
+          <input type="file" (change)="onChangeSelectFile($event)" class='file' placeholder="上传图片">
+        </div>
+        <div class="list_people" *ngIf='onOff' (click)='imgChange=true'>删除图片</div>
+        <div class="submit_img" *ngIf='headface&&onOff'>
+          <div *ngIf='headface.length>0'>
+            <div class="img_box" *ngFor='let i of headface' >
+              <div class="delete" *ngIf='imgChange' (click)="deleteImg(i)">
+              </div>
+              <img src="{{i}}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list_c list_type4">
+      <div class="list_title">审核意见</div>
+      <div class="list_content">
+        <div class="textarea bottom_line" *ngFor='let i of opinion_list' contenteditable="false">
+          {{i.user.username}} : {{i.opinion || "未评价!"}}
+        </div>
+      </div>
+    </div>
+    <div class="list_c list_type5">
+      <div class="list_title">编审意见</div>
+      <div class="list_content">
+        <textarea class="textarea" placeholder="选填" [(ngModel)]="order2" [style.height.rem]="order.length<30?'0.38':order.length>200?order.length/1000:order.length/30"></textarea>
+      </div>
+    </div>
+    <div class="list_c">
+      <div class="back" (click)='audit(0)' [navPush]=tab1Root>
+        退回
+      </div>
+    </div>
+  </div>
+</content>

@@ -1,0 +1,37 @@
+<header>
+  <div class="title" title="选题">
+    <div class="left_icon back_icon" [navPush]="tab1Root"></div>
+    <div class="right_icon" (click)='createTopic()' [navPush]="tab1Root">发布</div>
+    发布选题
+  </div>
+</header>
+<content>
+  <div class="theme_list">
+    <div class="list_c list_type1">
+      <div class="list_title">选题标题</div>
+      <div class="list_content">
+        <textarea class="textarea" placeholder="请输入选题标题" [(ngModel)]="title" [style.height.rem]="title.length<30?'0.45':title.length/30"></textarea>
+      </div>
+    </div>
+    <div class="list_c list_type2">
+      <div class="list_title">选题内容</div>
+      <div class="list_content">
+        <textarea class="textarea" placeholder="请输入选题内容" [(ngModel)]="context" [style.height.rem]="context.length<100?'3':context.length/50"></textarea>
+      </div>
+    </div>
+    <div class="list_c list_type2">
+      <div class="list_title">领域</div>
+      <!-- <div class="list_content">
+  <select [(ngModel)]="field">
+    <option value="0">请选择</option>
+    <option *ngFor='let x of themePublish.dictFields' value="{{x.name}}">{{x.name}}</option>
+  </select>
+</div>
+ -->
+      <div class="list_content">
+        <div class="list_people" [class]='x.name==field?"list_people list_active":"list_people"' *ngFor='let x of themePublish.dictFields' (click)='field=x.name'>{{x.name}}
+        </div>
+      </div>
+    </div>
+  </div>
+</content>

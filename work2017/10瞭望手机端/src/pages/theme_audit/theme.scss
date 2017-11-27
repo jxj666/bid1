@@ -1,0 +1,116 @@
+page-theme-audit {
+  background: #fff;
+  .theme_list {
+    .message {
+
+      margin: 0rem 0;
+      font-size: 0.3rem;
+      line-height: 1.5;
+
+      .message_c {
+
+        margin: 0.3rem 0;
+        background: #fff;
+        &.message_type1 {
+          margin: 0;
+          border-top: 0.1rem solid #f4f5f7;
+          border-bottom: 1px solid #f4f5f7;
+        }
+      }
+      .content_text {
+        color: #717380;
+        font-size: 0.24rem;
+      }
+      .people {
+        width: 100%;
+        height: 1.08rem;
+        line-height: 1.08rem;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 0.7rem;
+        border-bottom: 1px solid #f4f5f7;
+        .img {
+          img {
+            vertical-align: middle;
+            width: 0.7rem;
+            height: 0.7rem;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            margin-right: 0.1rem;
+            overflow: hidden;
+          }
+          span {
+            font-size: 0.28rem;
+            color: #32333c;
+          }
+        }
+        .type {
+          font-size: 0.34rem;
+          color: #3b83ee;
+        }
+        .type1 {
+          font-size: 0.34rem;
+          color: #3b83ee;
+        }
+        .type0 {
+          color: #c00e0c;
+        }
+      }
+      .text {
+        width: 100%;
+        padding: 0.3rem;
+      }
+    }
+    .list_c {
+      display: flex;
+      flex-wrap: wrap;
+      line-height: 0.8rem;
+      margin: 0.3rem 0;
+      background: #fff;
+      padding: 0.3rem;
+      font-size: 0.3rem;
+      line-height: 1.5;
+
+      &.list_type1 {
+        margin: 0;
+        border-top: 0.05rem solid #f4f5f7;
+      }
+      &.list_type2 {
+        margin: 0;
+        border-top: 1px solid #dee0e2;
+      }
+      .list_title {
+        width: 20%;
+        font-size: 0.28rem;
+        color: #32333c;
+      }
+      .list_content {
+        line-height: 0.39rem;
+        width: 80%;
+        .textarea {
+          width: 100%;
+          display: block;
+          height: auto;
+          min-height: 0.45rem;
+          word-break: break-all;
+          border: 0;
+          font-size: 0.28rem;
+          color: #717380;
+          overflow: hidden;
+        }
+        .content_text {
+          color: #717380;
+          font-size: 0.24rem;
+        }
+        .list_people {
+          display: inline-block;
+          padding: 0.05rem;
+          border: 1px solid #3b83ee;
+          margin: 0.05rem;
+          color: #3b83ee;
+          border-radius: 0.05rem;
+        }
+      }
+    }
+  }
+}

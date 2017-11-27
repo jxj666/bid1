@@ -1,0 +1,30 @@
+<header>
+  <div class="title" title="瞭望管理系统">
+    <!-- <div class="left_icon back_icon"></div> -->
+    <!-- <div class="right_icon"></div> -->
+    CMS
+  </div>
+</header>
+<content *ngIf='!user'>
+  <h1 class="warning">数据请求失败 ,<br>请稍后再试 !</h1>
+</content>
+<content *ngIf='user'>
+  <div class="people">
+    <div class="head_img"><img src="{{user.avatar ||'http://liaowang.oss-cn-hangzhou.aliyuncs.com/www/assets/img/news.jpg'}}" alt="placeholderImage"></div>
+    <h2>{{user.username}}</h2>
+    <h3>{{user.roleName}}</h3>
+  </div>
+  <div class="btns">
+    <div class="btn btn1" [navPush]="tab2Root">
+      <!-- <span *ngIf='index.auditNum'>{{index.auditNum}}</span> -->
+      <div class="btn_title">稿件管理</div>
+    </div>
+    <div class="btn btn2" [navPush]="tab1Root">
+      <!-- <span *ngIf='index.themeNum'>{{index.themeNum}}</span> -->
+      <div class="btn_title">选题管理</div>
+    </div>
+  </div>
+</content>
+<!-- <button class="test1"  (click)='listen()'>接受</button> -->
+<!-- <button class="test2" (click)='send()'>发送</button> -->
+<!-- <button class="test1" [navPush]="tab2Root">取值</button> -->

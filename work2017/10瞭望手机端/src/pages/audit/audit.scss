@@ -1,0 +1,73 @@
+page-audit {
+  background: #fff;
+  header{
+    border-bottom:0.06rem solid #f4f5f7;
+  }
+  .hide {
+    display: none;
+  }
+  .list_toggle {
+    width: 3.5rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    font-size: 0.32rem;
+    border: 1px solid #3b83ee;
+    color: #3b83ee;
+    margin: 0.4rem auto;
+    display: flex;
+    flex-wrap: nowrap;
+    >div {
+      text-align: center;
+    }
+    .list1 {
+      width: 50%;
+    }
+    .list2 {
+      width: 50%;
+    }
+    .active {
+      background: #3b83ee;
+      color: #fff;
+    }
+  }
+  .audit_list {
+    padding: 0 0.2rem 1rem;
+    .list:last-child {
+      border-bottom: 0px;
+    }
+    .list {
+      border-bottom: 0.06rem solid #f4f5f7;
+      padding:0.4rem 0.2rem 0.2rem;
+      .list_h {
+        .new_title {
+          min-height: 1rem;
+          font-size: 0.32rem;
+          color: #32333c;
+        }
+        .author {
+          display: inline-block;
+          color: #32333c;
+          float: right;
+          font-size: 0.24rem;
+
+        }
+        line-height: 0.5rem;
+        font-size: 0.28rem;
+      }
+      .list_b {
+        display: flex;
+        line-height: 0.4rem;
+        justify-content: space-between;
+        margin-top: 0.1rem;
+        .info1 {
+          font-size: 0.24rem;
+          color: #999aa7;
+        }
+        .info2{
+          font-size: 0.2rem;
+          color:#999aa7;
+        }
+      }
+    }
+  }
+}

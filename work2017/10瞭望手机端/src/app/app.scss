@@ -1,0 +1,97 @@
+.hidden {
+  visibility: hidden;
+}
+
+body {
+  background: #fff;
+  color: #333333;
+}
+
+.hide {
+  display: none;
+}
+
+.content,
+.scroll-content {
+  padding: 0;
+}
+
+.title {
+  height: 0.9rem;
+  line-height: 0.9rem;
+  position: relative;
+  text-align: center;
+  font-size: 0.32rem;
+  color: #32333c;
+  .back_icon {
+    background: url('../assets/img/back_03.png') no-repeat center center;
+  }
+  .list_icon {
+    background: url('../assets/img/list_03.png') no-repeat center center;
+  }
+  .pass_icon {
+    background: url('../assets/img/ok_03.png') no-repeat center center;
+  }
+  .left_icon {
+    position: absolute;
+    top: 0.1rem;
+    left: 0.2rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    background-size: auto 0.36rem;
+  }
+  .right_icon {
+    position: absolute;
+    top: 0.1rem;
+    right: 0.2rem;
+    height: 0.7rem;
+    width: 0.7rem;
+    background-size: auto 0.36rem;
+    line-height: 0.7rem;
+    font-size: 0.28rem;
+    color:#878998;
+  }
+}
+
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%; // padding-top: 0.5rem;
+  height: auto;
+  background: #fff;
+  z-index: 100;
+  border-bottom: 0.01rem solid #f4f5f7;
+}
+
+content {
+  position: relative; // top: 1.4rem;
+  top: 0.9rem;
+  z-index: 10;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+.ion-page {
+  overflow: auto;
+}
+
+.test1 {
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  font-size: 0.5rem;
+}
+
+.test2 {
+  position: absolute;
+  top: 3rem;
+  left: 1rem;
+  font-size: 0.5rem;
+}
+
+.list_c {
+  overflow: hidden;
+}

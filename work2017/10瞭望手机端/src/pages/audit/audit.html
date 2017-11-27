@@ -1,0 +1,21 @@
+<header>
+  <div class="title" title="稿件审核">
+    <div class="left_icon back_icon" [navPush]=tab1Root></div>
+    <div class="right_icon pass_icon" [navPush]=tab2Root></div>
+    审核稿件
+  </div>
+</header>
+<content>
+  <div class="audit_list">
+    <div class="list" [class.hide]='i.news.id==audited' *ngFor='let i of audit_list' [navPush]=AuditText (click)='saveId(i.news.id) '>
+      <div class="list_h">
+        <div class='new_title'>【{{i.news.field}}】{{i.news.title}}
+          <div class='author'>{{i.news.author}}</div>
+        </div>
+      </div>
+      <div class="list_b" *ngIf='i.news.id!=audited'>
+        <span class="info1">【一审】{{i.newsReviews[0]?i.newsReviews[0].user.username:""}} 【二审】{{i.newsReviews[i.newsReviews.length-1]?i.newsReviews[i.newsReviews.length-1].user.username:''}}</span><span class="info2">{{i.news.createTime|date:"yyyy-MM-dd HH:ss"}}</span>
+      </div>
+    </div>
+  </div>
+</content>

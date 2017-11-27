@@ -1,0 +1,50 @@
+page-theme-set {
+  background: #f4f5f7;
+  .theme_list {
+    .choice {
+      display: flex;
+      span {
+        flex-grow: 1;
+        line-height: 0.9rem;
+        background: #fff;
+        border:1px solid #f4f5f7;
+        color: #878998;
+        font-size: 0.3rem;
+        text-align: center;
+      }
+      .active{
+      background: #3b83ee;
+      color: #fff;
+      }
+    }
+    .list_c {
+      display: flex;
+      flex-wrap: wrap;
+      line-height: 0.8rem;
+      margin: 0.3rem 0;
+      background: #fff;
+      padding: 0.3rem;
+      font-size: 0.3rem;
+      line-height: 1.5;
+
+
+
+      .list_content {
+        width: 100%;
+                .content_text {
+          color: #989aa7;
+          font-size: 0.24rem;
+        }
+        .textarea {
+          width: 100%;
+          display: block;
+          height: auto;
+          min-height: 0.45rem;
+          word-break: break-all;
+          border: 0;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}

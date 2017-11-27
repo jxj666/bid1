@@ -1,0 +1,106 @@
+page-index {
+  background: #F4F5F7 url('../assets/img/main_bg_02.png') no-repeat 0 0;
+  background-size: 7.5rem auto;
+  .warning {
+    font-size: 0.3rem;
+    color: #fff;
+    text-align: center;
+  }
+  header {
+    background: rgba(0, 0, 0, 0);
+    border:0;
+    .title {
+      background: rgba(0, 0, 0, 0);
+      font-size: 0.32rem;
+      color: #fff;
+    }
+  }
+
+  .people {
+    height: 3.75rem; // background: url('../assets/img/index_03.png') no-repeat center center;
+    // background-size: cover;
+    padding: 1px;
+    .head_img {
+      margin: 0.25rem auto 0.1rem;
+      padding: 0.01rem; // background: url('//liaowang.oss-cn-hangzhou.aliyuncs.com/www/assets/img/news.jpg') no-repeat center center;
+      // background-size: cover;
+      img {
+        width: 1.15rem;
+        height: 1.15rem;
+        display: block;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 50%;
+      }
+    }
+    h2 {
+      line-height: 0.5rem;
+      font-size: 0.3rem;
+      margin: 0;
+      color: #fff;
+      font-weight: normal;
+    }
+    h3 {
+      line-height: 0.36rem;
+      font-size: 0.24rem;
+      margin: 0;
+      color: #fff;
+      font-weight: normal;
+    }
+    h2,
+    h3 {
+      text-align: center;
+      text-shadow: 0 0 1px #fff;
+    }
+  }
+  .btns {
+    text-align: center;
+    position: relative;
+    width: 6.76rem;
+    height: 2.14rem;
+    background: #fff;
+    margin: 0.1rem auto;
+    border-radius: 0.15rem;
+    box-shadow: 0 0 0.05rem #c8c7cc;
+    background: url('../assets/img/btns_03.png') no-repeat 0 0;
+    background-size: cover;
+    .btn {
+      display: inline-block;
+      width: 1.25rem;
+      height: 0.71rem;
+      position: absolute;
+      span {}
+      .btn_title {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 0.9rem;
+        font-size: 0.28rem;
+        color: #32333c;
+      }
+      &.btn1 {
+        top: 0.45rem;
+        left: 1rem;
+        background: url('../assets/img/blue_btn_10.png') no-repeat center center;
+        background-size: auto 0.71rem;
+      }
+      &.btn2 {
+        top: 0.45rem;
+        right: 1rem;
+        background: url('../assets/img/blue_btn_07.png') no-repeat center center;
+        background-size: auto 0.71rem;
+      }
+      span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 0.5rem;
+        height: 0.5rem;
+        font-size: 0.28rem;
+        background: #ffd101;
+        line-height: 0.5rem;
+        border-radius: 50%;
+      }
+    }
+  }
+}
