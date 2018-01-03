@@ -3,8 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from 'axios'
-import { Base64 } from 'js-base64';
+
 
 Vue.config.productionTip = false
 
