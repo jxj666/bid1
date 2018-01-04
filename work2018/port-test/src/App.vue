@@ -1,16 +1,26 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
+    <test/>
+    <div class="btns">
+      <experiment/>
+      <experiment/>
+      <experiment/>
+    </div>
   </div>
 </template>
-
 <script>
+import Test from '@/components/Test'
+import Experiment from '@/components/Experiment'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    'test': Test,
+    'experiment': Experiment,
+  }
 }
-</script>
 
+</script>
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -20,4 +30,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>

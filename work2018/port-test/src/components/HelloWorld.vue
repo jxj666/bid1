@@ -1,13 +1,15 @@
 <template>
   <div class="hello">
     <h1>{{ msg1 }}</h1>
-    <input v-model="message1" placeholder="edit me">
-    <p>Message is: {{ message1 || '待填写' }}</p>
+    <input v-model="message1" placeholder="key">
+    <p>key is: {{ message1 || '待填写' }}</p>
     <a @click="link1(message1)">开始连接</a>
     <h1>{{ msg2 }}</h1>
-    <input v-model="message2" placeholder="edit me">
-    <p>Message is: {{ message2 ||'待填写' }}</p>
-    <a @click="link2(message2)">开始连接</a>
+    <input v-model="message2" placeholder="score">
+    <input v-model="message3" placeholder="id">
+    <p>score is: {{ message2 ||'待填写' }}</p>
+    <p>id is: {{ message3 ||'待填写' }}</p>
+    <a @click="link2(message2,message3)">开始连接</a>
   </div>
 </template>
 <script>
@@ -22,6 +24,7 @@ export default {
       msg2: '得分测试',
       message1: '',
       message2: '',
+      message3: '',
     }
   },
   methods: {
@@ -49,8 +52,8 @@ export default {
         }
       })
     },
-    link2: function(data1) {
-      if (!data1) {
+    link2: function(data1, data2) {
+      if (!data1 || !data2) {
         alert('请输入参数!')
         return
       }
@@ -58,8 +61,9 @@ export default {
         url: '/act/rule/JS0001DS001?name=redpack_redouble',
         method: 'post',
         data: {
-          openid: data1,
-          score: '123'
+          score: data1,
+          openid: data2,
+
         },
         transformRequest: [function(data) {
           // Do whatever you want to transform the data
