@@ -1,12 +1,15 @@
 <template>
-  <button v-on:click="counter += 1">{{ counter }}</button>
+  <button v-on:click="number += 1">{{ number }}</button>
 </template>
 <script type="text/javascript">
 export default {
   name: 'Experiment',
+  props: {
+    numCounter: { type: Number, required: true },
+  },
   data() {
     return {
-      counter: 0,
+      number: this.numCounter,
     }
   }
 }
